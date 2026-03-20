@@ -10,16 +10,8 @@ title: Demo data | SurrealQL
 description: To quickly test out SurrealDB and SurrealQL functionality, we've included demo data which you can download and import into SurrealDB.
 ---
 
-import Image from "@components/Image.astro";
-import SurrealistMini from "@components/SurrealistMini.astro";
-import Tabs from "@components/Tabs/Tabs.astro";
-import TabItem from "@components/Tabs/TabItem.astro";
 
-import LightOverview from "@img/image/light/surreal-deal-store-light.png";
-import LightSchema from "@img/image/light/surreal_deal_light.png";
 
-import DarkOverview from "@img/image/dark/surreal-deal-store.png";
-import DarkSchema from "@img/image/dark/surreal_deal_dark.png";
 
 # Demo data
 
@@ -43,7 +35,6 @@ In the diagram below, the nodes in pink are the [standard tables](/docs/surrealq
 
 ### Download
 
-<Tabs>
 
   <TabItem value="SurrealDB 2.x" label="SurrealDB 2.x" default>
 
@@ -62,7 +53,6 @@ In the diagram below, the nodes in pink are the [standard tables](/docs/surrealq
 
   </TabItem>
 
-</Tabs>
 
 ### Import
 

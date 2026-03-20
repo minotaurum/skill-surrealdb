@@ -10,8 +10,6 @@ title: Operators | SurrealQL
 description: A variety of operators in SurrealQL allow for complex manipulation of data, and advanced logic.
 ---
 
-import Since from '@components/shared/Since.astro'
-import Table from '@components/shared/Table.astro'
 
 # Operators
 
@@ -1258,7 +1256,6 @@ SELECT * FROM (-0.118092, 51.509865) INSIDE {
 true
 ```
 
-<Since v="v2.1.0" />
 
 This operator can also be used to check for the existence of a key inside an [object](/docs/surrealql/datamodel/objects). To do so, precede `IN` with the field name as a string.
 
@@ -1499,7 +1496,6 @@ ORDER BY score DESC;
 ]
 ```
 
-<Since v="v3.0.0" />
 
 ### `AND`, `OR`, and numeric operators inside `@@`
 
@@ -1621,7 +1617,6 @@ SELECT id FROM pts WHERE point <|10,40|> [2,3,4,5];
 
 ## Using the `ANY`/`ALL` operators for string indexes
 
-<Since v="v2.4.0" />
 
 An index defined on a string value can be used via the operators `CONTAINSANY`, `ALLINSIDE`, or `ANYINSIDE`. The operator `CONTAINS`, however, will not use a defined index as `CONTAINS` is used for substring matches between strings themselves as opposed to an index lookup.
 
@@ -1946,10 +1941,6 @@ title: Parameters | SurrealQL
 description: Parameters can be used like variables to store a value which can then be used in a subsequent query.
 ---
 
-import Since from '@components/shared/Since.astro'
-import Label from "@components/shared/Label.astro";
-import Tabs from "@components/Tabs/Tabs.astro";
-import TabItem from "@components/Tabs/TabItem.astro";
 
 # Parameters
 
@@ -2075,7 +2066,6 @@ RETURN $my_name;
 
 Before SurrealDB 3.0, the `=` on its own was used as syntactic sugar for a `LET` statement. This has since been deprecated in order to make it clearer that parameters can be redeclared, but not modified.
 
-<Tabs>
   <TabItem label="Before 3.X" default>
 ```surql
 LET $my_name = "Alucard";
@@ -2086,7 +2076,6 @@ RETURN $my_name;
 ```surql title="Output"
 'Sypha'
 ```
-</TabItem>
   <TabItem label="Since 3.X">
 ```surql
 LET $my_name = "Alucard";
@@ -2103,7 +2092,6 @@ RETURN $my_name;
 '
 ```
   </TabItem>
-</Tabs>
 
 If the parameter is redefined inside another scope, the original value will be shadowed. Shadowing refers to when a value is temporarily obstructed by a new value of the same name until the new scope has completed.
 
@@ -2558,7 +2546,6 @@ DEFINE EVENT email ON TABLE user WHEN $before.email != $after.email THEN (
 
 ## Improvements to parameters and expressions in statements
 
-<Since v="v3.0.0" />
 
 Parameters and expressions have traditionally only been available in a limited fashion in SurrealQL statements. As of the alpha versions of SurrealDB 3.0, work is undergoing to allow parameters and expressions to be used in many places that were not possible before.
 

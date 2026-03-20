@@ -18,27 +18,27 @@ Whenever the user wants you to write queries, configure a database schema, write
 - **Strict Data Typing**: Always `DEFINE TABLE` with schemafull settings unless there's a strong reason for schemaless. `DEFINE FIELD` with strict types and granular assertions `ASSERT`.
 
 ## Progressive Disclosure of Documentation
-SurrealQL is vast. To save context space while retrieving accurate syntax, you have access to extensive references in the `references/` directory. **Read the corresponding reference file when you are unsure about syntax or need real examples.**
+SurrealQL is vast. To save context space while retrieving accurate syntax, you have access to extensive references in the `references/` directory. **Read the corresponding granular reference file when you are unsure about syntax or need real examples.**
 
-1. **Datamodel & Structure (`references/datamodel.md`)**
-   - Read this when defining tables, fields, indexes, events, or working with complex JSON properties, arrays, geometry, or cast types.
-   - It covers the core `datamodel` and data typing.
+1. **Datamodel & Structure (`references/datamodel/`)**
+   - Read specific files here when defining tables, fields, indexes, events, or working with complex JSON properties.
+   - Key files: `records.md`, `arrays.md`, `ids.md`, `indexes.md`, `geometries.md`, `casting.md`, `datetimes.md`.
 
-2. **Statements & Clauses (`references/statements_and_clauses.md`)**
-   - Read this when writing complex queries using `SELECT`, `CREATE`, `INSERT`, `UPDATE`, `UPSERT`, `RELATE`, `DELETE`, etc.
-   - It also details clauses like `WHERE`, `SPLIT`, `GROUP`, `FETCH`, `LIMIT`, `START`, and graph syntax traversing.
-   - Transaction syntax (`BEGIN`, `COMMIT`, `CANCEL`) is also covered here.
+2. **Statements & Clauses (`references/statements/`)**
+   - Read specific files here when writing complex queries.
+   - Key files: `select.md`, `create.md`, `update.md`, `upsert.md`, `relate.md`, `delete.md`, `insert.md`.
+   - Clause files: `where.md`, `split.md`, `group-by.md`, `fetch.md`, `limit.md`, `order-by.md`.
+   - Transaction files: `begin.md`, `commit.md`, `cancel.md`.
 
-3. **Operators & Parameters (`references/operators_and_parameters.md`)**
-   - Read this when you need info about arithmetic operators, conditional operators (e.g., `?=`, `CONTAINS`, `INSIDE`), graph navigation arrows (`->`, `<-`, `<->`).
-   - Also covers `$session`, `$auth`, `$token` parameters used in authentication contexts.
+3. **Functions (`references/functions/`)**
+   - Read specific files here when you need to use built-in SurrealDB functions.
+   - Each file corresponds to a category: `array.md`, `string.md`, `time.md`, `math.md`, `geo.md`, `crypto.md`, `http.md`, etc.
 
-4. **Functions (`references/functions.md`)**
-   - Read this when you need to use built-in SurrealDB functions.
-   - Covers `array::`, `crypto::`, `duration::`, `geo::`, `http::`, `math::`, `parse::`, `rand::`, `search::`, `session::`, `string::`, `time::`, `type::`, `vector::`.
+4. **Operators & Parameters (`references/operators_and_parameters.md`)**
+   - Read this for arithmetic operators, conditional operators (e.g., `?=`, `CONTAINS`, `INSIDE`), and graph navigation arrows (`->`, `<-`, `<->`).
 
 5. **Demo & Comments (`references/misc.md`)**
-   - Read this if you want to understand general comments (`--`, `/* */`), basic interactive console demos, or overall syntax flow.
+   - General comments (`--`, `/* */`), basic interactive console demos, or overall syntax flow.
 
 ## Response Guidelines
 - **Always confirm syntactical correctness** by referring to the docs if handling a clause or function you aren't 100% sure about.
