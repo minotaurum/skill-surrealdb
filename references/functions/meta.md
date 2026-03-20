@@ -1,11 +1,3 @@
----
-sidebar_position: 13
-sidebar_label: Meta functions
-title: Meta functions | SurrealQL
-description: These functions can be used to retrieve specific metadata from a SurrealDB Record ID.
----
-
-
 # Meta functions
 
 > [!NOTE]
@@ -13,30 +5,11 @@ description: These functions can be used to retrieve specific metadata from a Su
 
 These functions can be used to retrieve specific metadata from a SurrealDB Record ID.
 
-<table>
-  <thead>
-    <tr>
-      <th scope="col">Function</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#metaid"><code>meta::id()</code></a></td>
-      <td scope="row" data-label="Description">Extracts and returns the identifier from a SurrealDB Record ID</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#metatb"><code>meta::tb()</code></a></td>
-      <td scope="row" data-label="Description">Extracts and returns the table name from a SurrealDB Record ID</td>
-    </tr>
-  </tbody>
-</table>
-
 ## `meta::id`
 
 The `meta::id` function extracts and returns the identifier from a SurrealDB Record ID.
 
-```surql title="API DEFINITION"
+```surql
 meta::id(record) -> value
 ```
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
@@ -47,13 +20,11 @@ RETURN meta::id(person:tobie);
 "tobie"
 ```
 
-<br />
-
 ## `meta::tb`
 
 The `meta::tb` function extracts and returns the table name from a SurrealDB Record ID.
 
-```surql title="API DEFINITION"
+```surql
 meta::tb(record) -> string
 ```
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
@@ -71,5 +42,3 @@ RETURN meta::table(person:tobie);
 
 "person"
 ```
-
-<br /><br />

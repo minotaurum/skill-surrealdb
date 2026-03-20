@@ -1,11 +1,3 @@
----
-sidebar_position: 13
-sidebar_label: DEFINE PARAM
-title: DEFINE PARAM statement | SurrealQL
-description: The DEFINE PARAM statement allows you to define global (database-wide) parameters that are available to every client.
----
-
-
 # `DEFINE PARAM` statement
 
 The `DEFINE PARAM` statement allows you to define global (database-wide) parameters that are available to every client.

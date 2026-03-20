@@ -1,11 +1,3 @@
----
-sidebar_position: 17
-sidebar_label: Sets
-title: Sets | SurrealQL
-description: A set is a collection type of deduplicated and ordered values that can have a maximum size limit.
-
----
-
 # Sets
 
 > [!NOTE]
@@ -90,7 +82,7 @@ CREATE customer SET
     ];
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		bank_accounts: [
@@ -124,7 +116,7 @@ value = "[3, 4, 5, 6, 7, 9, 18]"
 [18,7,6,6,6,6,5,4,3,9].distinct().sort();
 ```
 
-```surql title="Output"
+```surql
 [3, 4, 5, 6, 7, 9, 18]
 ```
 
@@ -181,6 +173,6 @@ value = "[1, 2, 3, 4]"
 {1,2} + {3,4};
 ```
 
-```surql title="Output"
+```surql
 {1,2,3,4}
 ```

@@ -1,10 +1,3 @@
----
-sidebar_position: 2
-sidebar_label: DEFINE ANALYZER
-title: DEFINE ANALYZER statement | SurrealQL
-description: In the context of a database, an analyzer plays a crucial role in text processing and searching. It is defined by its name, a set of tokenizers, and a collection of filters.
----
-
 # `DEFINE ANALYZER` statement
 
 > [!NOTE]
@@ -56,7 +49,7 @@ DEFINE ANALYZER backwards FUNCTION fn::backwardsify TOKENIZERS blank;
 search::analyze("backwards", "I like SurrealDB");
 ```
 
-```surql title="Output"
+```surql
 [
 	'BDlaerruS',
 	'ekil',
@@ -77,7 +70,7 @@ DEFINE ANALYZER example_blank TOKENIZERS blank;
 search::analyze("example_blank", "hello world");
 ```
 
-```surql title="Output"
+```surql
 [
 	'hello',
 	'world'
@@ -93,7 +86,7 @@ DEFINE ANALYZER example_camel TOKENIZERS camel;
 search::analyze("example_camel", "helloWorld");
 ```
 
-```surql title="Output"
+```surql
 [
 	'hello',
 	'World'
@@ -109,7 +102,7 @@ DEFINE ANALYZER example_class TOKENIZERS class;
 search::analyze("example_class", "123abc!XYZ");
 ```
 
-```surql title="Output"
+```surql
 [
 	'123',
 	'abc',
@@ -127,7 +120,7 @@ DEFINE ANALYZER example_punct TOKENIZERS punct;
 search::analyze("example_punct", "Hello, World!");
 ```
 
-```surql title="Output"
+```surql
 [
 	'Hello',
 	',',
@@ -149,7 +142,7 @@ DEFINE ANALYZER example_ascii TOKENIZERS class FILTERS ascii;
 search::analyze("example_ascii", "résumé café");
 ```
 
-```surql title="Output"
+```surql
 [
 	'resume',
 	'cafe'
@@ -165,7 +158,7 @@ DEFINE ANALYZER example_lowercase TOKENIZERS class FILTERS lowercase;
 search::analyze("example_lowercase", "Hello World");
 ```
 
-```surql title="Output"
+```surql
 [
 	'hello',
 	'world'
@@ -183,7 +176,7 @@ DEFINE ANALYZER example_uppercase TOKENIZERS class FILTERS uppercase;
 search::analyze("example_uppercase", "Hello World");
 ```
 
-```surql title="Output"
+```surql
 [
 	'HELLO',
 	'WORLD'
@@ -235,7 +228,7 @@ RETURN [
 ];
 ```
 
-```surql title="Output"
+```surql
 [
 	[
 		'he',
@@ -286,7 +279,7 @@ FOR $word IN $words {
 SELECT * FROM word WHERE frequency >=3 ORDER BY frequency DESC;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		frequency: 8,
@@ -346,7 +339,7 @@ LET $messages =
 search::analyze("error_filter", $messages);
 ```
 
-```surql title="Output"
+```surql
 [
 	'NOT_FOUND',
 	'NOT_FOUND',
@@ -367,7 +360,7 @@ FOR $message IN ["File not found", "Datei nicht gefunden", "Zeitüberschreitung"
 SELECT * FROM error WHERE message @@ "NOT_FOUND";
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		at: d'2024-11-13T03:56:12.039252Z',
@@ -391,7 +384,7 @@ DEFINE ANALYZER example_ngram TOKENIZERS class FILTERS ngram(1,3);
 search::analyze("example_ngram", "apple banana");
 ```
 
-```surql title="Output"
+```surql
 [
 	'a',
 	'ap',
@@ -437,7 +430,7 @@ RETURN [
 ];
 ```
 
-```surql title="Output"
+```surql
 [
 	[
 		'look',

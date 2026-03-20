@@ -1,34 +1,12 @@
----
-sidebar_position: 23
-sidebar_label: Sleep function
-title: Sleep function | SurrealQL
-description: This function can be used to introduce a delay or pause in the execution of a query or a batch of queries for a specific amount of time.
----
-
 # Sleep function
 
 This function can be used to introduce a delay or pause in the execution of a query or a batch of queries for a specific amount of time.
-
-<table>
-  <thead>
-    <tr>
-      <th scope="col">Function</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#sleep"><code>sleep()</code></a></td>
-      <td scope="row" data-label="Description">Delays or pauses in the execution of a query or a batch of queries.</td>
-    </tr>
-  </tbody>
-</table>
 
 ## `sleep`
 
 The `sleep` function delays or pauses the execution of a query or a set of statements.
 
-```surql title="API DEFINITION"
+```surql
 sleep(duration) -> none
 ```
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
@@ -52,7 +30,7 @@ SELECT *,
 FROM person;
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		_: NONE,
@@ -88,7 +66,7 @@ RETURN sleep(50ms);
 INFO FOR INDEX unique_name ON TABLE user;
 ```
 
-```surql title="Possible output"
+```surql
 -------- Query 1 --------
 { 
     building: {

@@ -1,11 +1,3 @@
----
-sidebar_position: 8
-sidebar_label: TABLE
-title: ALTER TABLE statement | SurrealQL
-description: The ALTER statement can be used to change authentication access and behaviour, global parameters, table configurations, table events, schema definitions, and indexes.
----
-
-
 # `ALTER TABLE` statement
 
 The `ALTER TABLE` statement is used to alter a defined table.

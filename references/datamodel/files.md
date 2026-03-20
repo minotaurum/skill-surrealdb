@@ -1,12 +1,3 @@
----
-sidebar_position: 8
-sidebar_label: Files
-title: Files | SurrealQL
-description: SurrealDB allows a bucket to be declared locally or globally to work with files.
-
----
-
-
 # Files
 
 Files are accessed by a path, which is prefixed with an `f` to differentiate it from a regular string.
@@ -53,7 +44,7 @@ f"my_bucket:/some_file.txt".get();
 <string>f"my_bucket:/some_file.txt".get();
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 b"536F6D65207465787420696E73696465"

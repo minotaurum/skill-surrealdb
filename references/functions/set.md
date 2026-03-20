@@ -1,126 +1,12 @@
----
-sidebar_position: 22
-sidebar_label: Set functions
-title: Set functions | SurrealQL
-description: These functions can be used when working with, and manipulating sets of data.
----
-
 # Set functions
 
 These functions can be used when working with, and manipulating sets of data.
-
-<table>
-  <thead>
-    <tr>
-      <th scope="col">Function</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#setadd"><code>set::add()</code></a></td>
-      <td scope="row" data-label="Description">Adds an item to a set if it does not exist</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#setall"><code>set::all()</code></a></td>
-      <td scope="row" data-label="Description">Checks if all elements in a set match a condition</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#setany"><code>set::any()</code></a></td>
-      <td scope="row" data-label="Description">Checks if any elements in a set match a condition</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#setat"><code>set::at()</code></a></td>
-      <td scope="row" data-label="Description">Accesses the element at a specific position in a set</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#setcomplement"><code>set::complement()</code></a></td>
-      <td scope="row" data-label="Description">Returns the complement of two sets</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#setcontains"><code>set::contains()</code></a></td>
-      <td scope="row" data-label="Description">Checks to see if a value is present in a set</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#setdifference"><code>set::difference()</code></a></td>
-      <td scope="row" data-label="Description">Returns the difference between two sets</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#setfilter"><code>set::filter()</code></a></td>
-      <td scope="row" data-label="Description">Filters elemnets in a set that match a condition</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#setfind"><code>set::find()</code></a></td>
-      <td scope="row" data-label="Description">Finds the first element in a set that matches a condition</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#setfirst"><code>set::find()</code></a></td>
-      <td scope="row" data-label="Description">Gets the first element in a set</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#setflatten"><code>set::flatten()</code></a></td>
-      <td scope="row" data-label="Description">Flattens nested sets and arrays into a single set</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#setfold"><code>set::fold()</code></a></td>
-      <td scope="row" data-label="Description">Folds over a set with an accumulator</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#setintersect"><code>set::intersect()</code></a></td>
-      <td scope="row" data-label="Description">Returns the values which intersect two sets</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#setis_empty"><code>set::is_empty()</code></a></td>
-      <td scope="row" data-label="Description">Checks if a set is empty</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#setjoin"><code>set::join()</code></a></td>
-      <td scope="row" data-label="Description">Joins set elements into a string with a separator</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#setlast"><code>set::last()</code></a></td>
-      <td scope="row" data-label="Description">Gets the last element in a set</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#setlen"><code>set::len()</code></a></td>
-      <td scope="row" data-label="Description">Returns the length of a set</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#setmap"><code>set::map()</code></a></td>
-      <td scope="row" data-label="Description">Maps over the elements of a set to return a new set</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#setmax"><code>set::max()</code></a></td>
-      <td scope="row" data-label="Description">Returns the greatest value from a set</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#setmin"><code>set::min()</code></a></td>
-      <td scope="row" data-label="Description">Returns the least value from a set</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#setreduce"><code>set::reduce()</code></a></td>
-      <td scope="row" data-label="Description">Reduces a set via a closure</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#setremove"><code>set::remove()</code></a></td>
-      <td scope="row" data-label="Description">Removes an item at a specific position from a set</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#setslice"><code>set::slice()</code></a></td>
-      <td scope="row" data-label="Description">Removes an item at a specific position from a set</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#setunion"><code>set::union()</code></a></td>
-      <td scope="row" data-label="Description">Returns the unique merged values from two sets</td>
-    </tr>
-  </tbody>
-</table>
 
 ## `set::add`
 
 The `set::add` function adds an item to a set only if it does not already exist.
 
-```surql title="API DEFINITION"
+```surql
 set::add(set, $new_val: value) -> set
 ```
 
@@ -161,7 +47,7 @@ RETURN {1, 2, 3}.add({3, 4, 5});
 
 When called on a set without any extra arguments, the `set::all` function checks whether all set values are [truthy](/docs/surrealql/datamodel/values#values-and-truthiness).
 
-```surql title="API DEFINITION"
+```surql
 set::all(set) -> bool
 set::all(set, $predicate: value) -> bool
 set::all(set, $predicate: closure) -> bool
@@ -216,7 +102,7 @@ RETURN {1, 2, 'SurrealDB'}.all(|$var| $var.is_string());
 
 The `set::any` function checks whether any set values are [truthy](/docs/surrealql/datamodel/values#values-and-truthiness).
 
-```surql title="API DEFINITION"
+```surql
 set::any(set) -> bool
 set::any(set, $predicate: value) -> bool
 set::any(set, $predicate: closure) -> bool
@@ -275,7 +161,7 @@ The `set::at` function returns the value at the specified only, or in reverse fo
 
 Because sets are ordered, the position of the item is based on the set's sorted order.
 
-```surql title="API DEFINITION"
+```surql
 set::at(set, $index: int) -> any
 ```
 
@@ -319,11 +205,11 @@ RETURN {1, 2, 3}.at(-4);
 
 The `set::complement` function returns the complement of two sets, namely a single set containing items that are in the first set but not in the second set.
 
-```surql title="API DEFINITION"
+```surql
 set::complement(set, $other: set) -> set
 ```
 
-```surql title="Example with output"
+```surql
 {1, 2, 3, 4}.complement({3, 4, 5, 6});
 -- {1, 2}
 ```
@@ -332,11 +218,11 @@ set::complement(set, $other: set) -> set
 
 The `set::contains` function checks to see if a value is contained within a set.
 
-```surql title="API DEFINITION"
+```surql
 set::contains(set, $other: value) -> bool
 ```
 
-```surql title="Example with output"
+```surql
 {1, 2, 3}.contains(3);
 -- true
 ```
@@ -345,11 +231,11 @@ set::contains(set, $other: value) -> bool
 
 The `set::difference` function determines the symmetric difference between two sets, returning a single set containing items that are not shared between them.
 
-```surql title="API DEFINITION"
+```surql
 set::difference(set, $other: set) -> set
 ```
 
-```surql title="Example with output"
+```surql
 {1, 2, 3, 4}.difference({3, 4, 5, 6});
 -- {1, 2, 5, 6}
 ```
@@ -358,7 +244,7 @@ set::difference(set, $other: set) -> set
 
 The `set::filter` function filters out values that do not match a pattern.
 
-```surql title="API DEFINITION"
+```surql
 set::filter(set, $predicate: value) -> set
 set::filter(set, $predicate: closure) -> set
 ```
@@ -398,7 +284,7 @@ The `set::find` function returns the first matching value from a set.
 
 Because sets are ordered, the first matching value is the first match in the set's sorted order.
 
-```surql title="API DEFINITION"
+```surql
 set::find(set, $predicate: value) -> value | NONE
 set::find(set, $predicate: closure) -> value | NONE
 ```
@@ -455,7 +341,7 @@ The `set::first` function returns the first value from a set.
 
 Because sets are ordered, this returns the least value in the set's sorted order.
 
-```surql title="API DEFINITION"
+```surql
 set::first(set) -> any
 ```
 
@@ -478,7 +364,7 @@ RETURN set::first({ 3, 1, 2 });
 
 The `set::flatten` function flattens nested sets and arrays into a single set.
 
-```surql title="API DEFINITION"
+```surql
 set::flatten(set) -> set
 ```
 
@@ -499,7 +385,7 @@ value = "{1, 2, 3, 4, 5, 6, 7, 8, 'SurrealDB'}"
 ({ {1, 2}, [3, 4], 'SurrealDB', {5, 6, [7, 8]} }).flatten().flatten();
 ```
 
-```surql title="Output"
+```surql
 -- Flattened once
 {1, 2, 3, 4, 5, 6, 'SurrealDB', [
 	7,
@@ -514,7 +400,7 @@ value = "{1, 2, 3, 4, 5, 6, 7, 8, 'SurrealDB'}"
 
 The `set::fold` function applies an operation on an initial value and every element in the set, returning the final result.
 
-```surql title="API DEFINITION"
+```surql
 set::fold(set, $initial: value, $operator: closure) -> value
 ```
 
@@ -550,11 +436,11 @@ value = "'123'"
 
 The `set::intersect` function calculates the values which intersect two sets, returning a single set containing the values which are in both sets.
 
-```surql title="API DEFINITION"
+```surql
 set::intersect(set, $other: set) -> set
 ```
 
-```surql title="Example with output"
+```surql
 {1, 2, 3, 4}.intersect({3, 4, 5, 6});
 -- {3, 4}
 ```
@@ -563,11 +449,11 @@ set::intersect(set, $other: set) -> set
 
 The `set::is_empty` function checks whether the set is empty or not.
 
-```surql title="API DEFINITION"
+```surql
 set::is_empty(set) -> bool
 ```
 
-```surql title="Example with output"
+```surql
 {1, 2, 3, 4}.is_empty();
 -- false
 ```
@@ -578,7 +464,7 @@ The `set::join` function joins all values in a set together into a string, with 
 
 Because sets are ordered, the joined string follows the set's sorted order.
 
-```surql title="API DEFINITION"
+```surql
 set::join(set, $separator: string) -> string
 ```
 
@@ -600,7 +486,7 @@ The `set::last` function returns the last value from a set.
 
 Because sets are ordered, this returns the greatest value in the set's sorted order.
 
-```surql title="API DEFINITION"
+```surql
 set::last(set) -> any
 ```
 
@@ -625,11 +511,11 @@ The `set::len` function calculates the length of a set, returning a number. This
 
 If you want to only count [truthy](/docs/surrealql/datamodel/values#values-and-truthiness) values, then use the [count()](/docs/surrealql/functions/database/count) function.
 
-```surql title="API DEFINITION"
+```surql
 set::len(set) -> number
 ```
 
-```surql title="Example with output"
+```surql
 {1, 2, 1, null, 'something', 3, 3, 4, 0}.len();
 -- 7
 ```
@@ -640,7 +526,7 @@ The `set::map` function allows the user to call an [anonymous function](/docs/su
 
 Because the result is also a set, duplicate mapped values are removed.
 
-```surql title="API DEFINITION"
+```surql
 set::map(set, $operator: closure) -> set
 ```
 
@@ -678,7 +564,7 @@ value = "{false, true}"
 
 The `set::max` function returns the greatest value from a set of values.
 
-```surql title="API DEFINITION"
+```surql
 set::max(set) -> any
 ```
 
@@ -703,7 +589,7 @@ As any value can be compared with another value, the set can contain any Surreal
 
 The `set::min` function returns the least value from a set of values.
 
-```surql title="API DEFINITION"
+```surql
 set::min(set) -> any
 ```
 
@@ -730,7 +616,7 @@ The `set::reduce` function applies an operation on every element in the set, ret
 
 If you need an initial value to pass in before the other items are operated on, use the [`set::fold`](/docs/surrealql/functions/database/set#setfold) function instead.
 
-```surql title="API DEFINITION"
+```surql
 set::reduce(set, $operator: closure) -> value
 ```
 
@@ -766,7 +652,7 @@ value = "'1234'"
 
 The `set::remove` function removes a value from a set.
 
-```surql title="API DEFINITION"
+```surql
 set::remove(set, $remove: value) -> set
 ```
 
@@ -827,7 +713,7 @@ The `set::slice` function returns a slice of a set by position.
 
 Because sets are ordered, slicing is based on the set's sorted order.
 
-```surql title="API DEFINITION"
+```surql
 set::slice(set) -> set
 set::slice(set, $start: int) -> set
 set::slice(set, $start: int, $end: int) -> set
@@ -859,11 +745,11 @@ RETURN {1, 2, 3, 4, 5}.slice(-3..);
 
 The `set::union` function combines two sets together, removing duplicate values, and returning a single set.
 
-```surql title="API DEFINITION"
+```surql
 set::union(set, $other: set) -> set
 ```
 
-```surql title="Example with output"
+```surql
 {1, 2, 6}.union({1, 3, 4, 5, 6});
 -- {1, 2, 3, 4, 5, 6}
 ```

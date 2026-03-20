@@ -1,11 +1,3 @@
----
-sidebar_position: 4
-sidebar_label: INDEX
-title: ALTER INDEX statement | SurrealQL
-description: The ALTER statement can be used to change authentication access and behaviour, global parameters, table configurations, table events, schema definitions, and indexes.
----
-
-
 # `ALTER INDEX` statement
 
 The `ALTER INDEX` statement is used to alter a defined index on a table.

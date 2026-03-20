@@ -1,43 +1,12 @@
----
-sidebar_position: 27
-sidebar_label: Value functions
-title: Value functions | SurrealQL
-description: This module contains several miscellaneous functions that can be used with values of any type.
----
-
-
 # Value functions
 
 This module contains several miscellaneous functions that can be used with values of any type.
-
-<table>
-  <thead>
-    <tr>
-      <th scope="col">Function</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#chain"><code>.chain()</code></a></td>
-      <td scope="row" data-label="Description">Allows an anonymous function to be called on a value</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#valuediff"><code>value::diff()</code></a></td>
-      <td scope="row" data-label="Description">Returns the operation required for one value to equal another</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#valuepatch"><code>value::patch()</code></a></td>
-      <td scope="row" data-label="Description">Applies JSON Patch operations to a value</td>
-    </tr>
-  </tbody>
-</table>
 
 ## `.chain()`
 
 The `.chain()` method passes a value into a [closure](/docs/surrealql/datamodel/closures) through which an operation can be performed to return any value.
 
-```surql title="API DEFINITION"
+```surql
 value.chain(closure) -> value;
 ```
 
@@ -72,7 +41,7 @@ value = ""{ company: 'SURREALDB!!!!!', latest_version: '2.0' }""
     .replace('SurrealDB', 'SURREALDB!!!!!');
 ```
 
-```surql title="Response"
+```surql
 "{ company: 'SURREALDB!!!!!', latest_version: '2.0' }"
 ```
 
@@ -82,7 +51,7 @@ For a similar function that allows using a closure on each item in an array inst
 
 The `value::diff` function returns an object that shows the [JSON Patch](https://jsonpatch.com/) operation(s) required for the first value to equal the second one.
 
-```surql title="API DEFINITION"
+```surql
 value::diff(value, $other: value) -> array<object>
 ```
 
@@ -103,7 +72,7 @@ value = "[{ op: 'change', path: '', value: '@@ -1,5 +1,6 @@
 RETURN 'tobie'.diff('tobias');
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		op: 'change',
@@ -133,7 +102,7 @@ value = "[{ op: 'change', path: '/company', value: '@@ -2,8 +2,10 @@
 { company: 'SurrealDB' }.diff({ company: 'SurrealDB!!', latest_version: '2.0', location: city:london });
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		op: 'change',
@@ -160,7 +129,7 @@ value = "[{ op: 'change', path: '/company', value: '@@ -2,8 +2,10 @@
 
 The `value::patch` function applies an array of JSON Patch operations to a value.
 
-```surql title="API DEFINITION"
+```surql
 value::patch(value, $patch: array<object>) -> value
 ```
 
@@ -187,7 +156,7 @@ $company.patch([{
 }]);
 ```
 
-```surql title="Response"
+```surql
 {
 	company: 'SurrealDB',
 	version: '3.0'

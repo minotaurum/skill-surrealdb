@@ -1,11 +1,3 @@
----
-sidebar_position: 24
-sidebar_label: String functions
-title: String functions | SurrealQL
-description: These functions can be used when working with and manipulating text and string values.
----
-
-
 # String Functions
 
 > [!NOTE]
@@ -13,250 +5,11 @@ description: These functions can be used when working with and manipulating text
 
 These functions can be used when working with and manipulating text and string values.
 
-<Table>
-  <thead>
-    <tr>
-      <th >Function</th>
-      <th >Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#stringcapitalize"><code>string::capitalize()</code></a></td>
-      <td>Capitalizes each word of a string</td>
-    </tr>
-    <tr>
-      <td><a href="#stringconcat"><code>string::concat()</code></a></td>
-      <td>Concatenates strings together</td>
-    </tr>
-    <tr>
-      <td><a href="#stringcontains"><code>string::contains()</code></a></td>
-      <td>Checks whether a string contains another string</td>
-    </tr>
-    <tr>
-      <td><a href="#stringends_with"><code>string::ends_with()</code></a></td>
-      <td>Checks whether a string ends with another string</td>
-    </tr>
-    <tr>
-      <td><a href="#stringjoin"><code>string::join()</code></a></td>
-      <td>Joins strings together with a delimiter</td>
-    </tr>
-    <tr>
-      <td><a href="#stringlen"><code>string::len()</code></a></td>
-      <td>Returns the length of a string</td>
-    </tr>
-    <tr>
-      <td><a href="#stringlowercase"><code>string::lowercase()</code></a></td>
-      <td>Converts a string to lowercase</td>
-    </tr>
-    <tr>
-      <td><a href="#stringmatches"><code>string::matches()</code></a></td>
-      <td>Performs a regex match on a string</td>
-    </tr>
-    <tr>
-      <td><a href="#stringrepeat"><code>string::repeat()</code></a></td>
-      <td>Repeats a string a number of times</td>
-    </tr>
-    <tr>
-      <td><a href="#stringreplace"><code>string::replace()</code></a></td>
-      <td>Replaces an occurrence of a string with another string</td>
-    </tr>
-    <tr>
-      <td><a href="#stringreverse"><code>string::reverse()</code></a></td>
-      <td>Reverses a string</td>
-    </tr>
-    <tr>
-      <td><a href="#stringslice"><code>string::slice()</code></a></td>
-      <td>Extracts and returns a section of a string</td>
-    </tr>
-    <tr>
-      <td><a href="#stringslug"><code>string::slug()</code></a></td>
-      <td>Converts a string into human and URL-friendly string</td>
-    </tr>
-    <tr>
-      <td><a href="#stringsplit"><code>string::split()</code></a></td>
-      <td>Divides a string into an ordered list of substrings</td>
-    </tr>
-    <tr>
-      <td><a href="#stringstarts_with"><code>string::starts_with()</code></a></td>
-      <td>Checks whether a string starts with another string</td>
-    </tr>
-    <tr>
-      <td><a href="#stringtrim"><code>string::trim()</code></a></td>
-      <td>Removes whitespace from the start and end of a string</td>
-    </tr>
-    <tr>
-      <td><a href="#stringuppercase"><code>string::uppercase()</code></a></td>
-      <td>Converts a string to uppercase</td>
-    </tr>
-    <tr>
-      <td><a href="#stringwords"><code>string::words()</code></a></td>
-      <td>Splits a string into an array of separate words</td>
-    </tr>
-    <tr>
-      <td><a href="#stringdistancedamerau_levenshtein"><code>string::distance::damerau_levenshtein()</code></a></td>
-      <td>Returns the Damerau–Levenshtein distance between two strings</td>
-    </tr>
-    <tr>
-      <td><a href="#stringdistancenormalizeddamerau_levenshtein"><code>string::distance::normalized_damerau_levenshtein()</code></a></td>
-      <td>Returns the normalized Damerau–Levenshtein distance between two strings</td>
-    </tr>    
-    <tr>
-      <td><a href="#stringdistancehamming"><code>string::distance::hamming()</code></a></td>
-      <td>Returns the Hamming distance between two strings</td>
-    </tr>
-    <tr>
-      <td><a href="#stringdistancelevenshtein"><code>string::distance::levenshtein()</code></a></td>
-      <td>Returns the Levenshtein distance between two strings</td>
-    </tr>
-    <tr>
-      <td><a href="#stringdistancenormalized_levenshtein"><code>string::distance::normalized_levenshtein()</code></a></td>
-      <td>Returns the normalized Levenshtein distance between two strings</td>
-    </tr>
-    <tr>
-      <td><a href="#stringdistanceosa_distance"><code>string::distance::osa()</code></a></td>
-      <td>Returns the OSA (Optimal String Alignment) distance between two strings</td>
-    </tr>
-    <tr>
-      <td><a href="#stringhtmlencode"><code>string::html::encode()</code></a></td>
-      <td>Encodes special characters into HTML entities to prevent HTML injection</td>
-    </tr>
-    <tr>
-      <td><a href="#stringhtmlsanitize"><code>string::html::sanitize()</code></a></td>
-      <td>Sanitizes HTML code to prevent the most dangerous subset of HTML injection</td>
-    </tr>
-    <tr>
-      <td><a href="#stringis_alphanum"><code>string::is_alphanum()</code></a></td>
-      <td>Checks whether a value has only alphanumeric characters</td>
-    </tr>
-    <tr>
-      <td><a href="#stringis_alpha"><code>string::is_alpha()</code></a></td>
-      <td>Checks whether a value has only alpha characters</td>
-    </tr>
-    <tr>
-      <td><a href="#stringis_ascii"><code>string::is_ascii()</code></a></td>
-      <td>Checks whether a value has only ascii characters</td>
-    </tr>
-    <tr>
-      <td><a href="#stringis_datetime"><code>string::is_datetime()</code></a></td>
-      <td>Checks whether a string representation of a date and time matches a specified format</td>
-    </tr>
-    <tr>
-      <td><a href="#stringis_domain"><code>string::is_domain()</code></a></td>
-      <td>Checks whether a value is a domain</td>
-    </tr>
-    <tr>
-      <td><a href="#stringis_email"><code>string::is_email()</code></a></td>
-      <td>Checks whether a value is an email</td>
-    </tr>
-    <tr>
-      <td><a href="#stringis_hexadecimal"><code>string::is_hexadecimal()</code></a></td>
-      <td>Checks whether a value is hexadecimal</td>
-    </tr>
-    <tr>
-      <td><a href="#stringis_ip"><code>string::is_ip()</code></a></td>
-      <td>Checks whether a value is an IP address</td>
-    </tr>
-    <tr>
-      <td><a href="#stringis_ipv4"><code>string::is_ipv4()</code></a></td>
-      <td>Checks whether a value is an IP v4 address</td>
-    </tr>
-    <tr>
-      <td><a href="#stringis_ipv6"><code>string::is_ipv6()</code></a></td>
-      <td>Checks whether a value is an IP v6 address</td>
-    </tr>
-    <tr>
-      <td><a href="#stringis_latitude"><code>string::is_latitude()</code></a></td>
-      <td>Checks whether a value is a latitude value</td>
-    </tr>
-    <tr>
-      <td><a href="#stringis_longitude"><code>string::is_longitude()</code></a></td>
-      <td>Checks whether a value is a longitude value</td>
-    </tr>
-    <tr>
-      <td><a href="#stringis_numeric"><code>string::is_numeric()</code></a></td>
-      <td>Checks whether a value has only numeric characters</td>
-    </tr>
-    <tr>
-      <td><a href="#stringis_record"><code>string::is_record()</code></a></td>
-      <td>Checks whether a string is a Record ID, optionally of a certain table</td>
-    </tr>
-    <tr>
-      <td><a href="#stringis_semver"><code>string::is_semver()</code></a></td>
-      <td>Checks whether a value matches a semver version</td>
-    </tr>
-    <tr>
-      <td><a href="#stringis_ulid"><code>string::is_ulid()</code></a></td>
-      <td>Checks whether a string is a ULID</td>
-    </tr>
-    <tr>
-      <td><a href="#stringis_url"><code>string::is_url()</code></a></td>
-      <td>Checks whether a value is a valid URL</td>
-    </tr>
-    <tr>
-      <td><a href="#stringis_uuid"><code>string::is_uuid()</code></a></td>
-      <td>Checks whether a string is a UUID</td>
-    </tr>
-    <tr>
-      <td><a href="#stringsemvercompare"><code>string::semver::compare()</code></a></td>
-      <td>Performs a comparison between two semver strings</td>
-    </tr>
-    <tr>
-      <td><a href="#stringsemvermajor"><code>string::semver::major()</code></a></td>
-      <td>Extract the major version from a semver string</td>
-    </tr>
-    <tr>
-      <td><a href="#stringsemverminor"><code>string::semver::minor()</code></a></td>
-      <td>Extract the minor version from a semver string</td>
-    </tr>
-    <tr>
-      <td><a href="#stringsemverpatch"><code>string::semver::patch()</code></a></td>
-      <td>Extract the patch version from a semver string</td>
-    </tr>
-    <tr>
-      <td><a href="#stringsemverincmajor"><code>string::semver::inc::major()</code></a></td>
-      <td>Increment the major version of a semver string</td>
-    </tr>
-    <tr>
-      <td><a href="#stringsemverincminor"><code>string::semver::inc::minor()</code></a></td>
-      <td>Increment the minor version of a semver string</td>
-    </tr>
-    <tr>
-      <td><a href="#stringsemverincpatch"><code>string::semver::inc::patch()</code></a></td>
-      <td>Increment the patch version of a semver string</td>
-    </tr>
-    <tr>
-      <td><a href="#stringsemversetmajor"><code>string::semver::set::major()</code></a></td>
-      <td>Set the major version of a semver string</td>
-    </tr>
-    <tr>
-      <td><a href="#stringsemversetminor"><code>string::semver::set::minor()</code></a></td>
-      <td>Set the minor version of a semver string</td>
-    </tr>
-    <tr>
-      <td><a href="#stringsemversetpatch"><code>string::semver::set::patch()</code></a></td>
-      <td>Set the patch version of a semver string</td>
-    </tr>
-    <tr>
-      <td><a href="#stringsimilarityfuzzy"><code>string::similarity::fuzzy()</code></a></td>
-      <td>Return the similarity score of fuzzy matching strings</td>
-    </tr>
-    <tr>
-      <td><a href="#stringsimilarityjaro"><code>string::similarity::jaro()</code></a></td>
-      <td>Returns the Jaro similarity between two strings</td>
-    </tr>
-    <tr>
-      <td><a href="#stringsimilarityjarowinkler"><code>string::similarity::jaro_winkler()</code></a></td>
-      <td>Return the Jaro-Winkler similarity between two strings</td>
-    </tr>
-  </tbody>
-</Table>
-
 ## `string::capitalize`
 
 The `string::capitalize` function capitalizes the first letter of each word in a string.
 
-```surql title="API DEFINITION"
+```surql
 string::capitalize(string) -> string
 ```
 
@@ -268,13 +21,11 @@ string::capitalize("how to cook for forty humans");
 -- 'How To Cook For Forty Humans'
 ```
 
-<br />
-
 ## `string::concat`
 
 The `string::concat` function concatenates values together into a single string.
 
-```surql title="API DEFINITION"
+```surql
 string::concat(value, ...) -> string
 ```
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
@@ -309,13 +60,11 @@ string::concat(CREATE ONLY person:aeon RETURN VALUE id, ' is ', 'cool!');
 -- ['person:aeon is cool!']
 ```
 
-<br />
-
 ## `string::contains`
 
 The `string::contains` function checks whether a string contains another string.
 
-```surql title="API DEFINITION"
+```surql
 string::contains(string, $predicate: string) -> bool
 ```
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
@@ -333,8 +82,6 @@ RETURN string::contains('abcdefg', 'cde');
 -- true
 ```
 
-<br />
-
 ## `string::ends_with`
 
 > [!NOTE]
@@ -342,7 +89,7 @@ RETURN string::contains('abcdefg', 'cde');
 
 The `string::ends_with` function checks whether a string ends with another string.
 
-```surql title="API DEFINITION"
+```surql
 string::ends_with(string, $other: string) -> bool
 ```
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
@@ -360,15 +107,13 @@ RETURN string::ends_with('some test', 'test');
 -- true
 ```
 
-<br />
-
 ## `string::join`
 
 The `string::join` function joins strings or stringified values together with a delimiter.
 
 If you want to join an array of strings use [`array::join`](/docs/surrealql/functions/database/array#arrayjoin).
 
-```surql title="API DEFINITION"
+```surql
 string::join($delimiter: value, value...) -> string
 ```
 
@@ -387,13 +132,11 @@ RETURN string::join(', ', 'a', 'list', 'of', 'items');
 -- "a, list, of, items"
 ```
 
-<br />
-
 ## `string::len`
 
 The `string::len` function returns the length of a given string in characters.
 
-```surql title="API DEFINITION"
+```surql
 string::len(string) -> number
 ```
 
@@ -412,13 +155,11 @@ RETURN string::len('this is a test');
 -- 14
 ```
 
-<br />
-
 ## `string::lowercase`
 
 The `string::lowercase` function converts a string to lowercase.
 
-```surql title="API DEFINITION"
+```surql
 string::lowercase(string) -> string
 ```
 
@@ -437,13 +178,11 @@ RETURN string::lowercase('THIS IS A TEST');
 -- 'this is a test'
 ```
 
-<br />
-
 ## `string::matches`
 
 The `string::matches` function performs a regex match on a string.
 
-```surql title="API DEFINITION"
+```surql
 string::matches(string, $match_with: string|regex) -> bool
 ```
 
@@ -485,13 +224,11 @@ LET $regex = <regex>"gr(a|e)y";
 -- [true, true]
 ```
 
-<br />
-
 ## `string::repeat`
 
 The `string::repeat` function repeats a string a number of times.
 
-```surql title="API DEFINITION"
+```surql
 string::repeat(string, $times: number) -> string
 ```
 
@@ -510,22 +247,20 @@ RETURN string::repeat('test', 3);
 -- 'testtesttest'
 ```
 
-<br />
-
 ## `string::replace`
 
 The `string::replace` function replaces an occurrence of a string with another string.
 
   
 
-```surql title="API DEFINITION"
+```surql
 string::replace(string, $from: string, $to: string) -> string
 ```
 
   
 
   
-```surql title="API DEFINITION"
+```surql
 string::replace(string, $from: string|regex, $to: string) -> string
 ```
   
@@ -558,17 +293,15 @@ value = "'Mny lnggs nly s cnsnnts n thr wrtng'"
 RETURN string::replace('Many languages only use consonants in their writing', <regex>'a|e|i|o|u', '');
 ```
 
-```surql title="Output"
+```surql
 'Mny lnggs nly s cnsnnts n thr wrtng'
 ```
-
-<br />
 
 ## `string::reverse`
 
 The `string::reverse`  function reverses a string.
 
-```surql title="API DEFINITION"
+```surql
 string::reverse(string) -> string
 ```
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
@@ -586,13 +319,11 @@ RETURN string::reverse('this is a test');
 -- 'tset a si siht'
 ```
 
-<br />
-
 ## `string::slice`
 
 The `string::slice` function extracts and returns a section of a string.
 
-```surql title="API DEFINITION"
+```surql
 string::slice(string, $from: number, $to: number) -> string
 ```
 
@@ -604,13 +335,11 @@ RETURN string::slice('this is a test', 10, 4);
 "test"
 ```
 
-<br />
-
 ## `string::slug`
 
 The `string::slug`  function converts a string into a human and URL-friendly string.
 
-```surql title="API DEFINITION"
+```surql
 string::slug(string) -> string
 ```
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
@@ -628,13 +357,11 @@ RETURN string::slug('SurrealDB Cloud has launched!!! #ai_native_database #awesom
 -- 'surrealdb-cloud-has-launched-ai_native_database-awesome'
 ```
 
-<br />
-
 ## `string::split`
 
 The `string::split` function splits a string by a given delimiter.
 
-```surql title="API DEFINITION"
+```surql
 string::split(string, $delimiter: string) -> array
 ```
 
@@ -653,8 +380,6 @@ RETURN string::split('this, is, a, list', ', ');
 -- ['this', 'is', 'a', 'list']
 ```
 
-<br />
-
 ## `string::starts_with`
 
 > [!NOTE]
@@ -662,7 +387,7 @@ RETURN string::split('this, is, a, list', ', ');
 
 The `string::starts_with` function checks whether a string starts with another string.
 
-```surql title="API DEFINITION"
+```surql
 string::starts_with(string, $predicate: string) -> bool
 ```
 
@@ -681,13 +406,11 @@ RETURN string::starts_with('some test', 'some');
 -- true
 ```
 
-<br />
-
 ## `string::trim`
 
 The `string::trim` function removes whitespace from the start and end of a string.
 
-```surql title="API DEFINITION"
+```surql
 string::trim(string) -> string
 ```
 
@@ -706,13 +429,11 @@ RETURN string::trim('    this is a test    ');
 -- 'this is a test'
 ```
 
-<br />
-
 ## `string::uppercase`
 
 The `string::uppercase` function converts a string to uppercase.
 
-```surql title="API DEFINITION"
+```surql
 string::uppercase(string) -> string
 ```
 
@@ -735,7 +456,7 @@ RETURN string::uppercase('this is a test');
 
 The `string::words` function splits a string into an array of separate words.
 
-```surql title="API DEFINITION"
+```surql
 string::words(string) -> array
 ```
 
@@ -758,7 +479,7 @@ RETURN string::words('this is a test');
 
 The `string::distance::damerau_levenshtein` function returns the Damerau-Levenshtein distance between two strings.
 
-```surql title="API DEFINITION"
+```surql
 string::distance::damerau_levenshtein(string, string) -> int
 ```
 
@@ -816,7 +537,7 @@ string::distance::damerau_levenshtein($first, $short);
 
 The `string::distance::normalized_damerau_levenshtein` function returns the normalized Damerau-Levenshtein distance between two strings. Normalized means that identical strings will return a score of 1, with less similar strings returning lower numbers as the distance grows.
 
-```surql title="API DEFINITION"
+```surql
 string::distance::normalized_damerau_levenshtein(string, string) -> float
 ```
 
@@ -874,7 +595,7 @@ string::distance::normalized_damerau_levenshtein($first, $short);
 
 The `string::distance::hamming` function returns the Hamming distance between two strings of equal length.
 
-```surql title="API DEFINITION"
+```surql
 string::distance::hamming(string, string) -> int
 ```
 
@@ -932,7 +653,7 @@ string::distance::hamming($first, $short);
 
 The `string::distance::levenshtein` function returns the Levenshtein distance between two strings.
 
-```surql title="API DEFINITION"
+```surql
 string::distance::levenshtein(string, string) -> int
 ```
 
@@ -990,7 +711,7 @@ string::distance::levenshtein($first, $short);
 
 The `string::distance::normalized_levenshtein` function returns the normalized Levenshtein distance between two strings. Normalized means that identical strings will return a score of 1, with less similar strings returning lower numbers as the distance grows.
 
-```surql title="API DEFINITION"
+```surql
 string::distance::normalized_levenshtein(string, string) -> float
 ```
 
@@ -1051,7 +772,7 @@ string::distance::normalized_levenshtein($first, $short);
 
 The `string::distance::osa_distance` function returns the OSA (Optimal String Alignment) distance between two strings.
 
-```surql title="API DEFINITION"
+```surql
 string::distance::normalized_levenshtein(string, string) -> int
 ```
 
@@ -1109,7 +830,7 @@ string::distance::osa($first, $short);
 
 The `string::html::encode` function encodes special characters into HTML entities to prevent HTML injection. It is recommended to use this function in most cases when retrieving any untrusted content that may be rendered inside of an HTML document. You can learn more about its behavior from the [original implementation](https://docs.rs/ammonia/latest/ammonia/fn.clean_text.html).
 
-```surql title="API DEFINITION"
+```surql
 string::html::encode(string) -> string
 ```
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
@@ -1127,13 +848,11 @@ RETURN string::html::encode("<h1>Safe Title</h1><script>alert('XSS')</script><p>
 -- '&lt;h1&gt;Safe&#32;Title&lt;&#47;h1&gt;&lt;script&gt;alert(&apos;XSS&apos;)&lt;&#47;script&gt;&lt;p&gt;Safe&#32;paragraph.&#32;Not&#32;safe&#32;&lt;span&#32;onload&#61;&apos;logout()&apos;&gt;event&lt;&#47;span&gt;.&lt;&#47;p&gt;'
 ```
 
-<br />
-
 ## `string::html::sanitize`
 
 The `string::html::sanitize` function sanitizes HTML code to prevent the most dangerous subset of HTML injection that can lead to attacks like cross-site scripting, layout breaking or clickjacking. This function will keep any other HTML syntax intact in order to support user-generated content that needs to contain HTML styling. It is only recommended to rely on this function if you want to allow the creators of the content to have some control over its HTML styling. You can learn more about its behavior from the [original implementation](https://docs.rs/ammonia/latest/ammonia/fn.clean.html).
 
-```surql title="API DEFINITION"
+```surql
 string::html::sanitize(string) -> string
 ```
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
@@ -1150,7 +869,6 @@ RETURN string::html::sanitize("<h1>Safe Title</h1><script>alert('XSS')</script><
 
 -- '<h1>Safe Title</h1><p>Safe paragraph. Not safe <span>event</span>.</p>'
 ```
-<br />
 
 ## `string::is_alphanum`
 
@@ -1159,7 +877,7 @@ RETURN string::html::sanitize("<h1>Safe Title</h1><script>alert('XSS')</script><
 
 The `string::is_alphanum` function checks whether a value has only alphanumeric characters.
 
-```surql title="API DEFINITION"
+```surql
 string::is_alphanum(string) -> bool
 ```
 
@@ -1178,8 +896,6 @@ RETURN string::is_alphanum("ABC123");
 -- true
 ```
 
-<br />
-
 ## `string::is_alpha`
 
 > [!NOTE]
@@ -1187,7 +903,7 @@ RETURN string::is_alphanum("ABC123");
 
 The `string::is_alpha` function checks whether a value has only alpha characters.
 
-```surql title="API DEFINITION"
+```surql
 string::is_alpha(string) -> bool
 ```
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
@@ -1205,8 +921,6 @@ RETURN string::is_alpha("ABCDEF");
 -- true
 ```
 
-<br />
-
 ## `string::is_ascii`
 
 > [!NOTE]
@@ -1214,7 +928,7 @@ RETURN string::is_alpha("ABCDEF");
 
 The `string::is_ascii` function checks whether a value has only ascii characters.
 
-```surql title="API DEFINITION"
+```surql
 string::is_ascii(string) -> bool
 ```
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
@@ -1234,8 +948,6 @@ RETURN string::is_ascii("ABC123"); -- true
 '𓀀'.is_ascii(); -- false
 ```
 
-<br />
-
 ## `string::is_datetime`
 
 > [!NOTE]
@@ -1243,7 +955,7 @@ RETURN string::is_ascii("ABC123"); -- true
 
 The `string::is_datetime` function checks whether a string representation of a date and time matches either the [datetime](/docs/surrealql/datamodel/datetimes) format or a user-specified format.
 
-```surql title="API DEFINITION"
+```surql
 string::is_datetime(string, $format: option<string>) -> bool
 ```
 
@@ -1287,7 +999,7 @@ value = "true"
 RETURN string::is_datetime("5sep2024pm012345.6789", "%d%b%Y%p%I%M%S%.f");
 ```
 
-```surql title="Response"
+```surql
 true
 ```
 
@@ -1302,13 +1014,11 @@ value = "false"
 RETURN string::is_datetime("23:56:00 2015-09-05", "%Y-%m-%d %H:%M");
 ```
 
-```surql title="Response"
+```surql
 false
 ```
 
 [View all format options](/docs/surrealql/datamodel/formatters)
-
-<br />
 
 ## `string::is_domain`
 
@@ -1317,7 +1027,7 @@ false
 
 The `string::is_domain` function checks whether a value is a domain.
 
-```surql title="API DEFINITION"
+```surql
 string::is_domain(string) -> bool
 ```
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
@@ -1335,8 +1045,6 @@ RETURN string::is_domain("surrealdb.com");
 -- true
 ```
 
-<br />
-
 ## `string::is_email`
 
 > [!NOTE]
@@ -1344,7 +1052,7 @@ RETURN string::is_domain("surrealdb.com");
 
 The `string::is_email` function checks whether a value is an email.
 
-```surql title="API DEFINITION"
+```surql
 string::is_email(string) -> bool
 ```
 
@@ -1363,8 +1071,6 @@ RETURN string::is_email("info@surrealdb.com");
 true
 ```
 
-<br />
-
 ## `string::is_hexadecimal`
 
 > [!NOTE]
@@ -1372,7 +1078,7 @@ true
 
 The `string::is_hexadecimal` function checks whether a value is hexadecimal.
 
-```surql title="API DEFINITION"
+```surql
 string::is_hexadecimal(string) -> bool
 ```
 
@@ -1391,8 +1097,6 @@ RETURN string::is_hexadecimal("ff009e");
 -- true
 ```
 
-<br />
-
 ## `string::is_ip`
 
 > [!NOTE]
@@ -1400,7 +1104,7 @@ RETURN string::is_hexadecimal("ff009e");
 
 The `string::is_ip` function checks whether a value is an IP address.
 
-```surql title="API DEFINITION"
+```surql
 string::is_ip(string) -> bool
 ```
 
@@ -1419,8 +1123,6 @@ RETURN string::is_ip("192.168.0.1");
 -- true
 ```
 
-<br />
-
 ## `string::is_ipv4`
 
 > [!NOTE]
@@ -1428,7 +1130,7 @@ RETURN string::is_ip("192.168.0.1");
 
 The `string::is_ipv4` function checks whether a value is an IP v4 address.
 
-```surql title="API DEFINITION"
+```surql
 string::is_ipv4(string) -> bool
 ```
 
@@ -1447,8 +1149,6 @@ RETURN string::is_ipv4("192.168.0.1");
 -- true
 ```
 
-<br />
-
 ## `string::is_ipv6`
 
 > [!NOTE]
@@ -1456,7 +1156,7 @@ RETURN string::is_ipv4("192.168.0.1");
 
 The `string::is_ipv6` function checks whether a value is an IP v6 address.
 
-```surql title="API DEFINITION"
+```surql
 string::is_ipv6(string) -> bool
 ```
 
@@ -1475,8 +1175,6 @@ RETURN string::is_ipv6("2001:0db8:85a3:0000:0000:8a2e:0370:7334");
 -- true
 ```
 
-<br />
-
 ## `string::is_latitude`
 
 > [!NOTE]
@@ -1484,7 +1182,7 @@ RETURN string::is_ipv6("2001:0db8:85a3:0000:0000:8a2e:0370:7334");
 
 The `string::is_latitude` function checks whether a value is a latitude value.
 
-```surql title="API DEFINITION"
+```surql
 string::is_latitude(string) -> bool
 ```
 
@@ -1503,8 +1201,6 @@ RETURN string::is_latitude("-0.118092");
 -- true
 ```
 
-<br />
-
 ## `string::is_longitude`
 
 > [!NOTE]
@@ -1512,7 +1208,7 @@ RETURN string::is_latitude("-0.118092");
 
 The `string::is_longitude` function checks whether a value is a longitude value.
 
-```surql title="API DEFINITION"
+```surql
 string::is_longitude(string) -> bool
 ```
 
@@ -1531,8 +1227,6 @@ RETURN string::is_longitude("51.509865");
 -- true
 ```
 
-<br />
-
 ## `string::is_numeric`
 
 > [!NOTE]
@@ -1540,7 +1234,7 @@ RETURN string::is_longitude("51.509865");
 
 The `string::is_numeric`function checks whether a value has only numeric characters.
 
-```surql title="API DEFINITION"
+```surql
 string::is_numeric(string) -> bool
 ```
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
@@ -1558,8 +1252,6 @@ RETURN string::is_numeric("1484091748");
 -- true
 ```
 
-<br />
-
 ## `string::is_semver`
 
 > [!NOTE]
@@ -1567,7 +1259,7 @@ RETURN string::is_numeric("1484091748");
 
 The `string::is_semver` function checks whether a value matches a semver version.
 
-```surql title="API DEFINITION"
+```surql
 string::is_semver(string) -> bool
 ```
 
@@ -1586,8 +1278,6 @@ RETURN string::is_semver("1.0.0");
 -- true
 ```
 
-<br />
-
 ## `string::is_ulid`
 
 > [!NOTE]
@@ -1595,7 +1285,7 @@ RETURN string::is_semver("1.0.0");
 
 The `string::is_ulid` function checks whether a string is a ULID.
 
-```surql title="API DEFINITION"
+```surql
 string::is_ulid(string) -> bool
 ```
 
@@ -1614,8 +1304,6 @@ RETURN string::is_ulid("01JCJB3TPQ50XTG32WM088NKJD");
 -- true
 ```
 
-<br />
-
 ## `string::is_url`
 
 > [!NOTE]
@@ -1623,7 +1311,7 @@ RETURN string::is_ulid("01JCJB3TPQ50XTG32WM088NKJD");
 
 The `string::is_url` function checks whether a value is a valid URL.
 
-```surql title="API DEFINITION"
+```surql
 string::is_url(string) -> bool
 ```
 
@@ -1642,8 +1330,6 @@ RETURN string::is_url("https://surrealdb.com");
 -- true
 ```
 
-<br />
-
 ## `string::is_record`
 
 > [!NOTE]
@@ -1651,7 +1337,7 @@ RETURN string::is_url("https://surrealdb.com");
 
 The `string::is_record` function checks whether a string is a Record ID.
 
-```surql title="API DEFINITION"
+```surql
 string::is_record(string, $table_name: option<string|table>) -> bool
 ```
 
@@ -1684,8 +1370,6 @@ RETURN string::is_record("person:test", "other");  -- false
 RETURN string::is_record("not a record id");       -- false
 ```
 
-<br />
-
 ## `string::is_uuid`
 
 > [!NOTE]
@@ -1693,7 +1377,7 @@ RETURN string::is_record("not a record id");       -- false
 
 The `string::is_uuid` function checks whether a string is a UUID.
 
-```surql title="API DEFINITION"
+```surql
 string::is_uuid(string) -> bool
 ```
 
@@ -1712,15 +1396,13 @@ RETURN string::is_uuid("018a6680-bef9-701b-9025-e1754f296a0f");
 -- true
 ```
 
-<br />
-
 ## `string::semver::compare`
 
 The `string::semver::compare` function performs a comparison on two semver strings and returns a number.
 
 A value of `-1` indicates the first version is lower than the second, `0` indicates both versions are equal, and `1` indicates the first version is higher than the second.
 
-```surql title="API DEFINITION"
+```surql
 string::semver::compare(string, $other: string) -> 1|0|-1
 ```
 
@@ -1742,13 +1424,11 @@ RETURN string::semver::compare("3.0.0-beta.4", "2.6.0");
 -- Returns 1
 ```
 
-<br />
-
 ## `string::semver::major`
 
 The `string::semver::major` function extracts the major number out of a semver string.
 
-```surql title="API DEFINITION"
+```surql
 string::semver::major(string) -> number
 ```
 
@@ -1767,13 +1447,11 @@ RETURN string::semver::major("3.2.6");
 -- 3
 ```
 
-<br />
-
 ## `string::semver::minor`
 
 The `string::semver::minor` function extracts the minor number out of a semver string.
 
-```surql title="API DEFINITION"
+```surql
 string::semver::minor(string) -> number
 ```
 
@@ -1792,13 +1470,11 @@ RETURN string::semver::minor("3.2.6");
 -- 2
 ```
 
-<br />
-
 ## `string::semver::patch`
 
 The `string::semver::patch` function extracts the patch number out of a semver string.
 
-```surql title="API DEFINITION"
+```surql
 string::semver::patch(string) -> number
 ```
 
@@ -1817,13 +1493,11 @@ RETURN string::semver::patch("3.2.6");
 -- 6
 ```
 
-<br />
-
 ## `string::semver::inc::major`
 
 The `string::semver::inc::major` function increments the major number of a semver string. As a result, the minor and patch numbers are reset to zero.
 
-```surql title="API DEFINITION"
+```surql
 string::semver::inc::major(string) -> string
 ```
 
@@ -1842,13 +1516,11 @@ RETURN string::semver::inc::major("1.2.3");
 -- '2.0.0'
 ```
 
-<br />
-
 ## `string::semver::inc::minor`
 
 The `string::semver::inc::minor` function increments the minor number of a semver string. As a result, the patch number is reset to zero.
 
-```surql title="API DEFINITION"
+```surql
 string::semver::inc::minor(string) -> string
 ```
 
@@ -1867,13 +1539,11 @@ RETURN string::semver::inc::minor("1.2.3");
 -- '1.3.0'
 ```
 
-<br />
-
 ## `string::semver::inc::patch`
 
 The `string::semver::inc::patch` function increments the patch number of a semver string.
 
-```surql title="API DEFINITION"
+```surql
 string::semver::inc::patch(string) -> string
 ```
 
@@ -1892,13 +1562,11 @@ RETURN string::semver::inc::patch("1.2.3");
 -- '1.2.4'
 ```
 
-<br />
-
 ## `string::semver::set::major`
 
 The `string::semver::set::major` function sets the major number of a semver string without changing the minor and patch numbers.
 
-```surql title="API DEFINITION"
+```surql
 string::semver::set::major(string, $major: number) -> string
 ```
 
@@ -1917,13 +1585,11 @@ RETURN string::semver::set::major("1.2.3", 9);
 -- '9.2.3'
 ```
 
-<br />
-
 ## `string::semver::set::minor`
 
 The `string::semver::set::minor` function sets the minor number of a semver string without changing the major and patch numbers.
 
-```surql title="API DEFINITION"
+```surql
 string::semver::set::minor(string, $minor: number) -> string
 ```
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
@@ -1941,13 +1607,11 @@ RETURN string::semver::set::minor("1.2.3", 9);
 -- '1.9.3'
 ```
 
-<br />
-
 ## `string::semver::set::patch`
 
 The `string::semver::set::patch` function sets the patch number of a semver string without changing the major and minor numbers.
 
-```surql title="API DEFINITION"
+```surql
 string::semver::set::patch(string, $patch: number) -> string
 ```
 
@@ -1966,11 +1630,9 @@ RETURN string::semver::set::patch("1.2.3", 9);
 -- '1.2.9'
 ```
 
-<br />
-
 ## `string::similarity::fuzzy`
 
-```surql title="API DEFINITION"
+```surql
 string::similarity::fuzzy(string, string) -> int
 ```
 
@@ -2056,7 +1718,7 @@ FOR $string IN $strings {
 SELECT of, score FROM comparison ORDER BY score DESC;
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		of: 'SurrealDB	surrealdb',
@@ -2089,7 +1751,7 @@ SELECT of, score FROM comparison ORDER BY score DESC;
 
 The `string::similarity::jaro` function returns the Jaro similarity between two strings. Two strings that are identical have a score of 1, while less similar strings will have lower scores as the distance between them increases.
 
-```surql title="API DEFINITION"
+```surql
 string::similarity::jaro(string, string) -> float
 ```
 
@@ -2147,7 +1809,7 @@ string::similarity::jaro($first, $short);
 
 The `string::similarity::jaro_winkler` function returns the Jaro-Winkler similarity between two strings. Two strings that are identical have a score of 1, while less similar strings will have lower scores as the distance between them increases.
 
-```surql title="API DEFINITION"
+```surql
 string::similarity::jaro_winkler(string, string) -> float
 ```
 
@@ -2223,7 +1885,7 @@ string::is_alphanum("MyStrongPassword123");
 "MyStrongPassword123".is_alphanum();
 ```
 
-```surql title="Response"
+```surql
 true
 ```
 
@@ -2254,6 +1916,6 @@ string::concat(
   .concat("!!!!");
 ```
 
-```surql title="Response"
+```surql
 "I'LL SEND YOU A CHEQUE FOR THE CATALOGUE!!!!"
 ```

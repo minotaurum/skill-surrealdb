@@ -1,11 +1,3 @@
----
-sidebar_position: 15
-sidebar_label: LET
-title: LET statement | SurrealQL
-description: The LET statement sets and stores a value which can then be used in a subsequent query.
----
-
-
 # `LET` Statement
 
 The `LET` statement allows you to create parameters to store any value, including the results of queries or the outputs of expressions. These parameters can then be referenced throughout your SurrealQL code, making your queries more dynamic and reusable.
@@ -154,7 +146,7 @@ LET $auth = 1;
 LET $session = 10;
 ```
 
-```surql title="Output"
+```surql
 -------- Query 1 (0ns) --------
 
 "'auth' is a protected variable and cannot be set"
@@ -179,7 +171,7 @@ error = ""Tried to set `$number`, but couldn't coerce value: Expected `int` but 
 LET $number: int = "9";
 ```
 
-```surql title="Output"
+```surql
 "Tried to set `$number`, but couldn't coerce value: Expected `int` but found `'9'`"
 ```
 
@@ -202,7 +194,7 @@ CREATE some:record SET vals = ["true", "false", "true"];
 some:record.vals.filter(|$val| $val = true).len();
 ```
 
-```surql title="Output"
+```surql
 0
 ```
 
@@ -214,7 +206,7 @@ LET $len: number = $vals.filter(|$val| $val = true).len();
 $len;
 ```
 
-```surql title="Output"
+```surql
 -------- Query 1 --------
 
 "Tried to set `$vals`, but couldn't coerce value: Expected `bool` but found `'true'` when coercing an element of `array<bool>`"
@@ -237,7 +229,7 @@ LET $len: number = $vals.filter(|$val| $val = true).len();
 $len;
 ```
 
-```surql title="Output"
+```surql
 2
 ```
 

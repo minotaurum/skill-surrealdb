@@ -1,10 +1,3 @@
----
-sidebar_position: 14
-sidebar_label: KILL
-title: KILL statement | SurrealQL
-description: The KILL statement is used to terminate a running live query.
----
-
 # `KILL` statement
 
 The `KILL` statement is used to terminate a running live query.
@@ -53,7 +46,7 @@ KILL $rand;
 KILL u'9276b05b-e59a-49cd-9dd1-17c6fd15c28f';
 ```
 
-```surql title="Output"
+```surql
 "Can not execute KILL statement using id '$rand'"
 "Can not execute KILL statement using id 'u'9276b05b-e59a-49cd-9dd1-17c6fd15c28f''"
 ```
@@ -71,7 +64,7 @@ LIVE SELECT * FROM person;
 KILL u'cf447091-9463-4d75-b32a-08513eb2a07c';
 ```
 
-```surql title="Output"
+```surql
 -- Query 1
 NONE
 

@@ -1,14 +1,6 @@
----
-sidebar_position: 6
-sidebar_label: CONTINUE
-title: CONTINUE statement | SurrealQL
-description: The CONTINUE statement can be used to skip an iteration of a loop, like within the FOR statement
----
-
 # `CONTINUE` statement
 
 The CONTINUE statement can be used to skip an iteration of a loop, like within the [FOR statement](/docs/surrealql/statements/for).
-
 
 ### Statement syntax
 

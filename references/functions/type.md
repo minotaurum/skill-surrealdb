@@ -1,11 +1,3 @@
----
-sidebar_position: 26
-sidebar_label: Type functions
-title: Type functions | SurrealQL
-description: These functions can be used for generating and coercing data to specific data types.
----
-
-
 # Type Functions
 
 > [!NOTE]
@@ -13,194 +5,11 @@ description: These functions can be used for generating and coercing data to spe
 
 These functions can be used for generating and coercing data to specific data types. These functions are useful when accepting input values in client libraries, and ensuring that they are the desired type within SQL statements.
 
-<table>
-  <thead>
-    <tr>
-      <th scope="col">Function</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typearray"><code>type::array()</code></a></td>
-      <td scope="row" data-label="Description">Converts a value into an array</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typebool"><code>type::bool()</code></a></td>
-      <td scope="row" data-label="Description">Converts a value into a boolean</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typebytes"><code>type::bytes()</code></a></td>
-      <td scope="row" data-label="Description">Converts a value into bytes</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typedatetime"><code>type::datetime()</code></a></td>
-      <td scope="row" data-label="Description">Converts a value into a datetime</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typedecimal"><code>type::decimal()</code></a></td>
-      <td scope="row" data-label="Description">Converts a value into a decimal</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typeduration"><code>type::duration()</code></a></td>
-      <td scope="row" data-label="Description">Converts a value into a duration</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typefield"><code>type::field()</code></a></td>
-      <td scope="row" data-label="Description">Projects a single field within a SELECT statement</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typefields"><code>type::fields()</code></a></td>
-      <td scope="row" data-label="Description">Projects a multiple fields within a SELECT statement</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typefile"><code>type::file()</code></a></td>
-      <td scope="row" data-label="Description">Converts two strings into a file pointer</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typefloat"><code>type::float()</code></a></td>
-      <td scope="row" data-label="Description">Converts a value into a floating point number</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typeint"><code>type::int()</code></a></td>
-      <td scope="row" data-label="Description">Converts a value into an integer</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typenumber"><code>type::number()</code></a></td>
-      <td scope="row" data-label="Description">Converts a value into a number</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typeof"><code>type::of()</code></a></td>
-      <td scope="row" data-label="Description">Returns the type of a value</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typepoint"><code>type::point()</code></a></td>
-      <td scope="row" data-label="Description">Converts a value into a geometry point</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typerecord"><code>type::record()</code></a></td>
-      <td scope="row" data-label="Description">Converts a value into a record pointer</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typestring"><code>type::string()</code></a></td>
-      <td scope="row" data-label="Description">Converts a value into a string</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typetable"><code>type::table()</code></a></td>
-      <td scope="row" data-label="Description">Converts a value into a table</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typerange"><code>type::range()</code></a></td>
-      <td scope="row" data-label="Description">Converts a value into a range</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typeuuid"><code>type::uuid()</code></a></td>
-      <td scope="row" data-label="Description">Converts a value into a UUID</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typeis_array"><code>type::is_array()</code></a></td>
-      <td scope="row" data-label="Description">Checks if given value is of type array</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typeis_bool"><code>type::is_bool()</code></a></td>
-      <td scope="row" data-label="Description">Checks if given value is of type bool</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typeis_bytes"><code>type::is_bytes()</code></a></td>
-      <td scope="row" data-label="Description">Checks if given value is of type bytes</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typeis_collection"><code>type::is_collection()</code></a></td>
-      <td scope="row" data-label="Description">Checks if given value is of type collection</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typeis_datetime"><code>type::is_datetime()</code></a></td>
-      <td scope="row" data-label="Description">Checks if given value is of type datetime</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typeis_decimal"><code>type::is_decimal()</code></a></td>
-      <td scope="row" data-label="Description">Checks if given value is of type decimal</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typeis_duration"><code>type::is_duration()</code></a></td>
-      <td scope="row" data-label="Description">Checks if given value is of type duration</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typeis_float"><code>type::is_float()</code></a></td>
-      <td scope="row" data-label="Description">Checks if given value is of type float</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typeis_geometry"><code>type::is_geometry()</code></a></td>
-      <td scope="row" data-label="Description">Checks if given value is of type geometry</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typeis_int"><code>type::is_int()</code></a></td>
-      <td scope="row" data-label="Description">Checks if given value is of type int</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typeis_line"><code>type::is_line()</code></a></td>
-      <td scope="row" data-label="Description">Checks if given value is of type line</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typeis_none"><code>type::is_none()</code></a></td>
-      <td scope="row" data-label="Description">Checks if given value is of type none</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typeis_null"><code>type::is_null()</code></a></td>
-      <td scope="row" data-label="Description">Checks if given value is of type null</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typeis_multiline"><code>type::is_multiline()</code></a></td>
-      <td scope="row" data-label="Description">Checks if given value is of type multiline</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typeis_multipoint"><code>type::is_multipoint()</code></a></td>
-      <td scope="row" data-label="Description">Checks if given value is of type multipoint</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typeis_multipolygon"><code>type::is_multipolygon()</code></a></td>
-      <td scope="row" data-label="Description">Checks if given value is of type multipolygon</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typeis_number"><code>type::is_number()</code></a></td>
-      <td scope="row" data-label="Description">Checks if given value is of type number</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typeis_object"><code>type::is_object()</code></a></td>
-      <td scope="row" data-label="Description">Checks if given value is of type object</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typeis_point"><code>type::is_point()</code></a></td>
-      <td scope="row" data-label="Description">Checks if given value is of type point</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typeis_polygon"><code>type::is_polygon()</code></a></td>
-      <td scope="row" data-label="Description">Checks if given value is of type polygon</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typeis_polygon"><code>type::is_range()</code></a></td>
-      <td scope="row" data-label="Description">Checks if given value is of type range</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typeis_record"><code>type::is_record()</code></a></td>
-      <td scope="row" data-label="Description">Checks if given value is of type record</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typeis_string"><code>type::is_string()</code></a></td>
-      <td scope="row" data-label="Description">Checks if given value is of type string</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#typeis_uuid"><code>type::is_uuid()</code></a></td>
-      <td scope="row" data-label="Description">Checks if given value is of type uuid</td>
-    </tr>
-  </tbody>
-</table>
-
 ## `type::array`
 
 The `type::array` function converts a value into an array.
 
-```surql title="API DEFINITION"
+```surql
 type::array(array|range) -> array
 ```
 
@@ -225,7 +34,7 @@ This is the equivalent of using [`<array>`](/docs/surrealql/datamodel/casting#ar
 
 The `type::bool` function converts a value into a boolean.
 
-```surql title="API DEFINITION"
+```surql
 type::bool(bool|string) -> bool
 ```
 
@@ -246,13 +55,11 @@ RETURN type::bool("true");
 
 This is the equivalent of using [`<bool>`](/docs/surrealql/datamodel/casting#bool) to cast a value to a boolean.
 
-<br />
-
 ## `type::bytes`
 
 The `type::bytes` function converts a value into bytes.
 
-```surql title="API DEFINITION"
+```surql
 type::bytes(bytes|string) -> bool
 ```
 
@@ -273,13 +80,11 @@ RETURN type::bytes("A few bytes");
 
 This is the equivalent of using [`<bytes>`](/docs/surrealql/datamodel/casting) to cast a value to bytes.
 
-<br />
-
 ## `type::datetime`
 
 The `type::datetime` function converts a value into a datetime.
 
-```surql title="API DEFINITION"
+```surql
 type::datetime(datetime|string) -> datetime
 ```
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
@@ -299,13 +104,11 @@ RETURN type::datetime("2022-04-27T18:12:27+00:00");
 
 This is the equivalent of using [`<datetime>`](/docs/surrealql/datamodel/casting#datetime) to cast a value to a datetime.
 
-<br />
-
 ## `type::decimal`
 
 The `type::decimal` function converts a value into a decimal.
 
-```surql title="API DEFINITION"
+```surql
 type::decimal(decimal|float|int|number|string) -> decimal
 ```
 
@@ -326,13 +129,11 @@ RETURN type::decimal("12345");
 
 This is the equivalent of using [`<decimal>`](/docs/surrealql/datamodel/casting#decimal) to cast a value to a decimal.
 
-<br />
-
 ## `type::duration`
 
 The `type::duration` function converts a value into a duration.
 
-```surql title="API DEFINITION"
+```surql
 type::duration(duration|string) -> duration
 ```
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
@@ -352,13 +153,11 @@ RETURN type::duration("4h");
 
 This is the equivalent of using [`<duration>`](/docs/surrealql/datamodel/casting#duration) to cast a value to a duration.
 
-<br />
-
 ## `type::field`
 
 The `type::field` function projects a single field within a SELECT statement.
 
-```surql title="API DEFINITION"
+```surql
 type::field(string)
 ```
 The following example shows this function, and its output:
@@ -394,7 +193,7 @@ SELECT VALUE { 'firstname': type::field($param), lastname: type::field('name.las
 SELECT VALUE [type::field($param), type::field('name.last')] FROM person;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		id: person:test,
@@ -406,8 +205,6 @@ SELECT VALUE [type::field($param), type::field('name.last')] FROM person;
 	}
 ]
 ```
-
-<br/>
 
 This function can be used after the `OMIT` clause of a `SELECT` statement.
 
@@ -431,7 +228,7 @@ CREATE person SET name = "Galen", surname = "Pathwarden", age = 19;
 SELECT * OMIT type::field($omit) FROM person;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		age: 19,
@@ -441,13 +238,11 @@ SELECT * OMIT type::field($omit) FROM person;
 ]
 ```
 
-<br />
-
 ## `type::fields`
 
 The `type::fields` function projects one or more fields within a SELECT statement.
 
-```surql title="API DEFINITION"
+```surql
 type::fields(array<string>)
 ```
 The following example shows this function, and its output:
@@ -483,7 +278,7 @@ SELECT VALUE { 'names': type::fields($param) } FROM person;
 SELECT VALUE type::fields($param) FROM person;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		id: person:test,
@@ -495,8 +290,6 @@ SELECT VALUE type::fields($param) FROM person;
 	}
 ]
 ```
-
-<br/>
 
 This function can be used after the `OMIT` clause of a `SELECT` statement.
 
@@ -520,7 +313,7 @@ CREATE person SET name = "Galen", surname = "Pathwarden", age = 19;
 SELECT * OMIT type::fields($omit) FROM person;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		name: 'Galen',
@@ -529,13 +322,11 @@ SELECT * OMIT type::fields($omit) FROM person;
 ]
 ```
 
-<br />
-
 ## `type::file`
 
 The `type::file` function converts two strings representing a bucket name and a key into a [file pointer](/docs/surrealql/datamodel/files).
 
-```surql title="API DEFINITION"
+```surql
 type::file($bucket: string, $key: string) -> file
 ```
 
@@ -552,7 +343,7 @@ value = "f"my_bucket:/file_name""
 type::file("my_bucket", "file_name")
 ```
 
-```surql title="Output"
+```surql
 f"my_bucket:/file_name"
 ```
 
@@ -593,17 +384,15 @@ type::file("my_bucket", "file_name").put("Some data inside");
 type::file("my_bucket", "file_name").get();
 ```
 
-```surql title="Output"
+```surql
 b"536F6D65206461746120696E73696465"
 ```
-
-<br />
 
 ## `type::float`
 
 The `type::float` function converts a value into a float.
 
-```surql title="API DEFINITION"
+```surql
 type::float(decimal|float|int|number|string) -> float
 ```
 
@@ -623,13 +412,11 @@ RETURN type::float("12345");
 ```
 This is the equivalent of using [`<float>`](/docs/surrealql/datamodel/casting#float) to cast a value to a float.
 
-<br />
-
 ## `type::int`
 
 The `type::int` function converts a value into an integer.
 
-```surql title="API DEFINITION"
+```surql
 type::int(decimal|float|int|number|string) -> int
 ```
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
@@ -648,13 +435,11 @@ RETURN type::int("12345");
 ```
 This is the equivalent of using [`<int>`](/docs/surrealql/datamodel/casting#int) to cast a value to a int.
 
-<br />
-
 ## `type::number`
 
 The `type::number` function converts a value into a number.
 
-```surql title="API DEFINITION"
+```surql
 type::number(decimal|float|int|number|string) -> number
 ```
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
@@ -674,13 +459,11 @@ RETURN type::number("12345");
 
 This is the equivalent of using [`<number>`](/docs/surrealql/datamodel/casting#number) to cast a value to a number.
 
-<br />
-
 ## `type:of`
 
 The `type::of` function returns a string denoting the type of a value.
 
-```surql title="API DEFINITION"
+```surql
 type::of(value) -> string
 ```
 
@@ -694,7 +477,7 @@ type::of((50.0, 9.9));    -- 'geometry<point>'
 
 The `type::point` function converts a value into a geometry point.
 
-```surql title="API DEFINITION"
+```surql
 type::point(array|point) -> point
 ```
 
@@ -713,13 +496,11 @@ RETURN type::point([ 51.509865, -0.118092 ]);
 -- (51.509865, -0.118092)
 ```
 
-<br />
-
 ## `type::range`
 
 The `type::range` function converts a value into a [range](docs/surrealql/datamodel/ranges). It accepts a single argument, either a range or an array with two values. If the argument is an array, it will be converted into a range, similar to [casting](/docs/surrealql/datamodel/casting).
 
-```surql title="API DEFINITION"
+```surql
 type::range(range|array) -> range<record>
 ```
 
@@ -749,8 +530,6 @@ RETURN type::range([1,9,4]);
 -- 'Expected a range but cannot convert [1, 9, 4] into a range'
 ```
 
-<br />
-
 ## `type::record`
 
 > [!NOTE]
@@ -758,7 +537,7 @@ RETURN type::range([1,9,4]);
 
 The `type::record` function converts a value into a record pointer definition.
 
-```surql title="API DEFINITION"
+```surql
 type::record($table: any, $key: any) -> record
 ```
 
@@ -819,7 +598,7 @@ The output of the above function call will thus be `person:mat`, not `person:per
 
 The `type::record` function returns a record from a record or a string, with an optional argument to confirm the table name.
 
-```surql title="API DEFINITION"
+```surql
 type::record($record: record|string, $table_name: option<string>) -> record
 ```
 
@@ -845,13 +624,11 @@ LET $record = rand::enum(person:tobie, cat:tobie);
 type::record($record, 'person');
 ```
 
-<br/>
-
 ## `type::string`
 
 The `type::string` function converts any value except `NONE`, `NULL`, and `bytes` into a string.
 
-```surql title="API DEFINITION"
+```surql
 type::string(any) -> string
 ```
 
@@ -872,13 +649,11 @@ RETURN type::string(12345);
 
 This is the equivalent of using [`<string>`](/docs/surrealql/datamodel/casting#string) to cast a value to a string.
 
-<br />
-
 ## `type::string_lossy`
 
 The `type::string_lossy` function converts any value except `NONE`, `NULL`, and `bytes` into a string. In the case of bytes, it will not return an error if the bytes are not valid UTF-8. Instead, invalid bytes will be replaced with the character `�` (`U+FFFD REPLACEMENT CHARACTER`, used in Unicode to represent a decoding error).
 
-```surql title="API DEFINITION"
+```surql
 type::string(any) -> string
 ```
 
@@ -901,7 +676,7 @@ type::string_lossy(<bytes>[83, 117, 114, 255, 114, 101, 97, 254, 108, 68, 66]);
 type::string_lossy(<bytes>[ 83, 117, 114, 114, 101, 97, 108, 68, 66 ]);
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 'Sur�rea�lDB'
@@ -913,13 +688,11 @@ type::string_lossy(<bytes>[ 83, 117, 114, 114, 101, 97, 108, 68, 66 ]);
 
 This is similar to using [`<string>`](/docs/surrealql/datamodel/casting#string) to cast a value to a string, except that an input of bytes will not fail.
 
-<br />
-
 ## `type::table`
 
 The `type::table` function converts a value into a table name.
 
-```surql title="API DEFINITION"
+```surql
 type::table(record|string) -> string
 ```
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
@@ -967,7 +740,7 @@ RETURN [
 ];
 ```
 
-```surql title="Output (V1.x)"
+```surql
 [
 	`55`,
 	cat,
@@ -976,7 +749,7 @@ RETURN [
 ]
 ```
 
-```surql title="Output (V2.x)"
+```surql
 [
 	`55`,
 	cat,
@@ -985,13 +758,11 @@ RETURN [
 ]
 ```
 
-<br />
-
 ## `type::uuid`
 
 The `type::uuid` function converts a value into a UUID.
 
-```surql title="API DEFINITION"
+```surql
 type::uuid(string|uuid) -> uuid
 ```
 
@@ -1009,7 +780,6 @@ RETURN type::uuid("0191f946-936f-7223-bef5-aebbc527ad80");
 
 -- u'0191f946-936f-7223-bef5-aebbc527ad80'
 ```
-<br />
 
 ## `type::is_array`
 
@@ -1018,7 +788,7 @@ RETURN type::uuid("0191f946-936f-7223-bef5-aebbc527ad80");
 
 The `type::is_array` function checks if the passed value is of type `array`.
 
-```surql title="API DEFINITION"
+```surql
 type::is_array(any) -> bool
 ```
 
@@ -1037,8 +807,6 @@ RETURN type::is_array([ 'a', 'b', 'c' ]);
 -- true
 ```
 
-<br />
-
 ## `type::is_bool`
 
 > [!NOTE]
@@ -1046,7 +814,7 @@ RETURN type::is_array([ 'a', 'b', 'c' ]);
 
 The `type::is_bool` function checks if the passed value is of type `bool`.
 
-```surql title="API DEFINITION"
+```surql
 type::is_bool(any) -> bool
 ```
 
@@ -1065,8 +833,6 @@ RETURN type::is_bool(true);
 -- true
 ```
 
-<br />
-
 ## `type::is_bytes`
 
 > [!NOTE]
@@ -1074,7 +840,7 @@ RETURN type::is_bool(true);
 
 The `type::is_bytes` function checks if the passed value is of type `bytes`.
 
-```surql title="API DEFINITION"
+```surql
 type::is_bytes(any) -> bool
 ```
 
@@ -1093,8 +859,6 @@ RETURN type::is_bytes("I am not bytes");
 -- false
 ```
 
-<br />
-
 ## `type::is_collection`
 
 > [!NOTE]
@@ -1102,7 +866,7 @@ RETURN type::is_bytes("I am not bytes");
 
 The `type::is_collection` function checks if the passed value is of type `collection`.
 
-```surql title="API DEFINITION"
+```surql
 type::is_collection(any) -> bool
 ```
 
@@ -1121,8 +885,6 @@ RETURN type::is_collection("I am not a collection");
 -- false
 ```
 
-<br />
-
 ## `type::is_datetime`
 
 > [!NOTE]
@@ -1130,7 +892,7 @@ RETURN type::is_collection("I am not a collection");
 
 The `type::is_datetime` function checks if the passed value is of type `datetime`.
 
-```surql title="API DEFINITION"
+```surql
 type::is_datetime(any) -> bool
 ```
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
@@ -1148,8 +910,6 @@ RETURN type::is_datetime(time::now());
 -- true
 ```
 
-<br />
-
 ## `type::is_decimal`
 
 > [!NOTE]
@@ -1157,7 +917,7 @@ RETURN type::is_datetime(time::now());
 
 The `type::is_decimal` function checks if the passed value is of type `decimal`.
 
-```surql title="API DEFINITION"
+```surql
 type::is_decimal(any) -> bool
 ```
 
@@ -1176,8 +936,6 @@ RETURN type::is_decimal(<decimal> 13.5719384719384719385639856394139476937756394
 -- true
 ```
 
-<br />
-
 ## `type::is_duration`
 
 > [!NOTE]
@@ -1185,7 +943,7 @@ RETURN type::is_decimal(<decimal> 13.5719384719384719385639856394139476937756394
 
 The `type::is_duration` function checks if the passed value is of type `duration`.
 
-```surql title="API DEFINITION"
+```surql
 type::is_duration(any) -> bool
 ```
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
@@ -1203,8 +961,6 @@ RETURN type::is_duration('1970-01-01T00:00:00');
 -- false
 ```
 
-<br />
-
 ## `type::is_float`
 
 > [!NOTE]
@@ -1212,7 +968,7 @@ RETURN type::is_duration('1970-01-01T00:00:00');
 
 The `type::is_float` function checks if the passed value is of type ` float`.
 
-```surql title="API DEFINITION"
+```surql
 type::is_float(any) -> bool
 ```
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
@@ -1230,8 +986,6 @@ RETURN type::is_float(<float> 41.5);
 -- true
 ```
 
-<br />
-
 ## `type::is_geometry`
 
 > [!NOTE]
@@ -1239,7 +993,7 @@ RETURN type::is_float(<float> 41.5);
 
 The `type::is_geometry` function checks if the passed value is of type `geometry`.
 
-```surql title="API DEFINITION"
+```surql
 type::is_geometry(any) -> bool
 ```
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
@@ -1257,8 +1011,6 @@ RETURN type::is_geometry((-0.118092, 51.509865));
 -- true
 ```
 
-<br />
-
 ## `type::is_int`
 
 > [!NOTE]
@@ -1266,7 +1018,7 @@ RETURN type::is_geometry((-0.118092, 51.509865));
 
 The `type::is_int` function checks if the passed value is of type `int`.
 
-```surql title="API DEFINITION"
+```surql
 type::is_int(any) -> bool
 ```
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
@@ -1284,8 +1036,6 @@ RETURN type::is_int(<int> 123);
 -- true
 ```
 
-<br />
-
 ## `type::is_line`
 
 > [!NOTE]
@@ -1293,7 +1043,7 @@ RETURN type::is_int(<int> 123);
 
 The `type::is_line` function checks if the passed value is of type `line`.
 
-```surql title="API DEFINITION"
+```surql
 type::is_line(any) -> bool
 ```
 
@@ -1312,8 +1062,6 @@ RETURN type::is_line("I am not a line");
 -- false
 ```
 
-<br />
-
 ## `type::is_none`
 
 > [!NOTE]
@@ -1321,7 +1069,7 @@ RETURN type::is_line("I am not a line");
 
 The `type::is_none` function checks if the passed value is of type `none`.
 
-```surql title="API DEFINITION"
+```surql
 type::is_none(any) -> bool
 ```
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
@@ -1339,8 +1087,6 @@ RETURN type::is_none(NONE);
 -- true
 ```
 
-<br />
-
 ## `type::is_null`
 
 > [!NOTE]
@@ -1348,7 +1094,7 @@ RETURN type::is_none(NONE);
 
 The `type::is_null` function checks if the passed value is of type `null`.
 
-```surql title="API DEFINITION"
+```surql
 type::is_null(any) -> bool
 ```
 
@@ -1367,8 +1113,6 @@ RETURN type::is_null(NULL);
 -- true
 ```
 
-<br />
-
 ## `type::is_multiline`
 
 > [!NOTE]
@@ -1376,7 +1120,7 @@ RETURN type::is_null(NULL);
 
 The `type::is_multiline` function checks if the passed value is of type `multiline`.
 
-```surql title="API DEFINITION"
+```surql
 type::is_multiline(any) -> bool
 ```
 
@@ -1395,8 +1139,6 @@ RETURN type::is_multiline("I am not a multiline");
 -- false
 ```
 
-<br />
-
 ## `type::is_multipoint`
 
 > [!NOTE]
@@ -1404,7 +1146,7 @@ RETURN type::is_multiline("I am not a multiline");
 
 The `type::is_multipoint` function checks if the passed value is of type `multipoint`.
 
-```surql title="API DEFINITION"
+```surql
 type::is_multipoint(any) -> bool
 ```
 
@@ -1423,8 +1165,6 @@ RETURN type::is_multipoint("I am not a multipoint");
 -- false
 ```
 
-<br />
-
 ## `type::is_multipolygon`
 
 > [!NOTE]
@@ -1432,7 +1172,7 @@ RETURN type::is_multipoint("I am not a multipoint");
 
 The `type::is_multipolygon` function checks if the passed value is of type `multipolygon`.
 
-```surql title="API DEFINITION"
+```surql
 type::is_multipolygon(any) -> bool
 ```
 
@@ -1451,8 +1191,6 @@ RETURN type::is_multipolygon("I am not a multipolygon");
 -- false
 ```
 
-<br />
-
 ## `type::is_number`
 
 > [!NOTE]
@@ -1460,7 +1198,7 @@ RETURN type::is_multipolygon("I am not a multipolygon");
 
 The `type::is_number` function checks if the passed value is of type `number`.
 
-```surql title="API DEFINITION"
+```surql
 type::is_number(any) -> bool
 ```
 
@@ -1479,8 +1217,6 @@ RETURN type::is_number(123);
 -- true
 ```
 
-<br />
-
 ## `type::is_object`
 
 > [!NOTE]
@@ -1488,7 +1224,7 @@ RETURN type::is_number(123);
 
 The `type::is_object` function checks if the passed value is of type `object`.
 
-```surql title="API DEFINITION"
+```surql
 type::is_object(any) -> bool
 ```
 
@@ -1507,8 +1243,6 @@ RETURN type::is_object({ hello: 'world' });
 -- true
 ```
 
-<br />
-
 ## `type::is_point`
 
 > [!NOTE]
@@ -1516,7 +1250,7 @@ RETURN type::is_object({ hello: 'world' });
 
 The `type::is_point` function checks if the passed value is of type `point`.
 
-```surql title="API DEFINITION"
+```surql
 type::is_point(any) -> bool
 ```
 
@@ -1535,8 +1269,6 @@ RETURN type::is_point((-0.118092, 51.509865));
 -- true
 ```
 
-<br />
-
 ## `type::is_polygon`
 
 > [!NOTE]
@@ -1544,7 +1276,7 @@ RETURN type::is_point((-0.118092, 51.509865));
 
 The `type::is_polygon` function checks if the passed value is of type `polygon`.
 
-```surql title="API DEFINITION"
+```surql
 type::is_polygon(any) -> bool
 ```
 
@@ -1570,7 +1302,7 @@ RETURN type::is_polygon("I am not a polygon");
 
 The `type::is_range` function checks if the passed value is of type `range`.
 
-```surql title="API DEFINITION"
+```surql
 type::is_range(any) -> bool
 ```
 
@@ -1600,7 +1332,7 @@ type::is_range(0..1);
 
 The `type::is_record` function checks if the passed value is of type `record`.
 
-```surql title="API DEFINITION"
+```surql
 type::is_record(any) -> bool
 ```
 
@@ -1621,7 +1353,7 @@ RETURN type::is_record(user:tobie);
 
 ### Validate a table
 
-```surql title="Check if user:tobie is a record on the test table"
+```surql
 /**[test]
 
 [[test.results]]
@@ -1634,8 +1366,6 @@ RETURN type::is_record(user:tobie, 'test');
 -- false
 ```
 
-<br />
-
 ## `type::is_string`
 
 > [!NOTE]
@@ -1643,7 +1373,7 @@ RETURN type::is_record(user:tobie, 'test');
 
 The `type::is_string` function checks if the passed value is of type `string`.
 
-```surql title="API DEFINITION"
+```surql
 type::is_string(any) -> bool
 ```
 
@@ -1662,8 +1392,6 @@ RETURN type::is_string("abc");
 -- true
 ```
 
-<br />
-
 ## `type::is_uuid`
 
 > [!NOTE]
@@ -1671,7 +1399,7 @@ RETURN type::is_string("abc");
 
 The `type::is_uuid` function checks if the passed value is of type `uuid`.
 
-```surql title="API DEFINITION"
+```surql
 type::is_uuid(any) -> bool
 ```
 
@@ -1689,8 +1417,6 @@ RETURN type::is_uuid(u"018a6680-bef9-701b-9025-e1754f296a0f");
 
 -- true
 ```
-
-<br /><br />
 
 ## Method chaining
 
@@ -1714,6 +1440,6 @@ type::is_record(r"person:aeon", "cat");
 r"person:aeon".is_record("cat");
 ```
 
-```surql title="Response"
+```surql
 false
 ```

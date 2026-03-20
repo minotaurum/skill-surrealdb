@@ -1,10 +1,3 @@
----
-sidebar_position: 1
-sidebar_label: GROUP BY
-title: GROUP BY clause | SurrealQL
-description: The `GROUP BY` clause is used to group records by one or more columns.
----
-
 # `GROUP BY` clause
 
 The `GROUP BY` clause is used in SurrealQL to aggregate data based on one or more columns. It is particularly useful when you want to perform calculations on groups of data, such as counting the number of records, calculating averages, or finding sums for each group. 
@@ -42,26 +35,3 @@ Explanation:
 - `GROUP BY product_id, region`: This groups the results by product_id and region, so the SUM function calculates the total sales for each unique combination of product_id and region.
 
 This query will return a result set where each row represents a unique combination of `product_id` and `region`, along with the total sales amount for that combination. This is useful for understanding how different products are performing in different regions.
-
-<SurrealistMini
-	resultMode="single"
-	setup={`
-INSERT INTO rams [
-    { gender: "M", age: 20, country: "Japan" },
-    { gender: "M", age: 25, country: "Japan" },
-    { gender: "F", age: 23, country: "US" },
-    { gender: "F", age: 30, country: "US" },
-    { gender: "F", age: 25, country: "Korea" },
-    { gender: "F", age: 45, country: "UK" },
-];
-	`}
-	query={`
-		SELECT
-	count() AS total,
-	math::mean(age) AS average_age,
-	gender,
-	country
-FROM rams
-GROUP BY gender, country;
-	`}
-/>

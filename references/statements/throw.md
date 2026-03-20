@@ -1,14 +1,6 @@
----
-sidebar_position: 24
-sidebar_label: THROW
-title: THROW statement | SurrealQL
-description: The THROW statement can be used to stop execution of a query and return information on the underlying problem
----
-
 # `THROW` statement
 
 The `THROW` statement can be used to throw an error in a place where something unexpected is happening. Execution of the query will be aborted and the error will be returned to the client. While a string is most commonly seen after a `THROW` statement, any [value](/docs/surrealql/datamodel/values) at all can be used as error output.
-
 
 ### Statement syntax
 
@@ -81,7 +73,7 @@ CREATE event:two SET time = d'2025-10-08T07:15:04.996995Z';
 THROW SELECT * FROM event;
 ```
 
-```surql title="Response"
+```surql
 "An error occurred: [{ id: event:one, time: d'2025-10-08T07:15:04.994633Z' }, { id: event:two, time: d'2025-10-08T07:15:04.996995Z' }]"
 ```
 
@@ -101,11 +93,11 @@ COMMIT TRANSACTION;
 SELECT * FROM account;
 ```
 
-```surql title="Output when $transfer_amount set to 150"
+```surql
 'An error occurred: Insufficient funds, would have $-50 after transfer'
 ```
 
-```surql title="Output when $transfer_amount set to 50"
+```surql
 [
 	{
 		dollars: 50,

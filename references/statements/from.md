@@ -1,10 +1,3 @@
----
-sidebar_position: 1
-sidebar_label: FROM
-title: FROM clause | SurrealQL
-description: The `FROM` clause is used to specify the table or view to query.
----
-
 # `FROM` clause
 
 The `FROM` clause is used to specify the table or view to query. It can also be used to specify targets beyond just a single table or record name.
@@ -20,7 +13,7 @@ STATEMENT
 
 One of the most common use cases for the `FROM` clause is to specify the table or view to query. You can use this clause to pull data from single or multiple tables.
 
-```surql title="All the ways you can use the FROM clause"
+```surql
 -- Selects all records from both 'user' and 'admin' tables.
 SELECT * FROM user, admin;
 
@@ -62,7 +55,7 @@ The `ONLY` keyword can be used to specify that only the specified targets should
 
 This keyword can be particularly useful with SDKs as it can guaranteed to have just a single object and that makes it nicer to deserialise.
 
-```surql title="Using the ONLY keyword"
+```surql
 -- Select only the 'user' table.
 SELECT * FROM ONLY user:one;
 

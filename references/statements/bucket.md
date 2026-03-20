@@ -1,10 +1,3 @@
----
-sidebar_position: 4
-sidebar_label: DEFINE BUCKET
-title: DEFINE BUCKET statement | SurrealQL
-description: A DEFINE BUCKET statement can be used to set endpoints with custom middleware and permissions.
----
-
 # DEFINE BUCKET statement
 
 > [!NOTE]
@@ -56,7 +49,7 @@ f"my_bucket:/lion_witch_wardrobe.txt".get();
 <string>f"my_bucket:/lion_witch_wardrobe.txt".get();
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 b"4F6E6365207468657265207765726520666F7572206368696C6472656E2077686F7365206E616D657320776572652050657465722C20537573616E2C2045646D756E642C20616E64204C7563792E"
@@ -116,7 +109,7 @@ DEFINE BUCKET my_bucket BACKEND "memory";
 INFO FOR DB;
 ```
 
-```surql title="Response"
+```surql
 {
   accesses: {},
   analyzers: {},

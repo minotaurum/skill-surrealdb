@@ -1,10 +1,3 @@
----
-sidebar_position: 16
-sidebar_label: LIVE
-title: LIVE SELECT statement | SurrealQL
-description: The LIVE SELECT statement can be used to initiate a real-time selection from a table, including the option to apply filters.
----
-
 # `LIVE SELECT` statement
 
 Live Queries is a feature that allows you to listen for creations, updates and deletions to specific records you are interested in or entire tables. 

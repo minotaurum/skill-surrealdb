@@ -1,12 +1,3 @@
----
-sidebar_position: 13
-sidebar_label: Objects
-title: Objects | SurrealQL
-description: SurrealDB records can store objects with fields that can also hold other objects or arrays
-
----
-
-
 # Objects
 
 An object is a collection of named fields and values.
@@ -66,7 +57,7 @@ CREATE ONLY user SET my_name = 'name';
 CREATE ONLY user SET `mi_nómine😊` = 'name';
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 {
@@ -97,7 +88,7 @@ SELECT * FROM ONLY {
 };
 ```
 
-```surql title="Output"
+```surql
 {
 	"mi nómine": 'Edgar'
 }
@@ -121,7 +112,7 @@ SELECT
 FROM { temps: [-5, 8, 9] };
 ```
 
-```surql title="Output"
+```surql
 [
     {
         "[math::min(temps), math::max(temps)]": [
@@ -149,7 +140,7 @@ SELECT
 FROM { temps: [-5, 8, 9] };
 ```
 
-```surql title="Output"
+```surql
 [
     {
         "avg_temps": [
@@ -180,7 +171,7 @@ value = "{ name: 'Venus', orbital_period: 1y31w1d22h, radius: 6051.8f }"
 { name: "Venus", radius: 6000 }.extend({ radius: 6051.8, orbital_period: 1y31w1d22h });
 ```
 
-```surql title="Output"
+```surql
 -------- Query 1 --------
 
 {
@@ -214,7 +205,7 @@ value = "{ name: 'Venus' }"
 { name: 'Venus', orbital_period: 1y31w1d22h, radius: 6051.8 }.remove(["radius", "orbital_period"]);
 ```
 
-```surql title="Output"
+```surql
 -------- Query 1 --------
 
 {

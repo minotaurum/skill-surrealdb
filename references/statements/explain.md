@@ -1,10 +1,3 @@
----
-sidebar_position: 1
-sidebar_label: EXPLAIN
-title: EXPLAIN clause | SurrealQL
-description: The `EXPLAIN` clause is used to explain the plan used for a query.
----
-
 # `EXPLAIN` clause
 
 The `EXPLAIN` clause is used to explain the plan used for a query. It is particularly useful when you want to understand how a query is executed and how it is optimized by the database.
@@ -23,7 +16,7 @@ Using the `EXPLAIN` clause in addition to the `FULL` keyword is expeciallly usef
 
 For example, consider the performance of the following query when the field `email` is not indexed. We can see that the execution plan will iterate over the whole table.
 
-```surql title="Index not used"
+```surql
 /**[test]
 
 [[test.results]]
@@ -46,7 +39,7 @@ SELECT * FROM person WHERE email='tobie@surrealdb.com' EXPLAIN;
 SELECT * FROM person WHERE email='tobie@surrealdb.com' EXPLAIN FULL;
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 {
@@ -103,7 +96,7 @@ SELECT * FROM person WHERE email='tobie@surrealdb.com' EXPLAIN FULL;
 
 On the other hand, here is the result when the field `email` is indexed. We can see that the execution plan will use the index to retrieve the record.
 
-```surql title="Index used"
+```surql
 /**[test]
 
 [[test.results]]
@@ -131,7 +124,7 @@ SELECT * FROM person WHERE email='tobie@surrealdb.com' EXPLAIN;
 SELECT * FROM person WHERE email='tobie@surrealdb.com' EXPLAIN FULL;    
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 {

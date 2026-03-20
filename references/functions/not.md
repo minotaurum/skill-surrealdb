@@ -1,34 +1,12 @@
----
-sidebar_position: 14
-sidebar_label: Not function
-title: Not function | SurrealQL
-description: This function can be used to reverse the truthiness of a value.
----
-
 # Not function
 
 This function can be used to reverse the truthiness of a value.
-
-<table>
-  <thead>
-    <tr>
-      <th scope="col">Function</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#not"><code>not()</code></a></td>
-      <td scope="row" data-label="Description">Reverses the truthiness of a value.</td>
-    </tr>
-  </tbody>
-</table>
 
 ## `not`
 
 The `not` function reverses the truthiness of a value. It is functionally identical to `!`, the [NOT](/docs/surrealql/operators#not) operator.
 
-```surql title="API DEFINITION"
+```surql
 not(any) -> bool
 ```
 
@@ -136,5 +114,3 @@ RETURN [
     !!100
 ];
 ```
-
-<br /><br />

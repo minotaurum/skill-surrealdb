@@ -1,12 +1,3 @@
----
-sidebar_position: 26
-sidebar_label: Record references
-title: Record references | SurrealQL
-description: Record references allow you to link records together, enabling you to traverse from one record to another.
-
----
-
-
 # Record references
 
 ## Basic concepts
@@ -76,7 +67,7 @@ SELECT
 FROM comic_book;
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 [
@@ -154,7 +145,7 @@ CREATE comic_book:one SET title = "Loki, God of Stories";
 SELECT * FROM comic_book;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		id: comic_book:one,
@@ -185,7 +176,7 @@ CREATE comic_book:one SET title = "Loki, God of Stories";
 SELECT * FROM comic_book;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		all_readers: [ person:one, person:two ],
@@ -233,7 +224,7 @@ DELETE comic_book:one;
 SELECT * FROM person;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		comics: [
@@ -357,7 +348,7 @@ DELETE $comment;
 person:one.comments.*.*;
 ```
 
-```surql title="Output of person:one queries"
+```surql
 -------- Query --------
 
 [
@@ -430,7 +421,7 @@ DELETE person:one;
 SELECT * FROM comment;
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 [
@@ -490,7 +481,7 @@ house:one.*;
 DELETE house:one;
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 {
@@ -589,7 +580,7 @@ DELETE $comment;
 SELECT * FROM person:one;
 ```
 
-```surql title="person:one before and after comment is deleted"
+```surql
 -------- Query --------
 
 [

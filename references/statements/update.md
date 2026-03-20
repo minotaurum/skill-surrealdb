@@ -1,10 +1,3 @@
----
-sidebar_position: 25
-sidebar_label: UPDATE
-title: UPDATE statement | SurrealQL
-description: The UPDATE statement can be used to update records in the database. If they already exist, they will be updated. If they do not exist, no records will be updated.
----
-
 # `UPDATE` statement
 
 The `UPDATE` statement can be used to update existing records in the database. If the record does not exist, the statement will succeed but no records will be updated.
@@ -86,7 +79,7 @@ UPDATE person SET
 	full_name = name + ' Mc' + name + 'erson';
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		company: 'Surrealist',
@@ -130,7 +123,7 @@ For more specific updates, you can specify a record ID to update a single record
 UPDATE person:tobie SET skills += 'Rust';
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		company: 'SurrealDB',
@@ -160,7 +153,7 @@ UPDATE person:tobie SET
 	dollars -= 1;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		company: 'SurrealDB',
@@ -190,7 +183,7 @@ UPDATE person:tobie SET company = NONE;
 UPDATE person:tobie UNSET company;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		dollars: 49,
@@ -219,7 +212,7 @@ The `UPDATE` statement supports conditional matching of records using a `WHERE` 
 UPDATE person SET skills += "System design" WHERE company != "SurrealDB";
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		company: 'Surrealist',
@@ -363,7 +356,7 @@ UPDATE person:gladys REPLACE { age: 70 };
 UPDATE person:gladys REPLACE { age: 70, created: d'2024-01-01T00:00:00Z' };
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 [
 	{
@@ -406,7 +399,7 @@ UPDATE person:tobie MERGE {
 };
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		company: 'SurrealDB',
@@ -452,7 +445,7 @@ UPDATE person:tobie PATCH [
 ]
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		Engineering: 'true',

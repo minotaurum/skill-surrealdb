@@ -1,10 +1,3 @@
----
-sidebar_position: 1
-sidebar_label: FETCH
-title: FETCH clause | SurrealQL
-description: The `FETCH` clause is used to fetch records from a table.
----
-
 # `FETCH` clause
 
 The `FETCH` clause is used to retrieve related records or data from other tables in a single query. This is particularly useful when you want to gather data that is linked through relationships ([record links](/docs/surrealql/datamodel/records) or [graph edges](/docs/surrealql/statements/relate)) without having to perform multiple separate queries.
@@ -33,53 +26,4 @@ Overall, the `FETCH` clause in SurrealQL is a powerful tool for optimizing data 
 
 In addition to fetching related records, the `FETCH` clause can also be used to replace record ids with their actual record values. Consider the following example:
 
-<SurrealistMini
-	resultMode="single"
-	setup={`
-		CREATE category SET name = 'Technology', created_at = time::now();
-		CREATE person:john SET
-			name.first = 'John',
-			name.last = 'Adams',
-			name.full = string::join(' ', name.first, name.last),
-			age = 29,
-			admin = true,
-			signup_at = time::now();
-		CREATE article SET
-			created_at = time::now(),
-			author = person:john,
-			title = 'Lorem ipsum dolor',
-			text = 'Donec eleifend, nunc vitae commodo accumsan, mauris est fringilla.',
-			category = (SELECT VALUE id FROM ONLY category WHERE name = 'Technology' LIMIT 1);
-	`}
-	query={`
-		SELECT title, category, author.name.full AS author_name FROM article
-		WHERE author.age < 30
-		FETCH author, category;
-	`}
-/>
-
 ## Without the `FETCH` clause
-
-<SurrealistMini
-	resultMode="single"
-	setup={`
-		CREATE category SET name = 'Technology', created_at = time::now();
-		CREATE person:john SET
-			name.first = 'John',
-			name.last = 'Adams',
-			name.full = string::join(' ', name.first, name.last),
-			age = 29,
-			admin = true,
-			signup_at = time::now();
-		CREATE article SET
-			created_at = time::now(),
-			author = person:john,
-			title = 'Lorem ipsum dolor',
-			text = 'Donec eleifend, nunc vitae commodo accumsan, mauris est fringilla.',
-			category = (SELECT VALUE id FROM ONLY category WHERE name = 'Technology' LIMIT 1);
-	`}
-	query={`
-		SELECT title, category, author.name.full AS author_name FROM article
-		WHERE author.age < 30;
-	`}
-/>

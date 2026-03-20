@@ -1,55 +1,8 @@
----
-sidebar_position: 10
-sidebar_label: Geometries
-title: Geometries | SurrealQL
-description: SurrealDB makes working with GeoJSON easy, with support for Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon, and Collection values.
-
----
-
 # Geometries
 
 A `geometry` is a type based on the GeoJSON spec that is optimised for working with data pertaining to locations on Earth.
 
 SurrealDB makes working with GeoJSON easy, with support for `Point`, `LineString`, `Polygon`, `MultiPoint`, `MultiLineString`, `MultiPolygon`, and `Collection` values. SurrealQL automatically detects GeoJSON objects converting them into a single data type.
-
-<table>
-<thead>
-  <tr>
-    <th scope="col">Type</th>
-    <th scope="col">Description</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td scope="row" data-label="Type"><a href="#point"><code>Point</code></a></td>
-    <td scope="row" data-label="Description">A geolocation point with longitude and latitude</td>
-  </tr>
-  <tr>
-    <td scope="row" data-label="Type"><a href="#LineString"><code>LineString</code></a></td>
-    <td scope="row" data-label="Description">A GeoJSON LineString value for storing a geometric path</td>
-  </tr>
-  <tr>
-    <td scope="row" data-label="Type"><a href="#polygon"><code>Polygon</code></a></td>
-    <td scope="row" data-label="Description">A GeoJSON Polygon value for storing a geometric area</td>
-  </tr>
-  <tr>
-    <td scope="row" data-label="Type"><a href="#multipoint"><code>MultiPoint</code></a></td>
-    <td scope="row" data-label="Description">A value which contains multiple geometry points</td>
-  </tr>
-  <tr>
-    <td scope="row" data-label="Type"><a href="#multilinestring"><code>MultiLineString</code></a></td>
-    <td scope="row" data-label="Description">A value which contains multiple geometry lines</td>
-  </tr>
-  <tr>
-    <td scope="row" data-label="Type"><a href="#multipolygon"><code>MultiPolygon</code></a></td>
-    <td scope="row" data-label="Description">A value which contains multiple geometry polygons</td>
-  </tr>
-  <tr>
-    <td scope="row" data-label="Type"><a href="#collection"><code>Collection</code></a></td>
-    <td scope="row" data-label="Description">A value which contains multiple different geometry types</td>
-  </tr>
-</tbody>
-</table>
 
 ## The GeoJSON spec
 
@@ -102,8 +55,6 @@ value = "[{ centre: (-0.118092, 51.509865), id: city:london }]"
 CREATE city:london SET centre = (-0.118092, 51.509865);
 ```
 
-<br />
-
 ## `LineString`
 
 A GeoJSON LineString value for storing a geometric path.
@@ -121,8 +72,6 @@ CREATE city:london SET distance = {
     coordinates: [[-0.118092, 51.509865],[0.1785278, 51.37692386]],
 };
 ```
-
-<br />
 
 ## `Polygon`
 
@@ -146,8 +95,6 @@ CREATE city:london SET boundary = {
 };
 ```
 
-<br />
-
 ## `MultiPoint`
 
 MultiPoints can be used to store multiple geometry points in a single value.
@@ -169,8 +116,6 @@ CREATE person:tobie SET locations = {
 };
 ```
 
-<br />
-
 ## `MultiLineString`
 
 A MultiLineString can be used to store multiple geometry lines in a single value.
@@ -191,8 +136,6 @@ CREATE travel:yellowstone SET routes = {
 	]
 }
 ```
-
-<br />
 
 ## `MultiPolygon`
 
@@ -218,8 +161,6 @@ CREATE university:oxford SET locations = {
 	]
 };
 ```
-
-<br />
 
 ## `Collection`
 
@@ -265,8 +206,6 @@ CREATE university:oxford SET buildings = {
 	]
 };
 ```
-
-<br />
 
 ## Example
 

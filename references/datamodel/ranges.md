@@ -1,12 +1,3 @@
----
-sidebar_position: 14
-sidebar_label: Ranges
-title: Ranges | SurrealQL
-description: A range of possible values.
-
----
-
-
 # Ranges
 
 A range is composed of `..` and possible delimiters to set the maximum and minimum possible values. The default syntax includes the lower limit and excludes the upper limit. A `=` can be used to make the upper limit inclusive, and `>` can be used to make the lower limit exclusive.
@@ -161,7 +152,7 @@ value = "[1, 2]"
 <array> 1..3;
 ```
 
-```surql title="Output"
+```surql
 [
 	1,
 	2
@@ -188,7 +179,7 @@ value = "[{ original: 130, square_root: 11.40175425099138f }, { original: 140, s
     .filter(|$obj| $obj.square_root IN 11..12);
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		original: 130,
@@ -205,7 +196,7 @@ value = "[{ original: 130, square_root: 11.40175425099138f }, { original: 140, s
 
 `CREATE` statements have always been able to work on more than one record by enclosing either a single number or a range-like operator between two `||` bars.
 
-```surql title="Before 3.0.0"
+```surql
 -- Create 10 person records with random IDs
 CREATE |person:10|;
 -- Create `person` records from person:1 to person:10
@@ -214,7 +205,7 @@ CREATE |person:1..10|;
 
 Originally an internal syntax for mock testing, this syntax become known to the user community and is now commonly used. However, the original syntax differed from true ranges in always being inclusive, in that `1..10` was treated as "from 1 up to and including 10". A change has since been made to have the mock syntax take a true range with a syntax equivalent to that demonstrated in this page.
 
-```surql title="Since 3.0.0"
+```surql
 -- All of these create ten records from person:1 to person:10
 CREATE |person:1..=10|;
 CREATE |person:1..11|;

@@ -1,11 +1,3 @@
----
-sidebar_position: 11
-sidebar_label: None and Null
-title: None and Null | SurrealQL
-description: SurrealDB uses two types called None and Null to represent two different ways in which data may not exist.
-
----
-
 # None and null
 
 SurrealDB uses two types called `None` and `Null` to represent two different ways in which data may not exist. While these may appear similar, they have different meanings and are used in different contexts.
@@ -43,7 +35,7 @@ UPDATE person:one SET children = NONE;
 SELECT * FROM person;
 ```
 
-```surql title="Output"
+```surql
 [
   { id: person:one },
   { id: person:two }
@@ -70,7 +62,7 @@ skip-record-id-key = true
 CREATE person SET children = null;
 ```
 
-```surql title="Output"
+```surql
 [
   { 
     children: NULL, 

@@ -1,18 +1,5 @@
 # SurrealQL Demo & Comments
 
-
-## demo.mdx
-
----
-sidebar_position: 2
-sidebar_label: Demo data
-title: Demo data | SurrealQL
-description: To quickly test out SurrealDB and SurrealQL functionality, we've included demo data which you can download and import into SurrealDB.
----
-
-
-
-
 # Demo data
 
 To quickly test out SurrealDB and SurrealQL functionality, we've included two demo datasets here in `.surql` files which you can download and [`import`](/docs/surrealdb/cli/import) into SurrealDB using the [CLI](/docs/surrealdb/cli).
@@ -24,35 +11,11 @@ The dataset is made up of 12 tables using both [graph relations](/docs/surrealql
 
 In the diagram below, the nodes in pink are the [standard tables](/docs/surrealql/statements/define/table), the ones in purple represent the [edge tables](/docs/surrealql/statements/relate) which shows relationships between records and SurrealDB as a graph database. The nodes in grey are the [pre-computed table views](/docs/surrealql/statements/define/table).
 
-<Image
-  alt="Surreal Deal Data Model"
-  src={{
-    light: LightOverview,
-    dark: DarkOverview,
-  }}
-/>
-
-
 ### Download
 
+  
 
-  <TabItem value="SurrealDB 2.x" label="SurrealDB 2.x" default>
-
-| Dataset                                                                          | URL                                                       |
-| -------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| [Surreal Deal Store](https://datasets.surrealdb.com/surreal-deal-store.surql)             | https://datasets.surrealdb.com/surreal-deal-store.surql      |
-| [Surreal Deal Store (mini)](https://datasets.surrealdb.com/surreal-deal-store-mini.surql) | https://datasets.surrealdb.com/surreal-deal-store-mini.surql |
-
-  </TabItem>
-
-  <TabItem value="SurrealDB 3.x" label="SurrealDB 3.x">
-
-| Dataset                                                                          | URL                                                       |
-| -------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| [Surreal Deal Store (mini)](https://datasets.surrealdb.com/datasets/surreal-deal-store/mini-v3.surql) | https://datasets.surrealdb.com/datasets/surreal-deal-store/mini-v3.surql |
-
-  </TabItem>
-
+  
 
 ### Import
 
@@ -78,7 +41,6 @@ surreal import --endpoint http://localhost:8000 --user root --pass secret --ns m
 ```
 
 Please be aware that the import process might take a few seconds.
-
 
 ### Using Curl
 
@@ -115,19 +77,6 @@ Here are some sample queries you can run on the Surreal Deal Store dataset. We'v
 
 > [!NOTE]
 > The query results below have been limited to 4 rows for brevity. If you remove the `LIMIT 4` clause from the queries, you'll see the full results.
-
-<SurrealistMini url='https://app.surrealdb.com/mini?query=--+Query+1%3A+Using+record+links+to+select+from+the+seller+table+%0ASELECT%0A++name%2C%0A++seller.name%0AFROM+product+LIMIT+4%3B%0A%0A%0A--+Query+2%3A+Using+graph+relations+to+select+from+the+person+and+product+table%0ASELECT%0A++++time.created_at as order_date%2C%0A++++product_name%2C%0A++++%3C-person.name+as+person_name%2C%0A++++-%3Eproduct.details%0AFROM+order+LIMIT+4%3B%0A%0A%0A--+Query+3%3A+Conditional+filtering+based+on+an+embedded+object+property.%0ASELECT+%0A++name%2C%0A++email+%0AFROM+person+%0AWHERE+address.country+%3F%3D+%22England%22+LIMIT+4%3B%09%0A%0A%0A--+Query+4%3A+Conditional+filtering+using+relationships.%0ASELECT+*+FROM+review%0AWHERE+-%3Eproduct.sub_category+%3F%3D+%22Activewear%22+LIMIT+4%3B%0A%0A%0A--+Query+5%3A+Count+orders+based+on+order+status%0ASELECT+count%28%29+FROM+order%0AWHERE+order_status+IN+%5B+%22processed%22%2C+%22shipped%22%5D%0AGROUP+ALL+LIMIT+4%3B%0A%0A%0A--+Query+6%3A+Get+a+deduplicated+list+of+products+that+were+ordered%0ASELECT+%0A++++array%3A%3Adistinct%28product_name%29+as+ordered_products%0AFROM+order%0AGROUP+ALL+LIMIT+4%3B%0A%0A%0A--+Query+7%3A+Get+the+average+price+per+product+category%0ASELECT+%0A++++-%3Eproduct.category+AS+product_category%2C%0A++++math%3A%3Amean%28price%29+AS+avg_price%0AFROM+order%0AGROUP+BY+product_category%0AORDER+BY+avg_price+DESC+LIMIT+4%3B%0A%0A%0A--+Query+8%3A+encapsulating+logic+in+a+function%0ARETURN+fn%3A%3Anumber_of_unfulfilled_orders%28%29%3B%0A%0A%0A--+Query+9%3A+using+a+custom+fuction+for+currency+conversion%0ASELECT+%0A++++product_name%2C%0A++++fn%3A%3Apound_to_usd%28price%29+AS+price_usd%0AFROM+order+LIMIT+4%3B&dataset=surreal-deal-store&orientation=horizontal'/>
-
-
-
-## comments.mdx
-
----
-sidebar_position: 8
-sidebar_label: Comments
-title: Comments | SurrealQL
-description: In SurrealQL, comments can be written in a number of different ways.
----
 
 # Comments
 

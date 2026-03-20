@@ -1,14 +1,6 @@
----
-sidebar_position: 4
-sidebar_label: CANCEL
-title: CANCEL statement | SurrealQL
-description: The CANCEL statement can be used to cancel the statements within a transaction, reverting or rolling back any data modification made within the transaction as a whole.
----
-
 # `CANCEL` statement
 
 Each statement within SurrealDB is run within its own transaction. If a set of changes need to be made together, then groups of statements can be run together as a single transaction, either succeeding as a whole, or failing without leaving any residual data modifications. While a transaction will fail if any of its statements encounters an error, the `CANCEL` statement can also be used to cancel a transaction manually.
-
 
 ### Statement syntax
 

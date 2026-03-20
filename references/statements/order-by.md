@@ -1,10 +1,3 @@
----
-sidebar_position: 1
-sidebar_label: ORDER BY
-title: ORDER BY clause | SurrealQL
-description: The `ORDER BY` clause specifies the sort order of the records in a table.
----
-
 # `ORDER BY` clause
 
 To sort records, SurrealDB allows ordering on multiple fields and nested fields. Use the `ORDER BY` clause to specify a comma-separated list of field names that should be used to order the resulting records. 

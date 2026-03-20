@@ -1,10 +1,3 @@
----
-sidebar_position: 23
-sidebar_label: SLEEP
-title: SLEEP statement | SurrealQL
-description: The SLEEP statement is used to introduce a delay or pause in the execution of a query or a batch of queries for a specific amount of time.
----
-
 # `SLEEP` statement
 
 The `SLEEP` statement is used to introduce a delay or pause in the execution of a query or a batch of queries for a specific amount of time.
@@ -49,7 +42,7 @@ SLEEP 50ms;
 INFO FOR INDEX unique_name ON TABLE user;
 ```
 
-```surql title="Possible output"
+```surql
 -------- Query 1 --------
 {
 	building: {

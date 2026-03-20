@@ -1,12 +1,3 @@
----
-sidebar_position: 23
-sidebar_label: Literals
-title: Literals | SurrealQL
-description: A value that may have multiple representations or formats.
-
----
-
-
 # Literals
 
 A literal is a value that may have multiple representations or formats, similar to an enum or a union type. A literal can be composed of strings, numbers, objects, arrays, or durations.
@@ -30,7 +21,7 @@ LET $nine: 9 = 9;
 LET $nine: 9 = 10;
 ```
 
-```surql title="Response"
+```surql
 -------- Query --------
 
 NONE
@@ -53,7 +44,7 @@ error = ""Tried to set `$nine`, but couldn't coerce value: Expected `9 | '9' | '
 LET $nine: 9 | "9" | "nine" = "Nein";
 ```
 
-```surql title="Response"
+```surql
 "Tried to set `$nine`, but couldn't coerce value: Expected `9 | '9' | 'nine'` but found `'Nein'`"
 ```
 
@@ -118,7 +109,7 @@ CREATE information SET
 	error_info = "You shouldn't use this anymore";
 ```
 
-```surql title="Response"
+```surql
 -------- Query --------
 
 [
@@ -196,7 +187,7 @@ fn::handle_error($info[1].id);
 fn::handle_error($info[2].id);
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 'Continue'

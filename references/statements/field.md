@@ -1,11 +1,3 @@
----
-sidebar_position: 3
-sidebar_label: FIELD
-title: ALTER FIELD statement | SurrealQL
-description: The ALTER statement can be used to change authentication access and behaviour, global parameters, table configurations, table events, schema definitions, and indexes.
----
-
-
 # `ALTER FIELD` statement
 
 The `ALTER FIELD` statement is used to change or entirely drop clauses of a defined field on a table.
@@ -63,7 +55,7 @@ ALTER FIELD name ON user ASSERT $value NOT IN $DISALLOWED_NAMES;
 CREATE user SET name = "Lord British";
 ```
 
-```surql title="Output"
+```surql
 "Found 'Lord British' for field `name`, with record `user:yn4yttkg5w683q2937bq`, but field must conform to: $value NOTINSIDE $DISALLOWED_NAMES""
 ```
 

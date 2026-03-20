@@ -1,11 +1,3 @@
----
-sidebar_position: 6
-sidebar_label: SEQUENCE
-title: ALTER SEQUENCE statement | SurrealQL
-description: The ALTER statement can be used to change authentication access and behaviour, global parameters, table configurations, table events, schema definitions, and indexes.
----
-
-
 # `ALTER SEQUENCE` statement
 
 The `ALTER SEQUENCE` statement is used to modify a defined sequence.
@@ -32,7 +24,7 @@ ALTER SEQUENCE mySeq3 TIMEOUT 100ms;
 sequence::nextval('mySeq3');
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 { mySeq3: 'DEFINE SEQUENCE mySeq3 BATCH 1000 START 100 TIMEOUT 0ns' },
 

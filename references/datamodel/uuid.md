@@ -1,11 +1,3 @@
----
-sidebar_position: 19
-sidebar_label: UUIDs
-title: UUIDs | SurrealQL
-description: UUID values in SurrealQL represent UUID values
-
----
-
 # UUIDs
 
 UUIDs represent UUID v4 and v7 values. They can be obtained via either the:

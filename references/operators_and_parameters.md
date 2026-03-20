@@ -1,516 +1,8 @@
 # SurrealQL Operators & Parameters
 
-
-## operators.mdx
-
----
-sidebar_position: 3
-sidebar_label: Operators
-title: Operators | SurrealQL
-description: A variety of operators in SurrealQL allow for complex manipulation of data, and advanced logic.
----
-
-
 # Operators
 
 A variety of operators in SurrealQL allow for complex manipulation of data, and advanced logic.
-
-<Table>
-	<thead>
-		<tr>
-			<th scope="col" class="w-48">Operator</th>
-			<th scope="col">Description</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<div class="flex gap-2">
-					<a href="#and">
-						<code>&&</code>
-					</a>
-					<a href="#and">
-						<code>AND</code>
-					</a>
-				</div>
-			</td>
-			<td scope="row" data-label="Description">
-				Checks whether both of two values are truthy
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<div class="flex gap-2">
-					<a href="#or">
-						<code>||</code>
-					</a>
-					<a href="#or">
-						<code>OR</code>
-					</a>
-				</div>
-			</td>
-			<td scope="row" data-label="Description">
-				Checks whether either of two values is truthy
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<a href="#not">
-					<code>!</code>
-				</a>
-			</td>
-			<td scope="row" data-label="Description">
-				Reverses the truthiness of a value
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<a href="#not_not">
-					<code>!!</code>
-				</a>
-			</td>
-			<td scope="row" data-label="Description">
-				Determines the truthiness of a value
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<a href="#nco">
-					<code>??</code>
-				</a>
-			</td>
-			<td scope="row" data-label="Description">
-				Check whether either of two values are truthy and not NULL
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<a href="#tco">
-					<code>?:</code>
-				</a>
-			</td>
-			<td scope="row" data-label="Description">
-				Check whether either of two values are truthy
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<div class="flex gap-2">
-					<a href="#equal">
-						<code>=</code>
-					</a>
-					<a href="#equal">
-						<code>IS</code>
-					</a>
-				</div>
-			</td>
-			<td scope="row" data-label="Description">
-				Check whether two values are equal
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<div class="flex gap-2">
-					<a href="#notequal">
-						<code>!=</code>
-					</a>
-					<a href="#notequal">
-						<code>IS NOT</code>
-					</a>
-				</div>
-			</td>
-			<td scope="row" data-label="Description">
-				Check whether two values are not equal
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<a href="#exact">
-					<code>==</code>
-				</a>
-			</td>
-			<td scope="row" data-label="Description">
-				Check whether two values are exactly equal
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<a href="#anyequal">
-					<code>?=</code>
-				</a>
-			</td>
-			<td scope="row" data-label="Description">
-				Check whether any value in a set is equal to a value
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<a href="#allequal">
-					<code>*=</code>
-				</a>
-			</td>
-			<td scope="row" data-label="Description">
-				Check whether all values in a set are equal to a value
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<a href="#match">
-					<code>~</code>
-				</a>
-			</td>
-			<td scope="row" data-label="Description">
-				Compare two values for equality using fuzzy matching
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<a href="#match">
-					<code>!~</code>
-				</a>
-			</td>
-			<td scope="row" data-label="Description">
-				Compare two values for inequality using fuzzy matching
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<a href="#match">
-					<code>?~</code>
-				</a>
-			</td>
-			<td scope="row" data-label="Description">
-				Check whether any value in a set is equal to a value using
-				fuzzy matching
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<a href="#match">
-					<code>*~</code>
-				</a>
-			</td>
-			<td scope="row" data-label="Description">
-				Check whether all values in a set are equal to a value using
-				fuzzy matching
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<a href="#lessthan">
-					<code>&lt;</code>
-				</a>
-			</td>
-			<td scope="row" data-label="Description">
-				Check whether a value is less than another value
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<a href="#lessthanorequal">
-					<code>&lt;=</code>
-				</a>
-			</td>
-			<td scope="row" data-label="Description">
-				Check whether a value is less than or equal to another value
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<a href="#greaterthan">
-					<code>&gt;</code>
-				</a>
-			</td>
-			<td scope="row" data-label="Description">
-				Check whether a value is greater than another value
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<a href="#greaterthanorequal">
-					<code>&gt;=</code>
-				</a>
-			</td>
-			<td scope="row" data-label="Description">
-				Check whether a value is greater than or equal to another
-				value
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<a href="#add">
-					<code>+</code>
-				</a>
-			</td>
-			<td scope="row" data-label="Description">
-				Add two values together
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<a href="#sub">
-					<code>-</code>
-				</a>
-			</td>
-			<td scope="row" data-label="Description">
-				Subtract a value from another value
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<div class="flex gap-2">
-					<a href="#mul">
-						<code>*</code>
-					</a>
-					<a href="#mul">
-						<code>×</code>
-					</a>
-				</div>
-			</td>
-			<td scope="row" data-label="Description">
-				Multiply two values together
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<div class="flex gap-2">
-					<a href="#div">
-						<code>/</code>
-					</a>
-					<a href="#div">
-						<code>÷</code>
-					</a>
-				</div>
-			</td>
-			<td scope="row" data-label="Description">
-				Divide a value by another value
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<a href="#pow">
-					<code>**</code>
-				</a>
-			</td>
-			<td scope="row" data-label="Description">
-				Raises a base value by another value
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<div class="flex flex-col gap-2">
-					<a href="#contains">
-						<code>CONTAINS</code>
-					</a>
-					<a href="#contains">
-						<code>∋</code>
-					</a>
-				</div>
-			</td>
-			<td scope="row" data-label="Description">
-				Checks whether a value contains another value
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<div class="flex flex-col gap-2">
-					<a href="#containsnot">
-						<code>CONTAINSNOT</code>
-					</a>
-					<a href="#containsnot">
-						<code>∌</code>
-					</a>
-				</div>
-			</td>
-			<td scope="row" data-label="Description">
-				Checks whether a value does not contain another value
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<div class="flex flex-col gap-2">
-					<a href="#containsall">
-						<code>CONTAINSALL</code>
-					</a>
-					<a href="#containsall">
-						<code>⊇</code>
-					</a>
-				</div>
-			</td>
-			<td scope="row" data-label="Description">
-				Checks whether a value contains all other values
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<div class="flex flex-col gap-2">
-					<a href="#containsany">
-						<code>CONTAINSANY</code>
-					</a>
-					<a href="#containsany">
-						<code>⊃</code>
-					</a>
-				</div>
-			</td>
-			<td scope="row" data-label="Description">
-				Checks whether a value contains any other value
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<div class="flex flex-col gap-2">
-					<a href="#containsnone">
-						<code>CONTAINSNONE</code>
-					</a>
-					<a href="#containsnone">
-						<code>⊅</code>
-					</a>
-				</div>
-			</td>
-			<td scope="row" data-label="Description">
-				Checks whether a value contains none of the following values
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<div class="flex flex-col items-start gap-2">
-					<a href="#inside">
-						<code>INSIDE</code>
-					</a>
-					<a href="#inside">
-						<code>IN</code>
-					</a>
-					<a href="#inside">
-						<code>∈</code>
-					</a>
-				</div>
-			</td>
-			<td scope="row" data-label="Description">
-				Checks whether a value is contained within another value
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<div class="flex flex-col items-start gap-2">
-					<a href="#notinside">
-						<code>NOTINSIDE</code>
-					</a>
-					<a href="#notinside">
-						<code>NOT IN</code>
-					</a>
-					<a href="#notinside">
-						<code>∉</code>
-					</a>
-				</div>
-			</td>
-			<td scope="row" data-label="Description">
-				Checks whether a value is not contained within another value
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<div class="flex flex-col items-start gap-2">
-					<a href="#allinside">
-						<code>ALLINSIDE</code>
-					</a>
-					<a href="#allinside">
-						<code>⊆</code>
-					</a>
-				</div>
-			</td>
-			<td scope="row" data-label="Description">
-				Checks whether all values are contained within other values
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<div class="flex flex-col items-start gap-2">
-					<a href="#anyinside">
-						<code>ANYINSIDE</code>
-					</a>
-					<a href="#anyinside">
-						<code>⊂</code>
-					</a>
-				</div>
-			</td>
-			<td scope="row" data-label="Description">
-				Checks whether any value is contained within other values
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<div class="flex flex-col items-start gap-2">
-					<a href="#noneinside">
-					<code>NONEINSIDE</code>
-					</a>
-					<a href="#noneinside">
-						<code>⊄</code>
-					</a>
-				</div>
-			</td>
-			<td scope="row" data-label="Description">
-				Checks whether no value is contained within other values
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<a href="#outside">
-					<code>OUTSIDE</code>
-				</a>
-			</td>
-			<td scope="row" data-label="Description">
-				Checks whether a geometry type is outside of another
-				geometry type
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<a href="#intersects">
-					<code>INTERSECTS</code>
-				</a>
-			</td>
-			<td scope="row" data-label="Description">
-				Checks whether a geometry type intersects another geometry
-				type
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<div class="flex flex-col items-start gap-2">
-					<a href="#matches">
-						<code>@@</code>
-					</a>
-					<a href="#matches">
-						<code>@[ref]@</code>
-					</a>
-				</div>
-			</td>
-			<td scope="row" data-label="Description">
-				Checks whether the terms are found in a full-text indexed
-				field
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Operator">
-				<div class="flex flex-col items-start gap-2">
-					<a href="#knn">
-						<code> &lt;|4|&gt; </code>
-					</a>
-					<a href="#knn">
-						<code>&lt;|3,HAMMING| &gt;</code>
-					</a>
-				</div>
-			</td>
-			<td scope="row" data-label="Description">
-				Performs a K-Nearest Neighbors (KNN) search to find a
-				specified number of records closest to a given data point,
-				optionally using a defined distance metric. Supports
-				customizing the number of results and choice of distance
-				calculation method.
-			</td>
-		</tr>
-	</tbody>
-</Table>
 
 ## `&&` or `AND` {#and}
 
@@ -529,8 +21,6 @@ SELECT * FROM 10 AND 20 AND 30;
 -- 30
 ```
 
-<br />
-
 ## `||` or `OR` {#or}
 
 The `or` operator checks whether either of two values are [truthy](/docs/surrealql/datamodel/values#values-and-truthiness).
@@ -547,8 +37,6 @@ SELECT * FROM 0 OR false OR 10;
 
 -- 10
 ```
-
-<br />
 
 ## `!` {#not}
 
@@ -571,8 +59,6 @@ SELECT * FROM !(TRUE OR FALSE);
 SELECT * FROM !"Has a value";
 -- false
 ```
-
-<br />
 
 ## `!!` {#not_not}
 
@@ -607,8 +93,6 @@ SELECT * FROM NULL ?? 0 ?? false ?? 10;
 -- 0
 ```
 
-<br />
-
 ## `?:` {#tco}
 
 The `truthy coalescing operator` checks whether either of two values are [truthy](/docs/surrealql/datamodel/values#values-and-truthiness).
@@ -625,8 +109,6 @@ SELECT * FROM NULL ?: 0 ?: false ?: 10;
 
 -- 10
 ```
-
-<br />
 
 ## `=` or `IS` {#equal}
 
@@ -727,8 +209,6 @@ SELECT * FROM { this: "object" } = { another: "object" };
 -- false
 ```
 
-<br />
-
 ## `!=` or `IS NOT` {#notequal}
 
 The `not equal` operator checks whether two values are not equal.
@@ -768,8 +248,6 @@ value = "[true]"
 SELECT * FROM [1, 2, 3] != [3, 4, 5];
 -- true
 ```
-
-<br />
 
 ## `==` {#exact}
 
@@ -811,8 +289,6 @@ SELECT * FROM true == "true";
 -- false
 ```
 
-<br />
-
 ## `?=` {#anyequal}
 
 The `any equal` operator checks whether any value in an array equals another value.
@@ -829,8 +305,6 @@ SELECT * FROM [10, 15, 20] ?= 10;
 -- true
 ```
 
-<br />
-
 ## `*=` {#allequal}
 
 The `all equal` operator checks whether all values in an array equals another value.
@@ -846,8 +320,6 @@ value = ""
 SELECT * FROM [10, 10, 10] *= 10;
 -- true
 ```
-
-<br />
 
 ## `~` `?~` `!~` `*~` {#match}
 
@@ -872,8 +344,6 @@ string::similarity::smithwaterman("test text", "Test") > $threshold;
 -- true
 ```
 
-<br />
-
 ## `<` {#lessthan}
 
 The `less than` operator checks whether a value is less than another value.
@@ -889,8 +359,6 @@ value = "[true]"
 SELECT * FROM 10 < 15;
 -- true
 ```
-
-<br />
 
 ## `<=` {#lessthanorequal}
 
@@ -908,8 +376,6 @@ SELECT * FROM 10 <= 15;
 -- true
 ```
 
-<br />
-
 ## `>` {#greaterthan}
 
 The `greater than` operator checks whether a value is less than another value.
@@ -926,8 +392,6 @@ SELECT * FROM 15 > 10;
 -- true
 ```
 
-<br />
-
 ## `>=` {#greaterthanorequal}
 
 The `greater than or equal` operator checks whether a value is less than or equal to another value.
@@ -943,8 +407,6 @@ value = "[true]"
 SELECT * FROM 15 >= 10;
 -- true
 ```
-
-<br />
 
 ## `+` {#add}
 
@@ -986,8 +448,6 @@ SELECT * FROM 13h + 30m;
 -- "13h30m"
 ```
 
-<br />
-
 ## `-` {#sub}
 
 The `subtract` operator subtracts a value from another value.
@@ -1016,8 +476,6 @@ SELECT * FROM 2m - 1m;
 -- 1m
 ```
 
-<br />
-
 ## `*` or `×` {#mul}
 
 The `multiply` operator multiplies a value by another value.
@@ -1033,8 +491,6 @@ value = "[40]"
 SELECT * FROM 20 * 2;
 -- 40
 ```
-
-<br />
 
 ## `/` or `÷` {#div}
 
@@ -1052,8 +508,6 @@ SELECT * FROM 20 / 2;
 -- 10
 ```
 
-<br />
-
 ## `**` {#pow}
 
 The `power` operator raises a base value by another value.
@@ -1069,8 +523,6 @@ value = "[8000]"
 SELECT * FROM 20 ** 3;
 -- 8000
 ```
-
-<br />
 
 ## `CONTAINS` or `∋` {#contains}
 
@@ -1120,8 +572,6 @@ SELECT * FROM {
 -- true
 ```
 
-<br />
-
 ## `CONTAINSNOT` or `∌` {#containsnot}
 
 The `not contains` operator checks whether a value does not contain another value.
@@ -1170,8 +620,6 @@ SELECT * FROM {
 -- true
 ```
 
-<br />
-
 ## `CONTAINSALL` or `⊇` {#containsall}
 
 The `contains all` operator checks whether a value contains all of multiple values.
@@ -1188,8 +636,6 @@ SELECT * FROM [10, 20, 30] CONTAINSALL [10, 20, 10];
 -- true
 ```
 
-<br />
-
 ## `CONTAINSANY` or `⊃` {#containsany}
 
 The `contains any` operator checks whether a value contains any of multiple values.
@@ -1205,8 +651,6 @@ value = "[true]"
 SELECT * FROM [10, 20, 30] CONTAINSANY [10, 15, 25];
 -- true
 ```
-
-<br />
 
 ## `INSIDE` or `∈` or `IN` {#inside}
 
@@ -1256,7 +700,6 @@ SELECT * FROM (-0.118092, 51.509865) INSIDE {
 true
 ```
 
-
 This operator can also be used to check for the existence of a key inside an [object](/docs/surrealql/datamodel/objects). To do so, precede `IN` with the field name as a string.
 
 ```surql
@@ -1296,8 +739,6 @@ CREATE city:riga SET name = "Riga", country = "Latvia", population = 605273;
 "name" IN city:riga.*;
 "name" IN city:riga.{ name, country };
 ```
-
-<br />
 
 ## `NOTINSIDE` or `∉` or `NOT IN` {#notinside}
 
@@ -1347,8 +788,6 @@ SELECT * FROM (-0.518092, 53.509865) NOTINSIDE {
 -- true
 ```
 
-<br />
-
 ## `ALLINSIDE` or `⊆` {#allinside}
 
 The `all inside` operator checks whether all of multiple values are contained within another value.
@@ -1364,8 +803,6 @@ value = "[true]"
 SELECT * FROM [10, 20, 10] ALLINSIDE [10, 20, 30];
 -- true
 ```
-
-<br />
 
 ## `ANYINSIDE` or `⊂` {#anyinside}
 
@@ -1383,8 +820,6 @@ SELECT * FROM [10, 15, 25] ANYINSIDE [10, 20, 30];
 -- true
 ```
 
-<br />
-
 ## `NONEINSIDE` or `⊄` {#noneinside}
 
 The `none inside` operator checks whether none of multiple values are contained within another value.
@@ -1400,8 +835,6 @@ value = "[true]"
 SELECT * FROM [15, 25, 35] NONEINSIDE [10, 20, 30];
 -- true
 ```
-
-<br />
 
 ## `OUTSIDE` {#outside}
 
@@ -1426,8 +859,6 @@ SELECT * FROM (-0.518092, 53.509865) OUTSIDE {
 
 -- true
 ```
-
-<br />
 
 ## `INTERSECTS` {#intersects}
 
@@ -1460,15 +891,12 @@ SELECT * FROM {
 -- true
 ```
 
-<br />
-
 ## `MATCHES` {#matches}
 
 The `matches` operator checks whether the terms are found in a full-text indexed field.
 
 ```surql
 SELECT * FROM book WHERE title @@ 'rust web';
-
 
 [
 	{
@@ -1495,7 +923,6 @@ ORDER BY score DESC;
 	}
 ]
 ```
-
 
 ### `AND`, `OR`, and numeric operators inside `@@`
 
@@ -1547,8 +974,6 @@ SELECT * FROM document WHERE text @@ "personal" OR text @@ "nice weather today";
 
 ## `KNN`
 
-
-
 K-Nearest Neighbors (KNN) is a fundamental algorithm used for classifying or regressing based on the closest data points in the feature space, with its performance and scalability critical in applications involving large datasets.
 
 In practice, the efficiency and scalability of the KNN algorithm are crucial, especially when dealing with large datasets. Different implementations of KNN are tailored to optimize these aspects without compromising the accuracy of the results.
@@ -1584,8 +1009,6 @@ SELECT id FROM pts WHERE point <|2,EUCLIDEAN|> [2,3,4,5];
 
 ### HNSW Method
 
-
-
 Recommended for very large datasets where speed is essential and some loss of accuracy is acceptable.
 
 ```syntax title="SurrealQL Syntax"
@@ -1613,10 +1036,8 @@ CREATE pts:3 SET point = [8,9,10,11];
 DEFINE INDEX mt_pts ON pts FIELDS point HNSW DIMENSION 4 DIST EUCLIDEAN EFC 150 M 12;
 SELECT id FROM pts WHERE point <|10,40|> [2,3,4,5];
 ```
-<br /><br />
 
 ## Using the `ANY`/`ALL` operators for string indexes
-
 
 An index defined on a string value can be used via the operators `CONTAINSANY`, `ALLINSIDE`, or `ANYINSIDE`. The operator `CONTAINS`, however, will not use a defined index as `CONTAINS` is used for substring matches between strings themselves as opposed to an index lookup.
 
@@ -1665,110 +1086,11 @@ SELECT * FROM account WHERE name CONTAINSANY ["Billy McConnell"] EXPLAIN FULL;
 
 To determine which operator is executed first, a concept called "binding power" is used. Operators with greater binding power will operate directly on their neighbours before those with lower binding power. The following is a list of all operator types from greatest to lowest binding power.
 
-<Table>
-	<thead>
-		<tr>
-			<th scope="col" class="w-40">Operator name</th>
-			<th scope="col">Description</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td scope="row" data-label="Type">
-				`Unary`
-			</td>
-			<td scope="row" data-label="Description">
-				The `Unary` operators are `!`, `+`, and `-`.
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Type">
-				`Nullish`
-			</td>
-			<td scope="row" data-label="Description">
-				The `Nullish` operators are `?:` and `??`.
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Type">
-				`Range`
-			</td>
-			<td scope="row" data-label="Description">
-				The `Range` operator is `..`.
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Type">
-				`Cast`
-			</td>
-			<td scope="row" data-label="Description">
-				The `Cast` operator is `<type_name>`, with `type_name` a stand in for the type to cast into. For example, `<string>` or `<number>`.
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Type">
-				`Power`
-			</td>
-			<td scope="row" data-label="Description">
-				The only `Power` operator is `**`.
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Type">
-				`MulDiv`
-			</td>
-			<td scope="row" data-label="Description">
-				The `MulDiv` (multiplication and division) operators are `*`, `/`, `÷`, and `%`.
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Type">
-				`AddSub`
-			</td>
-			<td scope="row" data-label="Description">
-				The `AddSub` (addition and subtraction) operators are `+` and `-`.
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Type">
-				`Relation`
-			</td>
-			<td scope="row" data-label="Description">
-				The `Relation` operators are `<=`, `>=`, `∋`, `CONTAINS`, `∌`, `CONTAINSNOT`, `∈`, `INSIDE`, `∉`, `NOTINSIDE`, `⊇`, `CONTAINSALL`, `⊃`, `CONTAINSANY`, `⊅`, `CONTAINSNONE`, `⊆`, `ALLINSIDE`, `⊂`, `ANYINSIDE`, `⊄`, `NONEINSIDE`, `OUTSIDE`, `INTERSECTS`, `NOT`, and `IN`.
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Type">
-				`Equality`
-			</td>
-			<td scope="row" data-label="Description">
-				The `Equality` operators are `=`, `IS`, `==`, `!=`, `*=`, `?=`, and `@`.
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Type">
-				`And`
-			</td>
-			<td scope="row" data-label="Description">
-				The `And` operators are `&&` and `AND`.
-			</td>
-		</tr>
-		<tr>
-			<td scope="row" data-label="Type">
-				`Or`
-			</td>
-			<td scope="row" data-label="Description">
-				The `Or` operators are `||` and `OR`.
-			</td>
-		</tr>
-	</tbody>
-</Table>
-
 ## Examples of binding power
 
 The following samples show examples of basic operations of varying binding power. The original example is followed by the same example with the parts with higher binding power in parentheses, then the final expression after the first bound portion is calculated, and finally the output.
 
-```surql title="MulDiv first, then AddSub"
+```surql
 /**[test]
 
 [[test.results]]
@@ -1793,7 +1115,7 @@ value = "13"
 13
 ```
 
-```surql title="Power first, then MulDiv"
+```surql
 /**[test]
 
 [[test.results]]
@@ -1818,7 +1140,7 @@ value = "24"
 24
 ```
 
-```surql title="Unary first, then cast"
+```surql
 /**[test]
 
 [[test.results]]
@@ -1838,7 +1160,7 @@ value = "'-4'"
 "-4"
 ```
 
-```surql title="Cast first, then Power"
+```surql
 /**[test]
 
 [[test.results]]
@@ -1863,7 +1185,7 @@ value = "387420489"
 387420489
 ```
 
-```surql title="AddSub first, then Relation"
+```surql
 /**[test]
 
 [[test.results]]
@@ -1887,7 +1209,7 @@ value = "true"
 true
 ```
 
-```surql title="And first, then Or"
+```surql
 /**[test]
 
 [[test.results]]
@@ -1912,7 +1234,7 @@ false OR true;
 true
 ```
 
-```surql title="Unary, then Cast, then Power, then AddSub"
+```surql
 /**[test]
 
 [[test.results]]
@@ -1931,16 +1253,6 @@ value = "20dec"
 -- Output
 20dec
 ```
-
-## parameters.mdx
-
----
-sidebar_position: 6
-sidebar_label: Parameters
-title: Parameters | SurrealQL
-description: Parameters can be used like variables to store a value which can then be used in a subsequent query.
----
-
 
 # Parameters
 
@@ -1972,7 +1284,7 @@ CREATE person SET name = "Tobie " + $suffix;
 CREATE person SET name = string::join(" ", "Jaime", $suffix);
 ```
 
-```surql title="Response"
+```surql
 [
     {
         "id": "person:3vs17lb9eso9m7gd8mml",
@@ -1996,7 +1308,7 @@ LET $founders = (SELECT * FROM person);
 RETURN $founders.name;
 ```
 
-```surql title="Response"
+```surql
 [
     "Tobie Morgan Hitchcock",
     "Jaime Morgan Hitchcock"
@@ -2060,38 +1372,13 @@ LET $my_name = "Sypha";
 RETURN $my_name;
 ```
 
-```surql title="Output"
+```surql
 'Sypha'
 ```
 
 Before SurrealDB 3.0, the `=` on its own was used as syntactic sugar for a `LET` statement. This has since been deprecated in order to make it clearer that parameters can be redeclared, but not modified.
 
-  <TabItem label="Before 3.X" default>
-```surql
-LET $my_name = "Alucard";
-$my_name = "Sypha";
-RETURN $my_name;
-```
-
-```surql title="Output"
-'Sypha'
-```
-  <TabItem label="Since 3.X">
-```surql
-LET $my_name = "Alucard";
-$my_name = "Sypha";
-RETURN $my_name;
-```
-
-```surql title="Output"
-'There was a problem with the database: Parse error: Variable declaration without `let` is deprecated
- --> [4:1]
-  |
-4 | $my_name = "Sypha";
-  | ^^^^^^^^^^^^^^^^^^^ replace with `let $my_name = ..`
-'
-```
-  </TabItem>
+  
 
 If the parameter is redefined inside another scope, the original value will be shadowed. Shadowing refers to when a value is temporarily obstructed by a new value of the same name until the new scope has completed.
 
@@ -2201,7 +1488,7 @@ LET $token = "Mytoken";
 LET $session = rand::int(0, 100);
 ```
 
-```surql title="Output"
+```surql
 -------- Query 1 --------
 
 "'access' is a protected variable and cannot be set"
@@ -2270,7 +1557,7 @@ CREATE cat SET name = "Mr. Meow", nicknames = ["Mr. Cuddlebun"];
 UPDATE cat SET nicknames += "Snuggles" WHERE name = "Mr. Meow" RETURN $before, $after;
 ```
 
-```surql title="Response"
+```surql
 [
     {
         "after": {
@@ -2393,7 +1680,7 @@ SELECT name,
     WHERE name = "User1";
 ```
 
-```surql title="Response"
+```surql
 [
     {
         "group_members": [
@@ -2427,7 +1714,7 @@ SELECT
     FROM person;
 ```
 
-```surql title="Response"
+```surql
 [
     {
         "id": "person:hwffcckiv61ylwiw43yf",
@@ -2493,7 +1780,7 @@ CREATE user SET
     on_database = $session.db;
 ```
 
-```surql title="Response"
+```surql
 [
     {
         "id": "user:wa3ajflozlqoyurc4i4v",
@@ -2546,7 +1833,6 @@ DEFINE EVENT email ON TABLE user WHEN $before.email != $after.email THEN (
 
 ## Improvements to parameters and expressions in statements
 
-
 Parameters and expressions have traditionally only been available in a limited fashion in SurrealQL statements. As of the alpha versions of SurrealDB 3.0, work is undergoing to allow parameters and expressions to be used in many places that were not possible before.
 
 Some examples of this are:
@@ -2571,7 +1857,7 @@ FOR $language IN ["en", "ja", "uk", "ie"] {
 (INFO FOR DB).tables;
 ```
 
-```surql title="Output"
+```surql
 {
 	language_en: 'DEFINE TABLE language_en TYPE NORMAL SCHEMAFULL PERMISSIONS NONE',
 	language_ie: 'DEFINE TABLE language_ie TYPE NORMAL SCHEMAFULL PERMISSIONS NONE',
@@ -2651,7 +1937,7 @@ CREATE person SET name = "Galen", surname = "Pathwarden", age = 19;
 SELECT * OMIT type::fields(["name", "id"]) FROM person;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		age: 19,

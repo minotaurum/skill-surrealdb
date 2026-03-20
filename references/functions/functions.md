@@ -1,41 +1,13 @@
----
-sidebar_position: 2
-sidebar_label: Machine learning functions
-title: Machine learning functions | SurrealQL
-description: These functions can be used when calculating outputs from a trained machine learning model that has been uploaded to the database.
----
-
 # Machine Learning functions
 
 These functions can be used when calculating outputs from a trained machine learning model that has been uploaded to the database.
-
-<table>
-	<thead>
-		<tr>
-			<th scope="col">Function</th>
-			<th scope="col">Description</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td scope="row" data-label="Function">
-				<a href="#mlname-of-modelversion">
-					<code>
-						ml::name-of-model&lt;version&gt;()
-					</code>
-				</a>
-			</td>
-			<td scope="row" data-label="Description">Computes a value from a trained machine learning model</td>
-		</tr>
-	</tbody>
-</table>
 
 ## `ml::name-of-model<version>()`
 
 Once a model has been uploaded to the database, the model can be called with inputs resulting in a calculation
 from the trained ml model. We can do a basic raw computation with the following call:
 
-```surql title="API DEFINITION"
+```surql
 ml::house-price-prediction<0.0.1>(500.0, 1.0);
 ```
 In the above example, the model we are calling is called `house-price-prediction` with the version `0.0.1`. We
@@ -43,7 +15,7 @@ then pass in a raw vector of `[ [500.0, 1.0] ]` Depending on the model, the name
 as the inputs. The name and version of the model will be defined in the `.surml` file which will defined when uploading the
 model to the database. We can also perform a "buffered compute" with the code below:
 
-```surql title="API DEFINITION"
+```surql
 ml::house-price-prediction<0.0.1>({squarefoot: 500.0, num_floors: 1.0});
 ```
 Here, we are using the key mappings in the header of the `.surml` file uploaded to the database to map the fields defined
@@ -132,5 +104,3 @@ This gives us the following result:
 	}
 ]
 ```
-
-<br /><br />

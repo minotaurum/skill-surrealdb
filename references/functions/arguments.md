@@ -1,10 +1,3 @@
----
-sidebar_position: 2
-sidebar_label: Arguments
-title: Arguments | Embedded scripting functions | SurrealQL
-description: Additional arguments can be passed in to the function from SurrealDB, and these are accessible as an array using the arguments object within the JavaScript function.
----
-
 # Arguments
 
 Additional arguments can be passed in to the function from SurrealDB, and these are accessible as an array using the `arguments` object within the JavaScript function.

@@ -1,11 +1,3 @@
----
-sidebar_position: 5
-sidebar_label: NAMESPACE
-title: ALTER NAMESPACE statement | SurrealQL
-description: The ALTER statement can be used to change authentication access and behaviour, global parameters, table configurations, table events, schema definitions, and indexes.
----
-
-
 # `ALTER NAMESPACE` statement
 
 The `ALTER NAMESPACE` statement can be used to modify the namespace. `ALTER NAMESPACE` is used on the current namespace, which is why a `IF EXISTS` clause does not exist.

@@ -1,21 +1,5 @@
----
-sidebar_position: 1
-sidebar_label: Overview
-title: SurrealQL | Query Language
-description: In this section, you will explore SurrealQL, a powerful database query language that closely resembles traditional SQL but comes with unique differences and improvements.
-no_page_headings: true
----
-
 <div class="flag-title">
-    <Image
-        class="size-11 my-auto"
-        alt="SurrealQL"
-        width={300}
-        src={{
-            light: LightLogo,
-            dark: DarkLogo,
-        }}
-    />
+    
     # SurrealQL
 </div>
 

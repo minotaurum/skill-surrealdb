@@ -1,10 +1,3 @@
----
-sidebar_position: 19
-sidebar_label: REMOVE
-title: REMOVE statement | SurrealQL
-description: The REMOVE statement is used to remove resources such as databases, tables, indexes, events and more.
----
-
 # `REMOVE` statement
 
 The `REMOVE` statement is used to remove resources such as databases, tables, indexes, events and more.

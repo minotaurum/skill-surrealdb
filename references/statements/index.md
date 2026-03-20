@@ -1,10 +1,3 @@
----
-sidebar_position: 1
-sidebar_label: Clauses
-title: Clauses | SurrealQL
-description: Clauses are used to 
----
-
 # Clauses
 
 In SurrealQL, clauses can be used to alter the way a query is executed. They are used in the following ways: 

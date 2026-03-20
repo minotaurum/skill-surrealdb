@@ -1,11 +1,3 @@
----
-sidebar_position: 2
-sidebar_label: Arrays
-title: Arrays | SurrealQL
-description: Records in SurrealDB can store arrays of values, including arrays within arrays
-
----
-
 # Arrays
 
 An array is a collection of values contained inside `[]` (square brackets), each of which is stored at a certain index. Individual indexes and slices of indexes can be accesses using the same square bracket syntax.
@@ -32,7 +24,7 @@ RETURN [1,2,3,4,5][0];
 RETURN [1,2,3,4,5][0..=2];
 ```
 
-```surql title="Output"
+```surql
 -------- Query 2 (200µs) --------
 
 [
@@ -80,7 +72,7 @@ SELECT * FROM ONLY 9;
 SELECT * FROM ONLY [1,9];
 ```
 
-```surql title="Output"
+```surql
 -------- Query 1  --------
 
 [
@@ -139,7 +131,7 @@ CREATE team SET employees = [
 ];
 ```
 
-```surql title="Response"
+```surql
 "Couldn't coerce value for field `employees` of `team:2pjsv6kmzs0x06ortqfl`: Expected `array<record<employee>,5>` but found a collection of length `6`"
 ```
 
@@ -157,7 +149,7 @@ value = "[true, true]"
 [true, false, true][WHERE $this = true];
 ```
 
-```surql title="Output"
+```surql
 [true, true]
 ```
 
@@ -206,7 +198,7 @@ value = "[{ first_mayor: 'Papa Smurf', name: 'Smurfville', population: 55 }]"
  [WHERE $this.first_mayor];
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		first_mayor: 'Papa Smurf',
@@ -269,7 +261,7 @@ value = "['At index 0 we got a 1!', 'At index 1 we got a 2!', 'At index 2 we got
 [1,2,3].map(|$v, $i| "At index " + <string>$i + " we got a " + <string>$v + "!");
 ```
 
-```surql title="Output"
+```surql
 [
 	'At index 0 we got a 1!',
 	'At index 1 we got a 2!',
@@ -315,7 +307,7 @@ value = "[{ coordinates: (98, 65.7), item: 0, name: 'Some city' }, { coordinates
     });
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		coordinates: (98, 65.7),
@@ -349,6 +341,6 @@ value = "[1, 2, 3, 4]"
 [1,2].concat([3,4]);
 ```
 
-```surql title="Output"
+```surql
 [1,2,3,4]
 ```

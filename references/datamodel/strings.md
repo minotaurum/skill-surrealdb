@@ -1,12 +1,3 @@
----
-sidebar_position: 18
-sidebar_label: Strings
-title: Strings | SurrealQL
-description: Strings can be used to store text values. All string values can include Unicode values, emojis, tab characters, and line breaks.
-
----
-
-
 # Strings
 
 Strings can be used to store text values. All string values can include Unicode values, emojis, tab characters, and line breaks.
@@ -106,7 +97,7 @@ value = "person:john"
 RETURN r"person:john";
 ```
 
-```surql title="Response"
+```surql
 -------- Query 1 --------
 
 person:john
@@ -133,7 +124,7 @@ RETURN type::is_string("person:john");
 RETURN type::is_record("person:john");
 RETURN type::is_record(r"person:john");
 ```
-```surql title="Response"
+```surql
 -------- Query 1 --------
 
 true
@@ -178,7 +169,7 @@ RETURN d"2025-11-28T11:41:20.262-04:00";  --- Sub-second precision included, tim
 RETURN d"2025-11-28T11:41:20Z";           --- Sub-second precision excluded, timezone defaulted to UTC
 RETURN d"2025-11-28T11:41:20+04:00";      --- Sub-second precision excluded, timezone specified as UTC + 4:00
 ```
-```surql title="Response"
+```surql
 -------- Query 1 --------
 
 d'2025-11-28T11:41:20.262Z'
@@ -216,7 +207,7 @@ value = "u'8c54161f-d4fe-4a74-9409-ed1e137040c1'"
 RETURN u"8c54161f-d4fe-4a74-9409-ed1e137040c1";
 ```
 
-```surql title="Response"
+```surql
 -------- Query 1 --------
 
 u'8c54161f-d4fe-4a74-9409-ed1e137040c1'
@@ -256,7 +247,7 @@ As a result, incorrect input with a cast will generate an error:
 RETURN <uuid>"018f0e6a_9b95-7ecc-8a38-aea7bf3627dd";
 RETURN <datetime>"2024_06-06T12:00:00Z";
 ```
-```surql title="Response"
+```surql
 -------- Query 1 --------
 
 "Expected a uuid but cannot convert '018f0e6a-9b95-7ecc-8a38-aea7bf3627d' into a uuid"
@@ -275,11 +266,3 @@ RETURN d"2024_06-06T12:00:00Z";
 ```
 
 This also allows for immediate error messages on which part of the input is incorrect. As seen in the image below, the parser is able to inform the user that an underscore at column 18 is the issue.
-
-<Image
-  alt="A screenshot showing how a string prefix allows incorrect UUID input to be identified before a query can be run. In this case, the parser is able to inform the user that an underscore at column 18 is the issue."
-  src={{
-    light: LightImageParseError,
-    dark: DarkImageParseError,
-  }}
-/>

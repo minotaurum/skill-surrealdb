@@ -1,10 +1,3 @@
----
-sidebar_position: 18
-sidebar_label: RELATE
-title: RELATE statement | SurrealQL
-description: The RELATE statement can be used to generate graph edges between two records in the database.
----
-
 # `RELATE` statement
 
 The `RELATE` statement can be used to generate graph edges between two records in the database. This allows you to traverse related records efficiently without needing to pull data from multiple tables and merging that data together using SQL JOINs.
@@ -66,7 +59,7 @@ CREATE person:aristotle, article:on_sleep_and_sleeplessness;
 RELATE person:aristotle->wrote->article:on_sleep_and_sleeplessness;
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		id: wrote:bpbrj5kd7smu3ahlf55r,
@@ -82,7 +75,7 @@ There is no relationship information stored in either the `person` or `article` 
 SELECT * FROM person, article;
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		id: person:aristotle
@@ -101,7 +94,7 @@ SELECT * FROM wrote;
 
 The structure `in -> id -> out` mirrors the record IDs from the `RELATE` statement, with the addition of the automatically generated ID for the `wrote` edge table.
 
-```surql title="Response"
+```surql
 [
 	{
 		id: wrote:bpbrj5kd7smu3ahlf55r,
@@ -123,7 +116,7 @@ SELECT id, ->wrote->article FROM person;
 RETURN person:aristotle->wrote->article;
 ```
 
-```surql title="Response"
+```surql
 -------- Query --------
 
 [
@@ -216,7 +209,7 @@ RELATE [cat:mr_meow, cat:mrs_meow]->parent_of->cat:kitten;
 
 However, the query works just fine. Instead of trying to create a single `parent_of` graph edge, it will create one for each record in the first array: one between `cat:mr_meow` and `cat:kitten`, and another between `cat:mrs_meow` and `cat:kitten`.
 
-```surql title="Response"
+```surql
 [
 	{
 		id: parent_of:uahudi4qr68k640fcjbg,
@@ -249,7 +242,7 @@ CREATE cat:kitten2;
 RELATE [cat:mr_meow, cat:mrs_meow]->parent_of->[cat:kitten, cat:kitten2];
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		id: parent_of:ysbab20nv5568ogba6ns,
@@ -307,7 +300,7 @@ RELATE person:l19zjikkw1p1h9o6ixrg->wrote->article:8nkk6uj4yprt49z7y3zm
 	};
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		id: wrote:rva8hentypdu8lcgwjmf,
@@ -329,7 +322,7 @@ UPDATE wrote SET
     metadata.description = record::tb(out) + ' written by ' + <string>in;
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		id: wrote:k9d8ynbfxgb8jqjv2ob5,
@@ -369,7 +362,7 @@ RELATE person:l19zjikkw1p1h9o6ixrg->wrote->article:8nkk6uj4yprt49z7y3zm
     };
 ```
 
-```surql title="Response"
+```surql
     {
         "id": "wrote:ctwsll49k37a7rmqz9rr",
         "in": "person:l19zjikkw1p1h9o6ixrg",
@@ -400,7 +393,7 @@ RELATE person:l19zjikkw1p1h9o6ixrg->wrote->article:8nkk6uj4yprt49z7y3zm
     SET time.written = $time;
 ```
 
-```surql title="Response"
+```surql
 {
 	"id": "wrote:ctwsll49k37a7rmqz9rr",
 	"in": "person:l19zjikkw1p1h9o6ixrg",
@@ -427,7 +420,7 @@ skip-record-id-key = true
 RELATE ONLY person:l19zjikkw1p1h9o6ixrg->wrote->article:8nkk6uj4yprt49z7y3zm;
 ```
 
-```surql title="Response"
+```surql
 {
 	id: wrote:k9f1rqn3oikolr1560u3,
 	in: person:l19zjikkw1p1h9o6ixrg,
@@ -557,7 +550,7 @@ skip-record-id-key = true
 RELATE person:tobie->bought->product:iphone;
 ```
 
-```surql title="Response"
+```surql
 
 [
 	{
@@ -618,7 +611,7 @@ DELETE person:two;
 SELECT * FROM likes;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		id: likes:55szjin5yfqwl4sbmy1f,
@@ -889,7 +882,7 @@ SELECT
 FROM person:hermann_hesse;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		what_hesse_did: [
@@ -937,7 +930,7 @@ person:anakin_skywalker<->(?)[WHERE person:the_emperor IN [in, out]];
 person:anakin_skywalker<->(?)[WHERE person:luke_skywalker IN [in, out]];
 ```
 
-```surql title="Output"
+```surql
 -------- Anakin and Emperor relations --------
 
 [
@@ -1034,7 +1027,7 @@ SELECT
 FROM person;
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 [
@@ -1115,7 +1108,7 @@ In such a case, a query on the relationship makes it appear as if one city has a
 SELECT id, ->sister_of->city AS sister_cities FROM city;
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		id: city:calgary,
@@ -1163,7 +1156,7 @@ Here we can use the [`array::complement`](/docs/surrealql/functions/database/arr
 SELECT id, array::complement(<->sister_of<->city, [id]) AS sister_cities FROM city;
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		id: city:calgary,
@@ -1270,7 +1263,7 @@ CREATE author:hesse SET name = "Hermann Hesse";
 RELATE author:hesse->wrote->book:demian;
 ```
 
-```surql title="Output"
+```surql
 "Found book:demian for field `out`, with record `wrote:l4xjcgqkgm7vmqqt4iah`, but field must conform to: $value.language = 'English'"
 ```
 
@@ -1355,7 +1348,7 @@ SELECT
 FROM country:usa;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		cities: [
@@ -1395,7 +1388,7 @@ SELECT
 FROM country:usa;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		"->contains": {
@@ -1483,7 +1476,7 @@ SELECT
  FROM person:one;
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		dated_and_same_school: [
@@ -1570,7 +1563,7 @@ While it is possible to manually move three levels down this road network, it in
 SELECT ->to->city->to->city->to->city AS fourth_city FROM city:1;
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		fourth_city: [
@@ -1592,7 +1585,7 @@ A traditional query to show the final road info from `city:1` to the city three 
 SELECT ->to->city->to->city->to.* AS third_journey FROM city:1;
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		fourth_city: [
@@ -1622,7 +1615,7 @@ A range can be added inside the `{}` braces. The following query that uses a ran
 city:1.{1..20}->to->city;
 ```
 
-```surql title="Response"
+```surql
 [
 	city:5
 ]
@@ -1638,7 +1631,7 @@ SELECT @.{1..5}.{
 } FROM city;
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		id: city:1,
@@ -1738,7 +1731,7 @@ RELATE person:two->likes->person:one;
 person:one.{..}->likes->person;
 ```
 
-```surql title="Response"
+```surql
 'Exceeded the idiom recursion limit of 256.'
 ```
 
@@ -1759,7 +1752,7 @@ RETURN [
 ];
 ```
 
-```surql title="Response"
+```surql
 [
 	[
 		person:1,
@@ -1833,7 +1826,7 @@ SELECT
 FROM person;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		acquaintances: [
@@ -1871,7 +1864,7 @@ SELECT ->(SELECT * FROM knows) FROM person:one;
 SELECT ->knows.* FROM person:one;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		"->knows": [
@@ -1900,7 +1893,7 @@ However, clauses available in [`SELECT` statements](/docs/surrealql/statements/s
 SELECT ->(SELECT *, time::now() AS queried_at FROM knows LIMIT 1) FROM person:one;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		"->knows": [
@@ -2021,7 +2014,7 @@ RELATE person:one->likes:3->person:four;
 person:one->likes:2..=4->person;
 ```
 
-```surql title="Output"
+```surql
 [
 	person:three,
 	person:four
@@ -2043,7 +2036,7 @@ FROM
     character:one->speaks_to:01JSNG0KZSY3HJ5QSZ7JSMQMGR..;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		at: d'2025-04-25T03:37:53.246Z',
@@ -2092,7 +2085,7 @@ SELECT id, (<-observed:[d'2025-04-24']..).{
 } AS observations FROM planet;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		id: planet:venus,

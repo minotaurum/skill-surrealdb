@@ -1,10 +1,3 @@
----
-sidebar_position: 11
-sidebar_label: DEFINE MODULE
-title: DEFINE MODULE statement | SurrealQL
-description: Just like in other databases, SurrealDB uses indexes to help optimize query performance. An index can consist of one or more fields in a table and can enforce a uniqueness constraint.
----
-
 # `DEFINE MODULE` statement
 
 A `DEFINE MODULE` statement is used to define a module via which [Surrealism](/docs/surrealdb/extensions) extensions functions can be called.

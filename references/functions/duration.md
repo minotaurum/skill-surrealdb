@@ -1,103 +1,12 @@
----
-sidebar_position: 7
-sidebar_label: Duration functions
-title: Duration functions | SurrealQL
-description: These functions can be used when converting between numeric and duration data.
----
-
-
 # Duration functions
 
 These functions can be used when converting between numeric and duration data.
-
-<table>
-  <thead>
-    <tr>
-      <th scope="col">Function</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#durationdays"><code>duration::days()</code></a></td>
-      <td scope="row" data-label="Description">Counts how many days fit in a duration</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#durationhours"><code>duration::hours()</code></a></td>
-      <td scope="row" data-label="Description">Counts how many hours fit in a duration</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#durationmax"><code>duration::max</code></a></td>
-      <td scope="row" data-label="Description">Constant representing the greatest possible duration</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#durationmicros"><code>duration::micros()</code></a></td>
-      <td scope="row" data-label="Description">Counts how many microseconds fit in a duration</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#durationmillis"><code>duration::millis()</code></a></td>
-      <td scope="row" data-label="Description">Counts how many milliseconds fit in a duration</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#durationmins"><code>duration::mins()</code></a></td>
-      <td scope="row" data-label="Description">Counts how many minutes fit in a duration</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#durationnanos"><code>duration::nanos()</code></a></td>
-      <td scope="row" data-label="Description">Counts how many nanoseconds fit in a duration</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#durationsecs"><code>duration::secs()</code></a></td>
-      <td scope="row" data-label="Description">Counts how many seconds fit in a duration</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#durationweeks"><code>duration::weeks()</code></a></td>
-      <td scope="row" data-label="Description">Counts how many weeks fit in a duration</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#durationyears"><code>duration::years()</code></a></td>
-      <td scope="row" data-label="Description">Counts how many years fit in a duration</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#durationfrom_days"><code>duration::from_days()</code></a></td>
-      <td scope="row" data-label="Description">Converts a numeric amount of days into a duration that represents days</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#durationfrom_hours"><code>duration::from_hours()</code></a></td>
-      <td scope="row" data-label="Description">Converts a numeric amount of hours into a duration that represents hours</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#durationfrom_micros"><code>duration::from_micros()</code></a></td>
-      <td scope="row" data-label="Description">Converts a numeric amount of microseconds into a duration that represents microseconds</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#durationfrom_millis"><code>duration::from_millis()</code></a></td>
-      <td scope="row" data-label="Description">Converts a numeric amount of milliseconds into a duration that represents milliseconds</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#durationfrom_mins"><code>duration::from_mins()</code></a></td>
-      <td scope="row" data-label="Description">Converts a numeric amount of minutes into a duration that represents minutes</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#durationfrom_nanos"><code>duration::from_nanos()</code></a></td>
-      <td scope="row" data-label="Description">Converts a numeric amount of nanoseconds into a duration that represents nanoseconds</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#durationfrom_secs"><code>duration::from_secs()</code></a></td>
-      <td scope="row" data-label="Description">Converts a numeric amount of seconds into a duration that represents seconds</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#durationfrom_weeks"><code>duration::from_weeks()</code></a></td>
-      <td scope="row" data-label="Description">Converts a numeric amount of weeks into a duration that represents weeks</td>
-    </tr>
-  </tbody>
-</table>
 
 ## `duration::days`
 
 The `duration::days` function counts how many days fit into a duration.
 
-```surql title="API DEFINITION"
+```surql
 duration::days(duration) -> number
 ```
 
@@ -116,13 +25,11 @@ RETURN duration::days(3w);
 -- 21
 ```
 
-<br />
-
 ## `duration::hours`
 
 The `duration::hours` function counts how many hours fit into a duration.
 
-```surql title="API DEFINITION"
+```surql
 duration::hours(duration) -> number
 ```
 
@@ -141,13 +48,11 @@ RETURN duration::hours(3w);
 -- 504
 ```
 
-<br />
-
 ## `duration::max`
 
 The `duration::max` constant represents the greatest possible duration that can be used.
 
-```surql title="API DEFINITION"
+```surql
 duration::max -> duration
 ```
 
@@ -174,7 +79,7 @@ duration::max + 1ns;
 100y IN 0ns..duration::max
 ```
 
-```surql title="Output"
+```surql
 -------- Query 1 --------
 
 584942417355y3w5d7h15s999ms999µs999ns
@@ -186,13 +91,11 @@ duration::max + 1ns;
 true
 ```
 
-<br />
-
 ## `duration::micros`
 
 The `duration::micros` function counts how many microseconds fit into a duration.
 
-```surql title="API DEFINITION"
+```surql
 duration::micros(duration) -> number
 ```
 
@@ -210,13 +113,11 @@ RETURN duration::micros(3w);
 -- 1814400000000
 ```
 
-<br />
-
 ## `duration::millis`
 
 The `duration::millis` function counts how many milliseconds fit into a duration.
 
-```surql title="API DEFINITION"
+```surql
 duration::millis(duration) -> number
 ```
 
@@ -234,13 +135,11 @@ RETURN duration::millis(3w);
 -- 1814400000
 ```
 
-<br />
-
 ## `duration::mins`
 
 The `duration::mins` function counts how many minutes fit into a duration.
 
-```surql title="API DEFINITION"
+```surql
 duration::mins(duration) -> number
 ```
 
@@ -258,13 +157,11 @@ RETURN duration::mins(3w);
 -- 30240
 ```
 
-<br />
-
 ## `duration::nanos`
 
 The `duration::nanos` function counts how many nanoseconds fit into a duration.
 
-```surql title="API DEFINITION"
+```surql
 duration::nanos(duration) -> number
 ```
 
@@ -282,13 +179,11 @@ RETURN duration::nanos(3w);
 -- 1814400000000000
 ```
 
-<br />
-
 ## `duration::secs`
 
 The `duration::secs` function counts how many seconds fit into a duration.
 
-```surql title="API DEFINITION"
+```surql
 duration::secs(duration) -> number
 ```
 
@@ -306,13 +201,11 @@ RETURN duration::secs(3w);
 -- 1814400
 ```
 
-<br />
-
 ## `duration::weeks`
 
 The `duration::weeks` function counts how many weeks fit into a duration.
 
-```surql title="API DEFINITION"
+```surql
 duration::weeks(duration) -> number
 ```
 
@@ -331,13 +224,11 @@ RETURN duration::weeks(3w);
 -- 3
 ```
 
-<br />
-
 ## `duration::years`
 
 The `duration::years` function counts how many years fit into a duration.
 
-```surql title="API DEFINITION"
+```surql
 duration::years(duration) -> number
 ```
 
@@ -356,13 +247,11 @@ RETURN duration::years(300w);
 -- 5
 ```
 
-<br />
-
 ## `duration::from_days`
 
 The `duration::from_days` function counts how many years fit into a duration.
 
-```surql title="API DEFINITION"
+```surql
 duration::from_days(number) -> duration
 ```
 
@@ -381,13 +270,11 @@ RETURN duration::from_days(3);
 -- 3d
 ```
 
-<br />
-
 ## `duration::from_hours`
 
 The `duration::from_hours` function converts a numeric amount of hours into a duration that represents hours.
 
-```surql title="API DEFINITION"
+```surql
 duration::from_hours(number) -> duration
 ```
 
@@ -406,13 +293,11 @@ RETURN duration::from_hours(3);
 -- 3h
 ```
 
-<br />
-
 ## `duration::from_micros`
 
 The `duration::from_micros` function converts a numeric amount of microseconds into a duration that represents microseconds.
 
-```surql title="API DEFINITION"
+```surql
 duration::from_micros(number) -> duration
 ```
 
@@ -430,13 +315,11 @@ RETURN duration::from_micros(3);
 -- 3μs
 ```
 
-<br />
-
 ## `duration::from_millis`
 
 The `duration::from_millis` function converts a numeric amount of milliseconds into a duration that represents milliseconds.
 
-```surql title="API DEFINITION"
+```surql
 duration::from_millis(number) -> duration
 ```
 
@@ -455,13 +338,11 @@ RETURN duration::from_millis(3);
 -- 3ms
 ```
 
-<br />
-
 ## `duration::from_mins`
 
 The `duration::from_mins` function converts a numeric amount of minutes into a duration that represents minutes.
 
-```surql title="API DEFINITION"
+```surql
 duration::from_mins(number) -> duration
 ```
 
@@ -480,13 +361,11 @@ RETURN duration::from_mins(3);
 -- 3m
 ```
 
-<br />
-
 ## `duration::from_nanos`
 
 The `duration::from_nanos` function converts a numeric amount of nanoseconds into a duration that represents nanoseconds.
 
-```surql title="API DEFINITION"
+```surql
 duration::from_nanos(number) -> duration
 ```
 
@@ -504,13 +383,11 @@ RETURN duration::from_nanos(3);
 -- 3ns
 ```
 
-<br />
-
 ## `duration::from_secs`
 
 The `duration::from_secs` function converts a numeric amount of seconds into a duration that represents seconds.
 
-```surql title="API DEFINITION"
+```surql
 duration::from_secs(number) -> duration
 ```
 
@@ -528,13 +405,11 @@ RETURN duration::from_secs(3);
 -- 3s
 ```
 
-<br />
-
 ## `duration::from_weeks`
 
 The `duration::from_weeks` function converts a numeric amount of weeks into a duration that represents weeks.
 
-```surql title="API DEFINITION"
+```surql
 duration::from_weeks(number) -> duration
 ```
 
@@ -551,8 +426,6 @@ RETURN duration::from_weeks(3);
 
 -- 3w
 ```
-
-<br /><br />
 
 ## Method chaining
 
@@ -577,7 +450,7 @@ duration::mins(2d6h);
 2d6h.mins();
 ```
 
-```surql title="Response"
+```surql
 3240
 ```
 
@@ -601,6 +474,6 @@ duration::mins(duration::from_millis(98734234));
 duration::from_millis(98734234).mins();
 ```
 
-```surql title="Response"
+```surql
 1645
 ```

@@ -1,11 +1,3 @@
----
-sidebar_position: 25
-sidebar_label: Record links
-title: Record links | SurrealQL
-description: One of the most powerful features of SurrealDB is the ability to traverse from record-to-record without the need for traditional SQL JOINs. Each record ID points directly to a specific record in the database.
-
----
-
 # Record links
 
 One of the most powerful features of SurrealDB is the ability to traverse from record-to-record without the need for traditional SQL JOINs. Each record ID points directly to a specific record in the database, without needing to run a table scan query. Record IDs can be stored within other records, allowing them to be linked together.

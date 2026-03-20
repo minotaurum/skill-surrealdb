@@ -1,263 +1,12 @@
----
-sidebar_position: 3
-sidebar_label: Array functions
-title: Array functions | SurrealQL
-description: These functions can be used when working with, and manipulating arrays of data.
----
-
-
 # Array functions
 
 These functions can be used when working with, and manipulating arrays of data.
-
-<table>
-  <thead>
-    <tr>
-      <th scope="col">Function</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayadd"><code>array::add()</code></a></td>
-      <td scope="row" data-label="Description">Adds an item to an array if it doesn't exist</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayall"><code>array::all()</code></a></td>
-      <td scope="row" data-label="Description">Checks whether all array values are truthy, or equal to a condition</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayany"><code>array::any()</code></a></td>
-      <td scope="row" data-label="Description">Checks whether any array value is truthy, or equal to a condition</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayat"><code>array::at()</code></a></td>
-      <td scope="row" data-label="Description">Returns value for X index, or in reverse for a negative index</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayappend"><code>array::append()</code></a></td>
-      <td scope="row" data-label="Description">Appends an item to the end of an array</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayboolean_and"><code>array::boolean_and()</code></a></td>
-      <td scope="row" data-label="Description">Perform the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND">AND</a><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND"> </a><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND">bitwise operations</a> on two arrays</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayboolean_or"><code>array::boolean_or()</code></a></td>
-      <td scope="row" data-label="Description">Perform the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_OR">OR</a><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_OR"> </a><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_OR">bitwise operations</a> on two arrays</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayboolean_xor"><code>array::boolean_xor()</code></a></td>
-      <td scope="row" data-label="Description">Perform the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR">XOR</a><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR"> </a><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR">bitwise operations</a> on two arrays</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayboolean_not"><code>array::boolean_not()</code></a></td>
-      <td scope="row" data-label="Description">Perform the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_NOT">NOT</a><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_NOT"> </a><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_NOT">bitwise operations</a> on an array</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arraycombine"><code>array::combine()</code></a></td>
-      <td scope="row" data-label="Description">Combines all values from two arrays together</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arraycomplement"><code>array::complement()</code></a></td>
-      <td scope="row" data-label="Description">Returns the complement of two arrays</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayclump"><code>array::clump()</code></a></td>
-      <td scope="row" data-label="Description">Returns the original array split into multiple arrays of X size</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayconcat"><code>array::concat()</code></a></td>
-      <td scope="row" data-label="Description">Returns the merged values from two arrays</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arraydifference"><code>array::difference()</code></a></td>
-      <td scope="row" data-label="Description">Returns the difference between two arrays</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arraydistinct"><code>array::distinct()</code></a></td>
-      <td scope="row" data-label="Description">Returns the unique items in an array</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayfill"><code>array::fill()</code></a></td>
-      <td scope="row" data-label="Description">Fills an existing array of the same value</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayfilter"><code>array::filter()</code></a></td>
-      <td scope="row" data-label="Description">Filters out values that do not match a pattern</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayfilter_index"><code>array::filter_index()</code></a></td>
-      <td scope="row" data-label="Description">Returns the indexes of all occurrences of all matching X value</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayfind"><code>array::find()</code></a></td>
-      <td scope="row" data-label="Description">Returns the first matching value</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayfind_index"><code>array::find_index()</code></a></td>
-      <td>Returns the index of the first occurrence of X value</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayfirst"><code>array::first()</code></a></td>
-      <td scope="row" data-label="Description">Returns the first item in an array</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayflatten"><code>array::flatten()</code></a></td>
-      <td scope="row" data-label="Description">Flattens multiple arrays into a single array</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayfold"><code>array::fold()</code></a></td>
-      <td scope="row" data-label="Description">Applies an operation on an initial value plus every element in the array, returning the final result.</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arraygroup"><code>array::group()</code></a></td>
-      <td scope="row" data-label="Description">Flattens and returns the unique items in an array</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayinsert"><code>array::insert()</code></a></td>
-      <td scope="row" data-label="Description">Inserts an item at the end of an array, or in a specific position</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayintersect"><code>array::intersect()</code></a></td>
-      <td scope="row" data-label="Description">Returns the values which intersect two arrays</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayis_empty"><code>array::is_empty()</code></a></td>
-      <td scope="row" data-label="Description">Checks if an array is empty</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayjoin"><code>array::join()</code></a></td>
-      <td scope="row" data-label="Description">Returns concatenated value of an array with a string in between.</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arraylast"><code>array::last()</code></a></td>
-      <td scope="row" data-label="Description">Returns the last item in an array</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arraylen"><code>array::len()</code></a></td>
-      <td scope="row" data-label="Description">Returns the length of an array</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arraylogical_and"><code>array::logical_and()</code></a></td>
-      <td scope="row" data-label="Description">Performs the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND">AND</a><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND"> </a><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND">logical operations</a> on two arrays</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arraylogical_or"><code>array::logical_or()</code></a></td>
-      <td scope="row" data-label="Description">Performs the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR">OR</a><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR"> </a><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR">logical operations</a> on two arrays</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arraylogical_xor"><code>array::logical_xor()</code></a></td>
-      <td scope="row" data-label="Description">Performs the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR">XOR</a><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR"> </a><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR">logical operations</a> on two arrays</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arraymap"><code>array::map()</code></a></td>
-      <td scope="row" data-label="Description">Applies an operation to every item in an array and passes it on</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arraymax"><code>array::max()</code></a></td>
-      <td scope="row" data-label="Description">Returns the greatest item from an array</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arraymatches"><code>array::matches()</code></a></td>
-      <td scope="row" data-label="Description">Returns an array of booleans indicating which elements of the input array contain a specified value.</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arraymin"><code>array::min()</code></a></td>
-      <td scope="row" data-label="Description">Returns the least item from an array</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arraypop"><code>array::pop()</code></a></td>
-      <td scope="row" data-label="Description">Returns the last item from an array</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayprepend"><code>array::prepend()</code></a></td>
-      <td scope="row" data-label="Description">Prepends an item to the beginning of an array</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arraypush"><code>array::push()</code></a></td>
-      <td scope="row" data-label="Description">Appends an item to the end of an array</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayrange"><code>array::range()</code></a></td>
-      <td scope="row" data-label="Description">Creates a number array from a range (start to end)</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayreduce"><code>array::reduce()</code></a></td>
-      <td scope="row" data-label="Description">Applies an operation on every element in the array, returning the final result.</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayremove"><code>array::remove()</code></a></td>
-      <td scope="row" data-label="Description">Removes an item at a specific position from an array</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayrepeat"><code>array::repeat()</code></a></td>
-      <td scope="row" data-label="Description">Creates an array a given size with a specified value used for each element.</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayreverse"><code>array::reverse()</code></a></td>
-      <td scope="row" data-label="Description">Reverses the sorting order of an array</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayshuffle"><code>array::sequence()</code></a></td>
-      <td scope="row" data-label="Description">Creates an array of sequential integers</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayshuffle"><code>array::shuffle()</code></a></td>
-      <td scope="row" data-label="Description">Randomly shuffles the contents of an array</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayslice"><code>array::slice()</code></a></td>
-      <td scope="row" data-label="Description">Returns a slice of an array</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arraysort"><code>array::sort()</code></a></td>
-      <td scope="row" data-label="Description">Sorts the values in an array in ascending or descending order</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arraysort_lexical"><code>array::sort_lexical()</code></a></td>
-      <td scope="row" data-label="Description">Sorts the values in an array, with strings sorted lexically</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arraysort_natural"><code>array::sort_natural()</code></a></td>
-      <td scope="row" data-label="Description">Sorts the values in an array, with numeric strings sorted numerically</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arraysort_natural_lexical"><code>array::sort_natural_lexical()</code></a></td>
-      <td scope="row" data-label="Description">Sorts the values in an array, applying both natural numeric and lexical ordering to strings</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arraysortasc"><code>array::sort::asc()</code></a></td>
-      <td scope="row" data-label="Description">Sorts the values in an array in ascending order</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arraysortdesc"><code>array::sort::desc()</code></a></td>
-      <td scope="row" data-label="Description">Sorts the values in an array in descending order</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayswap"><code>array::swap()</code></a></td>
-      <td scope="row" data-label="Description">Swaps two items in an array</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arraytranspose"><code>array::transpose()</code></a></td>
-      <td scope="row" data-label="Description">Performs 2d array transposition on arrays</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arrayunion"><code>array::union()</code></a></td>
-      <td scope="row" data-label="Description">Returns the unique merged values from two arrays</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#arraywindows"><code>array::windows()</code></a></td>
-      <td scope="row" data-label="Description">Returns a number of arrays of length `size` created by moving one index at a time down the original array</td>
-    </tr>
-  </tbody>
-</table>
 
 ## `array::add`
 
 The `array::add` function adds an item to an array only if it doesn't exist.
 
-```surql title="API DEFINITION"
+```surql
 array::add(array, $new_val: value) -> array
 ```
 
@@ -284,13 +33,11 @@ If the item to add is an array, it will add each item of the array instead of th
 -- [1, 2, 3, 4]
 ```
 
-<br />
-
 ## `array::all`
 
 When called on an array without any extra arguments, the `array::all` function checks whether all array values are [truthy](/docs/surrealql/datamodel/values#values-and-truthiness).
 
-```surql title="API DEFINITION"
+```surql
 array::all(array) -> bool
 array::all(array, $predicate: value) -> bool
 array::all(array, $predicate: closure) -> bool
@@ -356,13 +103,11 @@ The `array::all` function can also be called using its alias `array::every`.
 -- true
 ```
 
-<br />
-
 ## `array::any`
 
 The `array::any` function checks whether any array values are [truthy](/docs/surrealql/datamodel/values#values-and-truthiness).
 
-```surql title="API DEFINITION"
+```surql
 array::any(array) -> bool
 array::any(array, $predicate: value) -> bool
 array::any(array, $predicate: closure) -> bool
@@ -441,13 +186,11 @@ value = "false"
 -- false
 ```
 
-<br />
-
 ## `array::at`
 
 The `array::at` function returns the value at the specified index, or in reverse for a negative index.
 
-```surql title="API DEFINITION"
+```surql
 array::at(array, $index: int) -> any
 ```
 
@@ -481,13 +224,11 @@ RETURN array::at(['s', 'u', 'r', 'r', 'e', 'a', 'l'], -3);
 -- 'e'
 ```
 
-<br />
-
 ## `array::append`
 
 The `array::append` function appends a value to the end of an array.
 
-```surql title="API DEFINITION"
+```surql
 array::append(array, $new_val: value) -> array
 ```
 
@@ -506,14 +247,12 @@ RETURN array::append([1, 2, 3, 4], 5);
 -- [1, 2, 3, 4, 5]
 ```
 
-<br />
-
 ## `array::boolean_and`
 
 The `array::boolean_and` function performs the [`AND` `bitwise operations`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND) on the input arrays per-element based on the element's truthiness.
 If one array is shorter than the other it is considered null and thus false.
 
-```surql title="API DEFINITION"
+```surql
 array::boolean_and($lh: array, $rh: array)
 ```
 
@@ -559,14 +298,12 @@ RETURN array::boolean_and([true, true], [false]);
 -- [ false, false ]
 ```
 
-<br />
-
 ## `array::boolean_or`
 
 The `array::boolean_or` function performs the [OR bitwise operations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_OR) on the input arrays per-element based on the element's truthiness.
 It takes two arrays and if one array is shorter than the other or missing, the output is considered null and thus false.
 
-```surql title="API DEFINITION"
+```surql
 array::boolean_or($lh: array, $rh: array)
 ```
 
@@ -594,13 +331,11 @@ RETURN array::boolean_or([false, true, false, true], [false, false, true, true])
 -- [false, true, true, true]
 ```
 
-<br />
-
 ## `array::boolean_xor`
 
 The `array::boolean_xor` function performs the [XOR bitwise operations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR).
 
-```surql title="API DEFINITION"
+```surql
 array::boolean_xor($lh: array, $rh: array)
 ```
 
@@ -628,14 +363,12 @@ RETURN array::boolean_xor([false, true, false, true], [false, false, true, true]
 -- [false, true, true, false]
 ```
 
-<br />
-
 ## `array::boolean_not`
 
 The `array::boolean_not` function performs the [`NOT bitwise operations`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_NOT) on the input array(s) per-element based on the element's truthiness.
 It takes in one array and it returns false if its single operand can be converted to true.
 
-```surql title="API DEFINITION"
+```surql
 array::boolean_not(array)
 ```
 
@@ -662,13 +395,11 @@ RETURN array::boolean_not([ false, true, 0, 1 ]);
 -- [true, false, true, false]
 ```
 
-<br />
-
 ## `array::combine`
 
 The `array::combine` function combines all values from two arrays together, returning an array of arrays.
 
-```surql title="API DEFINITION"
+```surql
 array::combine(array, $other: array) -> array
 ```
 
@@ -687,13 +418,11 @@ RETURN array::combine([1, 2], [2, 3]);
 -- [ [1, 2], [1, 3], [2, 2], [2, 3] ]
 ```
 
-<br />
-
 ## `array::complement`
 
 The `array::complement` function returns the complement of two arrays, returning a single array containing items which are not in the second array.
 
-```surql title="API DEFINITION"
+```surql
 array::complement(array, $other: array) -> array
 ```
 
@@ -712,13 +441,11 @@ RETURN array::complement([1, 2, 3, 4], [3, 4, 5, 6]);
 -- [1, 2]
 ```
 
-<br />
-
 ## `array::concat`
 
 The `array::concat` function merges an array with one or more arrays, returning an array which may contain duplicate values. If you want to remove duplicate values from two merged arrays, then use the [`array::union()`](/docs/surrealql/functions/database/array#arrayunion) function.
 
-```surql title="API DEFINITION"
+```surql
 array::concat(array, $other: array, ..) -> array
 ```
 
@@ -754,13 +481,11 @@ RETURN [1, 2, 3, 4] + [3, 4, 5, 6];
 -- [ 1, 2, 3, 4, 3, 4, 5, 6 ]
 ```
 
-<br />
-
 ## `array::clump`
 
 The `array::clump` function returns the original array split into sub-arrays of `size`. The last sub-array may have a length less than the length of `size` if `size` does not divide equally into the original array.
 
-```surql title="API DEFINITION"
+```surql
 array::clump(array, $size: int) -> array
 ```
 
@@ -785,18 +510,16 @@ RETURN array::clump($array, 2);
 RETURN array::clump($array, 3);
 ```
 
-```surql title="Response"
+```surql
 -- [ [ 1, 2], [3, 4] ]
 -- [ [1, 2, 3], [4] ]
 ```
-
-<br />
 
 ## `array::difference`
 
 The `array::difference` function determines the difference between two arrays, returning a single array containing items which are not in both arrays.
 
-```surql title="API DEFINITION"
+```surql
 array::difference(array, $other: array) -> array
 ```
 
@@ -815,13 +538,11 @@ RETURN array::difference([1, 2, 3, 4], [3, 4, 5, 6]);
 -- [ 1, 2, 5, 6 ]
 ```
 
-<br />
-
 ## `array::distinct`
 
 The `array::distinct` function calculates the unique values in an array, returning a single array.
 
-```surql title="API DEFINITION"
+```surql
 array::distinct(array) -> array
 ```
 
@@ -840,19 +561,17 @@ RETURN array::distinct([ 1, 2, 1, 3, 3, 4 ]);
 -- [ 1, 2, 3, 4 ]
 ```
 
-<br />
-
 ## `array::fill`
 
 The `array::fill` function replaces all values of an array with a new value.
 
-```surql title="API DEFINITION"
+```surql
 array::fill(array, $with: any) -> array
 ```
 
 The function also accepts a third and a fourth parameter which allows you to replace only a portion of the source array.
 
-```surql title="API DEFINITION"
+```surql
 array::fill(array, $with: any, $start: int, $end: int) -> array
 ```
 
@@ -901,13 +620,11 @@ RETURN array::fill([ 1, 2, NONE, 4, 5 ], 10, -3, -2);
 -- [ 1, 2, 10, 4, 5 ]
 ```
 
-<br />
-
 ## `array::filter`
 
 The `array::filter` function filters out values in an array that do not match a pattern, returning only the ones that do match.
 
-```surql title="API DEFINITION"
+```surql
 array::filter(array, $predicate: value) -> array
 array::filter(array, $predicate: closure) -> array
 ```
@@ -950,7 +667,7 @@ value = "[{ importance: 10, message: 'I need some help with this query...' }, { 
 ].filter(|$v| $v.importance > 5);
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		importance: 10,
@@ -1004,7 +721,7 @@ FROM person)
     .filter(|$person| $person.is_seen_by);
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		id: person:two,
@@ -1015,13 +732,11 @@ FROM person)
 ]
 ```
 
-<br />
-
 ## `array::filter_index`
 
 The `array::filter_index` function returns the indexes of all occurrences of all matching values.
 
-```surql title="API DEFINITION"
+```surql
 array::filter_index(array, $predicate: value) -> array
 array::filter_index(array, $predicate: closure) -> array
 ```
@@ -1064,17 +779,15 @@ value = "[0, 3]"
 ].filter_index(|$v| $v.importance > 5);
 ```
 
-```surql title="Response"
+```surql
 [0, 3]
 ```
-
-<br />
 
 ## `array::find`
 
 The `array::find` function returns the first occurrence of `value` in the array or `NONE` if `array` does not contain `value`.
 
-```surql title="API DEFINITION"
+```surql
 array::find(array, $predicate: value)   -> value | NONE
 array::find(array, $predicate: closure) -> value | NONE
 ```
@@ -1124,7 +837,7 @@ RETURN [1, 2, 5].find(|$num| $num >= 3);
 ].find(|$c| $c.strength > 9 AND $c.intelligence > 9);
 ```
 
-```surql title="Response"
+```surql
 -------- Query --------
 
 5
@@ -1138,13 +851,11 @@ RETURN [1, 2, 5].find(|$num| $num >= 3);
 }
 ```
 
-<br />
-
 ## `array::find_index`
 
 The `array::find_index` function returns the index of the first occurrence of `value` in the array or `NONE` if `array` does not contain `value`.
 
-```surql title="API DEFINITION"
+```surql
 array::find_index(array, $predicate: value)   -> number | NONE
 array::find_index(array, $predicate: closure) -> number | NONE
 ```
@@ -1197,13 +908,11 @@ value = "3"
 -- 3
 ```
 
-<br />
-
 ## `array::first`
 
 The `array::first` function returns the first value from an array.
 
-```surql title="API DEFINITION"
+```surql
 array::first(array) -> any
 ```
 
@@ -1222,13 +931,11 @@ RETURN array::first([ 's', 'u', 'r', 'r', 'e', 'a', 'l' ]);
 -- 's'
 ```
 
-<br />
-
 ## `array::flatten`
 
 The `array::flatten` function flattens an array of arrays, returning a new array with all sub-array elements concatenated into it.
 
-```surql title="API DEFINITION"
+```surql
 array::flatten(array) -> array
 ```
 
@@ -1245,17 +952,15 @@ value = "[1, 2, 3, 4, 'SurrealDB', 5, 6, [7, 8]]"
 RETURN array::flatten([ [1, 2], [3, 4], 'SurrealDB', [5, 6, [7, 8]] ]);
 ```
 
-```surql title="Response"
+```surql
 [ 1, 2, 3, 4, 'SurrealDB', 5, 6, [7, 8] ]
 ```
-
-<br />
 
 ## `array::fold`
 
 The `array::fold` function returns a final value from the elements of an array by allowing an operation to be performed at each step of the way as each subsequent item in the array is encountered. To use `array::fold`, pass in an initial value, followed by parameter names for the current value and the next value and an operation to perform on them. If you only want to perform an operation on each item and do not need an initial value, use the [`array::reduce`](/docs/surrealql/functions/database/array#arrayreduce) function instead.
 
-```surql title="API DEFINITION"
+```surql
 array::fold(array, $initial_value: value, $operator: closure) -> value
 ```
 
@@ -1295,7 +1000,7 @@ value = "'gnirts sdrawrof a ma I'"
   .fold("", |$one, $two| $two + $one);
 ```
 
-```surql title="Output"
+```surql
 'gnirts sdrawrof a ma I'
 ```
 
@@ -1314,7 +1019,7 @@ value = ""_I_don't_like_whitespace""
   .fold("", |$one, $two| $one + "_" + $two);
 ```
 
-```surql title="Output"
+```surql
 "_I_don't_like_whitespace"
 ```
 
@@ -1333,7 +1038,7 @@ value = ""I_don't_like_whitespace""
   .fold("", |$one, $two, $index| IF $index = 0 { $one + $two } ELSE { $one + "_" + $two });
 ```
 
-```surql title="Output"
+```surql
 "I_don't_like_whitespace"
 ```
 
@@ -1415,7 +1120,7 @@ Final result:
 
 The `array::group` function flattens and returns the unique items in an array.
 
-```surql title="API DEFINITION"
+```surql
 array::group(array) -> array
 ```
 
@@ -1434,13 +1139,11 @@ RETURN array::group([1, 2, 3, 4, [3, 5, 6], [2, 4, 5, 6], 7, 8, 8, 9]);
 -- [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 ```
 
-<br />
-
 ## `array::insert`
 
 The `array::insert` function inserts a value into an array.
 
-```surql title="API DEFINITION"
+```surql
 array::insert(array, $insert: value) -> array
 array::insert(array, $insert: value, $position: int) -> array
 ```
@@ -1478,13 +1181,11 @@ array::insert([1, 2, 3, 4], 'and me', -1);
 
 A negative index can be provided to specify a position relative to the end of the array.
 
-<br />
-
 ## `array::intersect`
 
 The `array::intersect` function calculates the values which intersect two arrays, returning a single array containing the values which are in both arrays.
 
-```surql title="API DEFINITION"
+```surql
 array::intersect(array, $other: array) -> array
 ```
 
@@ -1503,19 +1204,17 @@ RETURN array::intersect([1, 2, 3, 4], [3, 4, 5, 6]);
 -- [ 3, 4 ]
 ```
 
-<br />
-
 ## `array::is_empty`
 
 The `array::is_empty` function checks whether the array contains values.
 
-```surql title="API DEFINITION"
+```surql
 array::is_empty(array) -> bool
 ```
 
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
 
-```surql title="An array that contain values"
+```surql
 /**[test]
 
 [[test.results]]
@@ -1528,7 +1227,7 @@ RETURN array::is_empty([1, 2, 3, 4]);
 -- false
 ```
 
-```surql title="An empty array"
+```surql
 /**[test]
 
 [[test.results]]
@@ -1541,13 +1240,11 @@ RETURN array::is_empty([]);
 -- true
 ```
 
-<br />
-
 ## `array::join`
 
 The `array::join` function takes an array and a string as parameters and returns a concatenated string.
 
-```surql title="API DEFINITION"
+```surql
 array::join(array, $concat_with: string) -> string
 ```
 
@@ -1566,13 +1263,11 @@ RETURN array::join(["again", "again", "again"], " and ");
 -- "again and again and again"
 ```
 
-<br />
-
 ## `array::last`
 
 The `array::last` function returns the last value from an array.
 
-```surql title="API DEFINITION"
+```surql
 array::last(array) -> any
 ```
 
@@ -1591,13 +1286,11 @@ RETURN array::last([ 's', 'u', 'r', 'r', 'e', 'a', 'l' ]);
 -- 'l'
 ```
 
-<br />
-
 ## `array::len`
 
 The `array::len` function calculates the length of an array, returning a number. This function includes all items when counting the number of items in the array. If you want to only count [truthy](/docs/surrealql/datamodel/values#values-and-truthiness) values, then use the [count()](/docs/surrealql/functions/database/count) function.
 
-```surql title="API DEFINITION"
+```surql
 array::len(array) -> number
 ```
 
@@ -1616,8 +1309,6 @@ RETURN array::len([ 1, 2, 1, null, "something", 3, 3, 4, 0 ]);
 -- 9
 ```
 
-<br />
-
 ## `array::logical_and`
 
 The `array::logical_and` function performs the [`AND` logical operation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND) element-wise between two arrays.
@@ -1627,7 +1318,7 @@ When both of the compared elements are truthy, the resulting element will have t
 
 When one or both of the compared elements are not truthy, the resulting element will have the type and value of one of the non-truthy value(s), prioritizing the value and type of the element from the left hand side (the first array).
 
-```surql title="API DEFINITION"
+```surql
 array::logical_and($lh: array, $rh: array)
 ```
 
@@ -1673,8 +1364,6 @@ RETURN array::logical_and([0, 1], [])
 -- [ 0, NULL ]
 ```
 
-<br />
-
 ## `array::logical_or`
 
 The `array::logical_or` function performs the [`OR` logical operations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR) element-wise between two arrays.
@@ -1685,7 +1374,7 @@ When one or both of the compared elements are truthy, the resulting element will
 
 When both of the compared elements are not truthy, the resulting element will have the type and value of one of the non-truthy values, prioritizing the value and type of the element from the left hand side (the first array).
 
-```surql title="API DEFINITION"
+```surql
 array::logical_or($lh: array, $rh: array)
 ```
 
@@ -1721,8 +1410,6 @@ RETURN array::logical_or([0, 1], []);
 [ 0, 1 ]
 ```
 
-<br />
-
 ## `array::logical_xor`
 
 The `array::logical_xor` function performs the [`XOR` logical operations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR) element-wise between two arrays.
@@ -1735,7 +1422,7 @@ When both of the compared elements are truthy, the resulting element will be the
 
 When neither of the compared elements are truthy, the resulting element will have the type and value of one of the non-truthy values, prioritizing the value and type of the element from the left hand side (the first array).
 
-```surql title="API DEFINITION"
+```surql
 array::logical_xor($lh: array, $rh: array)
 ```
 
@@ -1780,13 +1467,11 @@ RETURN array::logical_xor([0, 1], [])
 -- [ 0, 1 ]
 ```
 
-<br />
-
 ## `array::map`
 
 The `array::map` function allows the user to call an [anonymous function](/docs/surrealql/datamodel/closures) (closure) that is performed on every item in the array before passing it on.
 
-```surql title="API DEFINITION"
+```surql
 array::map(array, $operator: closure) -> array;
 ```
 
@@ -1804,7 +1489,7 @@ value = "[2, 4, 6]"
 [1, 2, 3].map(|$v| $v * 2);
 ```
 
-```surql title="Response"
+```surql
 [
   2,
   4,
@@ -1832,7 +1517,7 @@ value = "[{ is_even: false, value: 1 }, { is_even: true, value: 2 }, { is_even: 
 });
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		is_even: false,
@@ -1878,7 +1563,7 @@ error = ""Couldn't coerce return value from function `ANONYMOUS`: Expected `int`
 [1, 2, 3].map(|$num: int| -> int { $num + 1.1 });
 ```
 
-```surql title="Response"
+```surql
 "Couldn't coerce return value from function `ANONYMOUS`: Expected `int` but found `2.1f`"
 ```
 
@@ -1900,7 +1585,7 @@ value = "['0: first used in the year 876', '1: the number of moons in the sky', 
   .map(|$item, $index| <string>$index + $item);
 ```
 
-```surql title="Response"
+```surql
 [
 	'0: first used in the year 876',
 	'1: the number of moons in the sky',
@@ -1920,7 +1605,7 @@ For a similar function that allows using a closure on entire values instead of e
 
 The `array::max` function returns the greatest value from an array of values.
 
-```surql title="API DEFINITION"
+```surql
 array::max(array<any>) -> any
 ```
 
@@ -1965,7 +1650,7 @@ See also:
 
 The `array::matches` function returns an array of booleans indicating which elements of the input array contain a specified value.
 
-```surql title="API DEFINITION"
+```surql
 array::matches(array, $predicate: value) -> array<bool>
 ```
 
@@ -2010,13 +1695,11 @@ RETURN array::matches([{id: r"ohno:0"}, {id: r"ohno:1"}], {id: r"ohno:1"});
 -- [false, true]
 ```
 
-<br />
-
 ## `array::min`
 
 The `array::min` function returns the least value from an array of values.
 
-```surql title="API DEFINITION"
+```surql
 array::min(array<any>) -> any
 ```
 
@@ -2060,7 +1743,7 @@ See also:
 
 The `array::pop` function removes a value from the end of an array and returns it. If the array is empty, NONE is returned.
 
-```surql title="API DEFINITION"
+```surql
 array::pop(array) -> value
 ```
 
@@ -2079,13 +1762,11 @@ RETURN array::pop([ 1, 2, 3, 4 ]);
 -- 4
 ```
 
-<br />
-
 ## `array::prepend`
 
 The `array::prepend` function prepends a value to the beginning of an array.
 
-```surql title="API DEFINITION"
+```surql
 array::prepend(array, $new_val: value) -> array
 ```
 
@@ -2104,13 +1785,11 @@ RETURN array::prepend([1, 2, 3, 4], 5);
 -- [ 5, 1, 2, 3, 4 ]
 ```
 
-<br />
-
 ## `array::push`
 
 The `array::push` function appends a value to the end of an array.
 
-```surql title="API DEFINITION"
+```surql
 array::push(array, $new_val: value) -> array
 ```
 
@@ -2129,13 +1808,11 @@ RETURN array::push([1, 2, 3, 4], 5);
 -- [ 1, 2, 3, 4, 5 ]
 ```
 
-<br />
-
 ## `array::range`
 
 The `array::range` function creates an array of numbers from a given range.
 
-```surql title="API DEFINITION"
+```surql
 array::range($start: int, $end: int) -> array
 -- Also since 3.0.0-beta
 array::range(range) -> array;
@@ -2169,13 +1846,11 @@ RETURN array::range(1..=5);
 [ 1, 2, 3, 4, 5 ]
 ```
 
-<br />
-
 ## `array::reduce`
 
 The `array::reduce` function reduces the elements of an array to a single final value by allowing an operation to be performed at each step of the way as each subsequent item in the array is encountered. To use `array::reduce`, pass in parameter names for the current value and the next value and an operation to perform on them. If you need an initial value to pass in before the other items are operated on, use the [`array::fold`](/docs/surrealql/functions/database/array#arrayfold) function instead.
 
-```surql title="API DEFINITION"
+```surql
 array::reduce(array, $operator: closure) -> value
 ```
 
@@ -2213,7 +1888,7 @@ value = "'gnirts sdrawrof a ma I'"
   .reduce(|$one, $two| $two + $one);
 ```
 
-```surql title="Output"
+```surql
 'gnirts sdrawrof a ma I'
 ```
 
@@ -2232,7 +1907,7 @@ value = ""I_don't_like_whitespace""
   .reduce(|$one, $two| $one + "_" + $two);
 ```
 
-```surql title="Output"
+```surql
 "I_don't_like_whitespace"
 ```
 
@@ -2271,7 +1946,7 @@ value = "{ money: 11650, name: 'Daughter and Father and Grandfather and Great-gr
 });
 ```
 
-```surql title="Output"
+```surql
 {
 	money: 1650,
 	name: 'Daughter and Father and Grandfather'
@@ -2282,7 +1957,7 @@ value = "{ money: 11650, name: 'Daughter and Father and Grandfather and Great-gr
 
 The `array::remove` function removes an item from a specific position in an array. A negative index can be provided to specify a position relative to the end of the array.
 
-```surql title="API DEFINITION"
+```surql
 array::remove(array, $index: number) -> array
 ```
 
@@ -2316,13 +1991,11 @@ RETURN array::remove([1, 2, 3, 4, 5], -2);
 -- [ 1, 2, 3, 5 ]
 ```
 
-<br />
-
 ## `array::repeat`
 
 The `array::repeat` function creates an array of a given size contain the specified value for each element.
 
-```surql title="API DEFINITION"
+```surql
 array::repeat(any, $count: int) -> array
 ```
 
@@ -2354,13 +2027,11 @@ RETURN array::repeat("hello", 2);
 -- [ "hello", "hello" ]
 ```
 
-<br />
-
 ## `array::reverse`
 
 The `array::reverse` function reverses the sorting order of an array.
 
-```surql title="API DEFINITION"
+```surql
 array::reverse(array) -> array
 ```
 
@@ -2379,13 +2050,11 @@ RETURN array::reverse([ 1, 2, 3, 4, 5 ]);
 -- [ 5, 4, 3, 2, 1 ]
 ```
 
-<br />
-
 ## `array::sequence`
 
 The `array::sequence` function creates an array of sequential integers.
 
-```surql title="API DEFINITION"
+```surql
 array::sequence($length: int) -> array
 array::sequence($start: int, $length: int) -> array
 ```
@@ -2408,7 +2077,7 @@ array::sequence(-5, 6);
 
 The `array::shuffle` function randomly shuffles the items of an array.
 
-```surql title="API DEFINITION"
+```surql
 array::shuffle(array) -> array
 ```
 
@@ -2427,13 +2096,11 @@ RETURN array::shuffle([ 1, 2, 3, 4, 5 ]);
 -- [ 2, 1, 4, 3, 5 ]
 ```
 
-<br />
-
 ## `array::slice`
 
 The `array::slice` function returns a slice of an array, based on a starting position, and a length or negative position.
 
-```surql title="API DEFINITION"
+```surql
 array::slice(array, $start: int, $len: int) -> array
 -- Also since 3.0.0-beta
 array::slice(array, $slice: range) -> array;
@@ -2522,25 +2189,23 @@ value = "['c', 'd']"
 -- [ 'c', 'd' ]
 ```
 
-<br />
-
 ## `array::sort`
 
 The `array::sort` function sorts the values in an array in ascending or descending order.
 
-```surql title="API DEFINITION"
+```surql
 array::sort(array) -> array
 ```
 
 The function also accepts a second boolean parameter which determines the sorting direction. The second parameter can be `true` for ascending order, or `false` for descending order.
 
-```surql title="API DEFINITION"
+```surql
 array::sort(array, $asc: bool) -> array
 ```
 
 The function also accepts a second string parameter which determines the sorting direction. The second parameter can be `'asc'` for ascending order, or `'desc'` for descending order.
 
-```surql title="API DEFINITION"
+```surql
 array::sort(array, $order: string) -> array
 ```
 
@@ -2602,19 +2267,19 @@ RETURN array::sort([1, 2, 1, null, "something", 3, 3, 4, 0], "desc");
 
 The `array::sort_natural_lexical` function sorts the values in an array in ascending or descending order, with alphabetical strings sorted in lexical order instead of unicode list order.
 
-```surql title="API DEFINITION"
+```surql
 array::sort_lexical(array) -> array
 ```
 
 The function also accepts a second boolean parameter which determines the sorting direction. The second parameter can be `true` for ascending order, or `false` for descending order.
 
-```surql title="API DEFINITION"
+```surql
 array::sort_lexical(array, $asc: bool) -> array
 ```
 
 The function also accepts a second string parameter which determines the sorting direction. The second parameter can be `'asc'` for ascending order, or `'desc'` for descending order.
 
-```surql title="API DEFINITION"
+```surql
 array::sort_lexical(array, $order: string) -> array
 ```
 
@@ -2635,7 +2300,7 @@ value = "['Álvares', 'Obrigado', 'senhor']"
 ['Obrigado', 'senhor', 'Álvares'].sort_lexical();
 ```
 
-```surql title="Output"
+```surql
 -------- Query 1 (443.209µs) --------
 
 [ 'Obrigado', 'senhor', 'Álvares' ]
@@ -2649,19 +2314,19 @@ value = "['Álvares', 'Obrigado', 'senhor']"
 
 The `array::sort_natural` function sorts the values in an array in ascending or descending order, with numeric strings sorted in numeric order instead of regular string order.
 
-```surql title="API DEFINITION"
+```surql
 array::sort_natural(array) -> array
 ```
 
 The function also accepts a second boolean parameter which determines the sorting direction. The second parameter can be `true` for ascending order, or `false` for descending order.
 
-```surql title="API DEFINITION"
+```surql
 array::sort_natural(array, $asc: bool) -> array
 ```
 
 The function also accepts a second string parameter which determines the sorting direction. The second parameter can be `'asc'` for ascending order, or `'desc'` for descending order.
 
-```surql title="API DEFINITION"
+```surql
 array::sort_natural(array, $order: string) -> array
 ```
 
@@ -2684,7 +2349,7 @@ value = "[8, 9, 10, '2.2', '3', '11']"
 [8, 9, 10, '3', '2.2', '11'].sort_natural();
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 [ 8, 9, 10, '11', '2.2', '3' ]
@@ -2698,19 +2363,19 @@ value = "[8, 9, 10, '2.2', '3', '11']"
 
 The `array::sort_natural_lexical` function sorts the values in an array in ascending or descending order, while sorting numeric strings in numeric order and alphabetical strings in lexical order.
 
-```surql title="API DEFINITION"
+```surql
 array::sort_natural_lexical(array) -> array
 ```
 
 The function also accepts a second boolean parameter which determines the sorting direction. The second parameter can be `true` for ascending order, or `false` for descending order.
 
-```surql title="API DEFINITION"
+```surql
 array::sort_natural_lexical(array, $asc: bool) -> array
 ```
 
 The function also accepts a second string parameter which determines the sorting direction. The second parameter can be `'asc'` for ascending order, or `'desc'` for descending order.
 
-```surql title="API DEFINITION"
+```surql
 array::sort_natural_lexical(array, $order: string) -> array
 ```
 
@@ -2731,7 +2396,7 @@ value = "[8, 9, 10, '2.2', '3', '11', 'Álvares', 'Obrigado', 'senhor']"
 ['Obrigado', 'senhor', 'Álvares', 8, 9, 10, '3', '2.2', '11'].sort_natural_lexical();
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 [ 8, 9, 10, '11', '2.2', '3', 'Obrigado', 'senhor', 'Álvares' ]
@@ -2745,7 +2410,7 @@ value = "[8, 9, 10, '2.2', '3', '11', 'Álvares', 'Obrigado', 'senhor']"
 
 The `array::sort::asc` function is a shorthand convenience function for the `array::sort` function, to sort values in an array in ascending order.
 
-```surql title="API DEFINITION"
+```surql
 array::sort::asc(array) -> array
 ```
 
@@ -2764,13 +2429,11 @@ RETURN array::sort::asc([ 1, 2, 1, null, "something", 3, 3, 4, 0 ]);
 -- [ null, 0, 1, 1, 2, 3, 3, 4, "something" ]
 ```
 
-<br />
-
 ## `array::sort::desc`
 
 The `array::sort::desc` function is a shorthand convenience function for the `array::sort` function, to sort values in an array in descending order.
 
-```surql title="API DEFINITION"
+```surql
 array::sort::desc(array) -> array
 ```
 
@@ -2789,13 +2452,11 @@ RETURN array::sort::desc([ 1, 2, 1, null, "something", 3, 3, 4, 0 ]);
 -- [ "something", 4, 3, 3, 2, 1, 1, 9, null ]
 ```
 
-<br />
-
 ## `array::swap`
 
 The `array::swap` function swaps two values of an array based on indexes.
 
-```surql title="API DEFINITION"
+```surql
 array::swap(array, $from: int, $to: int) -> array
 ```
 
@@ -2812,7 +2473,7 @@ value = "["What's", 'it', 'got', 'in', 'its', 'pocketses?']"
 RETURN array::swap(["What's", "its", "got", "in", "it", "pocketses?"], 1, 4);
 ```
 
-```surql title="Output"
+```surql
 [
 	"What's",
 	'it',
@@ -2851,17 +2512,15 @@ error = "'Incorrect arguments for function array::swap(). Argument 1 is out of r
 RETURN array::swap([0, 1], 100, 1000000);
 ```
 
-```surql title="Output"
+```surql
 'Incorrect arguments for function array::swap(). Argument 1 is out of range. Expected a number between -2 and 2'
 ```
-
-<br />
 
 ## `array::transpose`
 
 The `array::transpose` function is used to perform 2d array transposition but its behavior in cases of arrays of differing sizes can be best described as taking in multiple arrays and 'layering' them on top of each other.
 
-```surql title="API DEFINITION"
+```surql
 array::transpose(array<array>) -> array<array>
 ```
 
@@ -2942,7 +2601,7 @@ value = "[['Name', 'Billy', 'Alice'], ['Age', 25, 30]]"
 [["Name", "Age"], ["Billy", 25], ["Alice", 30]].transpose();
 ```
 
-```surql title="Output"
+```surql
 [
 	[
 		'Name',
@@ -3043,7 +2702,7 @@ value = "[['Movie', 'Bad guy'], ['Avengers: Infinity War', 'Thanos'], ['Groundho
 ].transpose().transpose();
 ```
 
-```surql title="Output"
+```surql
 [
 	[
 		'Movie',
@@ -3068,7 +2727,7 @@ value = "[['Movie', 'Bad guy'], ['Avengers: Infinity War', 'Thanos'], ['Groundho
 
 The `array::union` function combines two arrays together, removing duplicate values, and returning a single array.
 
-```surql title="API DEFINITION"
+```surql
 array::union(array, $other: array) -> array
 ```
 
@@ -3087,11 +2746,9 @@ RETURN array::union([1, 2, 1, 6], [1, 3, 4, 5, 6]);
 -- [ 1, 2, 6, 3, 4, 5 ]
 ```
 
-<br /><br />
-
 ## `array::windows`
 
-```surql title="API DEFINITION"
+```surql
 array::windows(array, $window_size: int) -> array
 ```
 
@@ -3118,7 +2775,7 @@ RETURN array::windows($array, 2);
 RETURN array::windows($array, 5);
 ```
 
-```surql title="Response"
+```surql
 [ [1, 2], [2, 3], [3, 4] ];
 [];
 ```
@@ -3176,7 +2833,7 @@ array::push(["Again", "again"], "again");
 ["Again", "again"].push("again");
 ```
 
-```surql title="Response"
+```surql
 ["Again", "again", "again"]
 ```
 
@@ -3200,6 +2857,6 @@ array::join(array::push(["Again", "again"], "again"), " and ");
 ["Again", "again"].push("again").join(" and ");
 ```
 
-```surql title="Response"
+```surql
 "Again and again and again"
 ```

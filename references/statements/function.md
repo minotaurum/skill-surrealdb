@@ -1,11 +1,3 @@
----
-sidebar_position: 9
-sidebar_label: DEFINE FUNCTION
-title: DEFINE FUNCTION statement | SurrealQL
-description: The DEFINE FUNCTION statement allows you to define custom functions that can be reused throughout a database.
----
-
-
 # `DEFINE FUNCTION` statement
 
 The `DEFINE FUNCTION` statement allows you to define custom functions that can be reused throughout a database. When using the `DEFINE FUNCTION` statement, you can define a function that takes one or more arguments and returns a value. You can then call this function in other SurrealQL statements.
@@ -157,7 +149,7 @@ fn::combine_any("one", "two");
 
 While both of these return an error, the output of the second function happens only at the point that it attempts to return the combined arguments to the function.
 
-```surql title="Output"
+```surql
 -------- Query 1 --------
 "Expected `number` but found `'one'`"
 
@@ -183,7 +175,7 @@ fn::age_and_name(1);
 fn::age_and_name(2);
 ```
 
-```surql title="Output"
+```surql
 -------- Query 1 --------
 
 { age: 15, name: 'Billy' }
@@ -240,14 +232,6 @@ SELECT id, ->to->? FROM person;
 
 The last query [can be viewed graphically](/blog/whats-new-in-surrealist-3-2#graph-visualisation) inside Surrealist, leading to an output showing a seven-pointed star.
 
-<Image
-  alt="An image of a seven-pointed star created visually by relating seven records to each other and displayed inside Surrealist's graph view."
-  src={{
-    light: RecursiveStar,
-    dark: RecursiveStar,
-  }}
-/>
-
 ## Permissions
 
 You can set the permissions for a custom function using the `PERMISSIONS` clause. The `PERMISSIONS` clause is mostly used to restrict who can access a function and what data they can access. It can be set to `NONE`, `FULL`, or `WHERE @condition`.
@@ -262,8 +246,6 @@ You can set the permissions for a custom function using the `PERMISSIONS` clause
 ### Using the `FULL` permission
 
 The `FULL` permission grants all users access to the function. The following example defines a function that fetches all products from the `product` table and grants the function full permissions to access the data to all users.
-
-<SurrealistMini url="https://app.surrealdb.com/mini?query=--+Define+a+function+to+fetch+all+products.+All+users+can+access+this+function%0ADEFINE+FUNCTION+fn%3A%3AfetchAllProducts%28%29+%7B%0A%09RETURN+%28SELECT+*+FROM+product+LIMIT+10%29%3B%0A%7D+PERMISSIONS+FULL%3B%0A%0A--+Returns%3A+The+first+10+products+in+the+product+table%0ARETURN+fn%3A%3AfetchAllProducts%28%29%3B&dataset=surreal-deal-store&orientation=horizontal"/>
 
 ### Using the `NONE` permission
 

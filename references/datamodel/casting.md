@@ -1,146 +1,6 @@
----
-sidebar_position: 21
-sidebar_label: Casting
-title: Casting | SurrealQL
-description: In the SurrealDB type system, values can be converted to other values efficiently.
-
----
-
-
 # Casting
 
 In the SurrealDB type system, values can be converted to other values efficiently. This is useful if input is specified in a query which must be of a certain type, or if a user may have provided a parameter with an incorrect type.
-
-<Table>
-    <thead>
-        <tr>
-            <th scope="col" class="w-40">Type</th>
-            <th scope="col">Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td scope="row" data-label="Type">
-                <a href="#array"><code>&lt;array&gt;</code></a>
-            </td>
-            <td scope="row" data-label="Description">
-                Casts the subsequent value into an array
-            </td>
-        </tr>
-        <tr>
-            <td scope="row" data-label="Type">
-                <a href="#arrayt"><code>&lt;array&lt;T&gt;&gt;</code></a>
-            </td>
-            <td scope="row" data-label="Description">
-                Casts the subsequent value into an array of <code>T</code> (some indicated type)
-            </td>
-        </tr>
-        <tr>
-            <td scope="row" data-label="Type">
-                <a href="#bool"><code>&lt;bool&gt;</code></a>
-            </td>
-            <td scope="row" data-label="Description">
-                Casts the subsequent value into a boolean
-            </td>
-        </tr>
-        <tr>
-            <td scope="row" data-label="Type">
-                <a href="#datetime"><code>&lt;datetime&gt;</code></a>
-            </td>
-            <td scope="row" data-label="Description">
-                Casts the subsequent value into a datetime
-            </td>
-        </tr>
-        <tr>
-            <td scope="row" data-label="Type">
-                <a href="#decimal"><code>&lt;decimal&gt;</code></a>
-            </td>
-            <td scope="row" data-label="Description">
-                Casts the subsequent value into a decimal
-            </td>
-        </tr>
-        <tr>
-            <td scope="row" data-label="Type">
-                <a href="#duration"><code>&lt;duration&gt;</code></a>
-            </td>
-            <td scope="row" data-label="Description">
-                Casts the subsequent value into a duration
-            </td>
-        </tr>
-        <tr>
-            <td scope="row" data-label="Type">
-                <a href="#float"><code>&lt;float&gt;</code></a>
-            </td>
-            <td scope="row" data-label="Description">
-                Casts the subsequent value into a float
-            </td>
-        </tr>
-        <tr>
-            <td scope="row" data-label="Type">
-                <a href="#int"><code>&lt;int&gt;</code></a>
-            </td>
-            <td scope="row" data-label="Description">
-                Casts the subsequent value into a int
-            </td>
-        </tr>
-        <tr>
-            <td scope="row" data-label="Type">
-                <a href="#number"><code>&lt;number&gt;</code></a>
-            </td>
-            <td scope="row" data-label="Description">
-                Casts the subsequent value into a decimal
-            </td>
-        </tr>
-        <tr>
-            <td scope="row" data-label="Type">
-                <a href="#record"><code>&lt;record&gt;</code></a>
-            </td>
-            <td scope="row" data-label="Description">
-                Casts the subsequent value into a record
-            </td>
-        </tr>
-        <tr>
-            <td scope="row" data-label="Type">
-                <a href="#recordt"><code>&lt;record&lt;T&gt;&gt;</code></a>
-            </td>
-            <td scope="row" data-label="Description">
-                Casts the subsequent value into a record of <code>T</code> (some indicated type)
-            </td>
-        </tr>
-        <tr>
-            <td scope="row" data-label="Type">
-                <a href="#set"><code>&lt;set&gt;</code></a>
-            </td>
-            <td scope="row" data-label="Description">
-                Casts the subsequent value into a set
-            </td>
-        </tr>
-        <tr>
-            <td scope="row" data-label="Type">
-                <a href="#string"><code>&lt;string&gt;</code></a>
-            </td>
-            <td scope="row" data-label="Description">
-                Casts the subsequent value into a string
-            </td>
-        </tr>
-        <tr>
-            <td scope="row" data-label="Type">
-                <a href="#regex"><code>&lt;regex&gt;</code></a>
-            </td>
-            <td scope="row" data-label="Description">
-                Casts the subsequent value into a regular expression
-            </td>
-        </tr>
-        <tr>
-            <td scope="row" data-label="Type">
-                <a href="#uuid"><code>&lt;uuid&gt;</code></a>
-            </td>
-            <td scope="row" data-label="Description">
-                Casts the subsequent value into a UUID
-            </td>
-        </tr>
-    </tbody>
-</Table>
 
 ## `<array>`
 
@@ -208,7 +68,7 @@ value = "[[d'2020-09-09T00:00:00Z', '21 Jan 2020'], ['2020-09-09', '21 Jan 2020'
 ];
 ```
 
-```surql title="Output"
+```surql
 [
 	[
 		d'2020-09-09T00:00:00Z',
@@ -242,7 +102,7 @@ value = "['person:one', 'user:two', "['user:three', 'user:four']", 'not_a_person
 ];
 ```
 
-```surql title="Output"
+```surql
 [
 	person:one,
 	user:two,
@@ -352,8 +212,6 @@ value = "1h30m"
 1h30m
 ```
 
-<br />
-
 ## `<float>`
 
 The `<float>` casting function converts a value into a floating point number. Floating point numbers by nature have a limited amount of precision.
@@ -433,7 +291,7 @@ Keep in mind when using this casting function that if the equivalent record id d
 SELECT id FROM <record>"person:hrebrffwm4sr2yifglta";
 ```
 
-```surql title="Output"
+```surql
 { id: person:hrebrffwm4sr2yifglta }
 ```
 
@@ -465,7 +323,7 @@ value = "[user:one, [person:one, user:two]]"
 ];
 ```
 
-```surql title="Output"
+```surql
 [
 	user:one,
 	[
@@ -493,7 +351,7 @@ value = "[{'21 Jan 2020', d'2020-09-09T00:00:00Z'}, {'2020-09-09', '21 Jan 2020'
 ];
 ```
 
-```surql title="Output"
+```surql
 [
 	[
 		d'2020-09-09T00:00:00Z',
@@ -622,7 +480,7 @@ value = "['9.1', true, '15h']"
 
 When more than one cast type is specified, SurrealDB will attempt to convert into the type in the order specified. In the example above, while the input `'9.1'` could have been converted to a float, the type `string` comes first in the cast syntax and thus `'9.1'` remains as a string.
 
-```surql title="Output"
+```surql
 [
 	'9.1',
 	true,
@@ -696,7 +554,7 @@ value = "[8.888f, 8.88888888888889f]"
 ];
 ```
 
-```surql title="Output"
+```surql
 [
 	8.888f,
 	8.88888888888889f
@@ -719,7 +577,7 @@ value = "[8.888dec, 8.88888888888889dec]"
 ];
 ```
 
-```surql title="Output"
+```surql
 [
 	8.888dec,
 	8.88888888888889dec
@@ -744,7 +602,7 @@ value = "[8.888dec, 8.888888888888888dec]"
 ];
 ```
 
-```surql title="Output"
+```surql
 [
 	8.888dec,
 	8.888888888888888dec
@@ -768,7 +626,7 @@ parsing-error = """Failed to parse number: number cannot fit within a 64bit sign
 <decimal>9999999999999999999;
 ```
 
-```surql title="Output"
+```surql
 'Failed to parse number: number cannot fit within a 64bit signed integer'
 ```
 

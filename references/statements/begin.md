@@ -1,10 +1,3 @@
----
-sidebar_position: 2
-sidebar_label: BEGIN
-title: BEGIN statement | SurrealQL
-description: The BEGIN statement starts a single transaction in which run multiple statements can be run, either succeeding as a whole, or failing.
----
-
 # `BEGIN` statement
 
 Each statement within SurrealDB is run within its own transaction by default. The `BEGIN` statement can be used to modify this behaviour by running a group of statements inside a single transaction, either succeeding as a whole, or failing. Once all of the statements within a transaction succeed, then all of the data modifications can be made permanent by finalizing the transaction with a [COMMIT](/docs/surrealql/statements/commit) statement at the end. If any statement within a transaction encounters an error or the transaction is manually cancelled ([CANCEL](/docs/surrealql/statements/cancel)), then any data modification made within the transaction is rolled back, and will not become a permanent part of the database.
@@ -105,7 +98,7 @@ RETURN "Money sent! Status:\n" + <string>$first + '\n' + <string>$second;
 COMMIT;
 ```
 
-```surql title="Output"
+```surql
 'Money sent! Status:
 { balance: 135905.16f, id: account:one }
 { balance: 90731.31f, id: account:two, wants_to_send_money: true }'

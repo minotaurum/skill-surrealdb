@@ -1,11 +1,3 @@
----
-sidebar_position: 2
-sidebar_label: DATABASE
-title: ALTER DATABASE statement | SurrealQL
-description: The ALTER statement can be used to change authentication access and behaviour, global parameters, table configurations, table events, schema definitions, and indexes.
----
-
-
 # `ALTER DATABASE` statement
 
 The `ALTER DATABASE` statement can be used to modify the database. `ALTER DATABASE` is used on the current database, which is why a `IF EXISTS` clause does not exist.

@@ -1,34 +1,12 @@
----
-sidebar_position: 4
-sidebar_label: Bytes functions
-title: Bytes functions | SurrealQL
-description: These functions can be used when working with bytes.
----
-
 # Bytes functions
 
 These functions can be used when working with bytes in SurrealQL.
-
-<table>
-  <thead>
-    <tr>
-      <th scope="col">Function</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#byteslen"><code>bytes::len()</code></a></td>
-      <td scope="row" data-label="Description">Gives the length in bytes</td>
-    </tr>
-  </tbody>
-</table>
 
 ## `bytes::len`
 
 The `bytes::len` function returns the length in bytes of a `bytes` value.
 
-```surql title="API DEFINITION"
+```surql
 bytes::len(bytes) -> int
 ```
 
@@ -49,6 +27,6 @@ RETURN [
 ];
 ```
 
-```surql title="Output"
+```surql
 [ 19, 67, 25 ]
 ```

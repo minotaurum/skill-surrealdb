@@ -1,42 +1,8 @@
----
-sidebar_position: 8
-sidebar_label: Encoding functions
-title: Encoding functions | SurrealQL
-description: These functions can be used to encode and decode data in base64. It is particularly used when that data needs to be stored and transferred over media that are designed to deal with text. This encoding and decoding helps to ensure that the data remains intact without modification during transport.
----
-
 # Encoding functions
 
 These functions can be used to encode and decode data into other formats, such as `base64` and [`CBOR`](/docs/surrealdb/integration/cbor) (Concise Binary Object Representation). It is particularly used when that data needs to be stored and transferred over media that are designed to deal with text. This encoding and decoding helps to ensure that the data remains intact without modification during transport.
 
-<table>
-  <thead>
-    <tr>
-      <th scope="col">Function</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#encodingbase64decode"><code>encoding::base64::decode()</code></a></td>
-      <td scope="row" data-label="Description">This function is used to decode data.</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#encodingbase64encode"><code>encoding::base64::encode()</code></a></td>
-      <td scope="row" data-label="Description"> This function is used to encode data with optionally padded output.</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#encodingcbordecode"><code>encoding::cbor::decode()</code></a></td>
-      <td scope="row" data-label="Description">This function is used to decode data.</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#encodingcborencode"><code>encoding::cbor::encode()</code></a></td>
-      <td scope="row" data-label="Description">This function is used to encode data.</td>
-    </tr>
-  </tbody>
-</table>
-
-<br></br>
+</br>
 
 ## `encoding::base64::encode()`
 
@@ -126,13 +92,11 @@ RETURN encoding::base64::encode(<bytes>"hello", true);
 "aGVsbG8="
 ```
 
-<br />
-
 ## `encoding::base64::decode()`
 
 The `encoding::base64::decode()` function decodes a string into bytes.
 
-```surql title="API DEFINITION"
+```surql
 encoding::base64::decode(string) -> bytes
 ```
 
@@ -164,13 +128,11 @@ RETURN encoding::base64::decode("aGVsbG8") = <bytes>"hello";
 -- true
 ```
 
-<br /><br />
-
 ## `encoding::cbor::decode()`
 
 The `encoding::cbor::decode()` function decodes bytes in valid CBOR format into a SurrealQL value.
 
-```surql title="API DEFINITION"
+```surql
 encoding::cbor::decode(string) -> any
 ```
 
@@ -188,20 +150,18 @@ LET $some_bytes = encoding::base64::decode("omRjYm9yaGVuY29kaW5nYmlza3ByZXR0eSBu
 encoding::cbor::decode($some_bytes);
 ```
 
-```surql title="Output"
+```surql
 {
 	cbor: 'encoding',
 	is: 'pretty neat'
 }
 ```
 
-<br /><br />
-
 ## `encoding::cbor::encode()`
 
 The `encoding::cbor::encode()` function encodes any SurrealQL value into bytes in CBOR format.
 
-```surql title="API DEFINITION"
+```surql
 encoding::cbor::encode(any) -> bytes
 ```
 
@@ -218,6 +178,6 @@ encoding::cbor::encode({
 });
 ```
 
-```surql title="Output"
+```surql
 b"A26463626F7268656E636F64696E676269736B707265747479206E656174"
 ```

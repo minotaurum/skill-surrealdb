@@ -1,11 +1,3 @@
----
-sidebar_position: 21
-sidebar_label: SELECT
-title: SELECT statement | SurrealQL
-description: The SELECT statement can be used for selecting and querying data in a database.
----
-
-
 # `SELECT` statement
 
 The `SELECT` statement can be used for selecting and querying data in a database. Each SELECT statement supports selecting from multiple targets, which can include tables, records, edges, subqueries, parameters, arrays, objects, and other values.
@@ -113,7 +105,7 @@ SELECT
 FROM person;
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 [
@@ -420,7 +412,7 @@ CREATE user SET
 SELECT * FROM user SPLIT emails;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		emails: 'me@me.com',
@@ -501,7 +493,7 @@ GROUP BY gender, country;
 SELECT count() AS number_of_records FROM person GROUP ALL;
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 [
@@ -550,7 +542,7 @@ Versions before 3.0.0-beta allowed these two clauses to be used together, after 
 SELECT * FROM person SPLIT name GROUP BY name;
 ```
 
-```surql title="Output"
+```surql
 'Parse error: SPLIT and GROUP are mutually exclusive
  --> [6:22]
   |
@@ -715,7 +707,7 @@ value = "[5, 6, 7, 8, 9]"
 SELECT * FROM [1,2,3,4,5,6,7,8,9,10] LIMIT 5 START 4; 
 ```
 
-```surql title="Result"
+```surql
 [
 	5,
 	6,
@@ -795,7 +787,7 @@ SELECT * FROM person WHERE email='tobie@surrealdb.com' EXPLAIN;
 SELECT * FROM person WHERE email='tobie@surrealdb.com' EXPLAIN FULL;
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 [
@@ -867,7 +859,7 @@ SELECT * FROM person WHERE email='tobie@surrealdb.com' EXPLAIN;
 SELECT * FROM person WHERE email='tobie@surrealdb.com' EXPLAIN FULL;
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 [

@@ -1,46 +1,23 @@
----
-sidebar_position: 5
-sidebar_label: Count function
-title: Count function | SurrealQL
-description: This function can be used when counting field values and expressions.
----
-
-
 # Count function
 
 This function can be used when counting field values and expressions.
-
-<table>
-  <thead>
-    <tr>
-      <th scope="col">Function</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#count"><code>count()</code></a></td>
-      <td scope="row" data-label="Description">Counts a row, or whether a given value is truthy</td>
-    </tr>
-  </tbody>
-</table>
 
 ## `count`
 
 The count function counts the number of times that the function is called. This is useful for returning the total number of rows in a SELECT statement with a `GROUP BY` clause.
 
-```surql title="API DEFINITION"
+```surql
 count() -> 1
 ```
 If a value is given as the first argument, then this function checks whether a given value is [truthy](/docs/surrealql/datamodel/values#values-and-truthiness). This is useful for returning the total number of rows, which match a certain condition, in a [`SELECT`](/docs/surrealql/statements/select) statement, with a GROUP BY clause.
 
-```surql title="API DEFINITION"
+```surql
 count(any) -> number
 ```
 
 If an array is given, this function counts the number of items in the array which are [truthy](/docs/surrealql/datamodel/values#values-and-truthiness). If, instead, you want to count the total number of items in the given array, then use the [`array::len()`](/docs/surrealql/functions/database/array#arraylen) function.
 
-```surql title="API DEFINITION"
+```surql
 count(array) -> number
 ```
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
@@ -117,7 +94,7 @@ FROM [
 GROUP ALL;
 ```
 
-```surql title="Response"
+```surql
 [
 	{ count: 3 }
 ]
@@ -141,7 +118,7 @@ FROM [
 GROUP ALL;
 ```
 
-```surql title="Response"
+```surql
 [
 	{ count: 2 }
 ]
@@ -170,7 +147,7 @@ FROM [
 GROUP BY country;
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		country: 'GBR',
@@ -182,8 +159,6 @@ GROUP BY country;
 	}
 ]
 ```
-
-<br /><br />
 
 ## Using a `COUNT` index with `count()`
 

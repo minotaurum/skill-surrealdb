@@ -1,11 +1,3 @@
----
-sidebar_position: 15
-sidebar_label: Record IDs
-title: Record IDs | SurrealQL
-description: In SurrealDB, document record IDs store both the table name, and the record ID.
-
----
-
 # Record IDs
 
 > [!NOTE]
@@ -44,7 +36,7 @@ skip-record-id-key = true
 CREATE company;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		id: company:ezs644u19mae2p68404j
@@ -131,7 +123,7 @@ CREATE `Artykuł`:100 SET
 
 The parts of record IDs with complex characters will display enclosed by <code>`</code> backticks.
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 [
@@ -181,7 +173,7 @@ SELECT VALUE id FROM article;
 
 As the record ID `article:10` is different from ```article:`10` ```, no errors are returned when creating and both records turn up in the output of the `SELECT` statement. Meanwhile, the article with the identifier `article10` does not use backticks as there is no `article10` number to differentiate it from.
 
-```surql title="Output"
+```surql
 [
 	article:10,
 	article:`10`,
@@ -212,7 +204,7 @@ CREATE year:29878977097987987979232 SET
     ];
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 [
@@ -255,7 +247,7 @@ CREATE weather:['London', d'2025-02-13T05:00:00Z'] SET
     conditions = "cloudy";
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		conditions: 'cloudy',
@@ -355,7 +347,7 @@ LET $now = time::now();
 CREATE type::record("weather", $now) SET city = 'London';
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		city: 'London',
@@ -483,7 +475,7 @@ SELECT * FROM user;
 
 The final query returning just the IDs shows that they have been recreated with new IDs.
 
-```surql title="Output"
+```surql
 [
 	{
 		id: user:0,
@@ -538,7 +530,7 @@ SELECT
 FROM user;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		did: [
@@ -578,7 +570,7 @@ CREATE |user:200000| RETURN NONE;
 SELECT VALUE id FROM user LIMIT 4;
 ```
 
-```surql title="Output"
+```surql
 [
 	user:0001th0nnywnczi7mrvk,
 	user:000t5r3y7u8stqtecvht,
@@ -595,7 +587,7 @@ SELECT VALUE id FROM user START 0 LIMIT 2;
 SELECT VALUE id FROM user START 2 LIMIT 2;
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 [
@@ -684,7 +676,7 @@ SELECT * FROM user START 50 LIMIT 2;
 
 Not only is the `START 50 LIMIT 2` query more performant, but the entire `num` field could be removed if its only use is to return records by order of creation.
 
-```surql title="Same record IDs for both queries this time"
+```surql
 -------- Query --------
 
 [
@@ -744,7 +736,7 @@ SELECT * FROM event:[d'2025-05-05', user:one, "debug"]..[d'2025-05-06', user:one
 -- SELECT * FROM event:[d'2025-05-05']..[d'2025-05-06'];
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		id: event:[
@@ -801,7 +793,7 @@ Using this format, queries can now be performed for a certain user and logging l
 SELECT * FROM event:[user:one, "debug", d'2025-05-05']..[user:one, "debug", d'2025-05-06'];
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		id: event:[
@@ -833,7 +825,7 @@ LET $latest = SELECT VALUE id FROM ONLY person ORDER BY id DESC LIMIT 1;
 CREATE type::record("person", $latest.id() + 1);
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		id: person:11
@@ -913,7 +905,7 @@ SELECT * FROM $record;
 
 The output of the above query is just the `id` field on its own, as the `$record` parameter is an object with an `id` field, not the `id` field (the pointer) itself.
 
-```surql title="Output"
+```surql
 [
 	{
 		id: person:1
@@ -927,7 +919,7 @@ To rectify this, `id.*` can be used to follow the pointer to the entire data for
 SELECT id.* FROM $record;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		id: {
@@ -957,7 +949,7 @@ error = "'Cannot use the `VALUE` keyword on the `id` field.'"
 DEFINE FIELD id ON user VALUE rand::int(1, 1000000000) READONLY;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		id: user:9ixn3oei6o532c2qyixa

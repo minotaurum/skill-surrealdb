@@ -1,11 +1,3 @@
----
-sidebar_position: 18
-sidebar_label: Record functions
-title: Record functions | SurrealQL
-description: These functions can be used to retrieve specific metadata from a SurrealDB Record ID.
----
-
-
 # Record functions
 
 > [!NOTE]
@@ -13,42 +5,11 @@ description: These functions can be used to retrieve specific metadata from a Su
 
 These functions can be used to retrieve specific metadata from a SurrealDB Record ID.
 
-<table>
-  <thead>
-    <tr>
-      <th scope="col">Function</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#recordexists"><code>record::exists()</code></a></td>
-      <td scope="row" data-label="Description">Checks to see if a SurrealDB Record ID exists</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#recordid"><code>record::id()</code></a></td>
-      <td scope="row" data-label="Description">Extracts and returns the identifier from a SurrealDB Record ID</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#recordtb"><code>record::tb()</code></a></td>
-      <td scope="row" data-label="Description">Extracts and returns the table name from a SurrealDB Record ID</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#recordrefs"><code>record::refs()</code></a></td>
-      <td scope="row" data-label="Description">Extracts and returns the record IDs of any records that have a record link along with a `REFERENCES` clause</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#recordis_edge"><code>record::is_edge()</code></a></td>
-      <td scope="row" data-label="Description">Identifies whether the value passed in is a graph edge</td>
-    </tr>
-  </tbody>
-</table>
-
 ## `record::exists`
 
 The `record::exists` function checks to see if a given record exists.
 
-```surql title="API DEFINITION"
+```surql
 record::exists(record) -> bool
 ```
 
@@ -98,7 +59,7 @@ FOR $person IN ["Haakon_VII", "Ferdinand_I", "Manuel_II", "Wilhelm_II", "George_
 
 The `record::id` function extracts and returns the identifier from a SurrealDB Record ID.
 
-```surql title="API DEFINITION"
+```surql
 record::id(record) -> value
 ```
 
@@ -121,7 +82,7 @@ RETURN record::id(person:tobie);
 
 The `record::tb` function extracts and returns the table name from a SurrealDB Record ID.
 
-```surql title="API DEFINITION"
+```surql
 record::tb(record) -> string
 ```
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
@@ -139,13 +100,11 @@ RETURN record::tb(person:tobie);
 -- 'person'
 ```
 
-<br /><br />
-
 ## `record::is_edge`
 
 The `record::is_edge` function checks to see if the value passed in is a graph edge.
 
-```surql title="API DEFINITION"
+```surql
 record::is_edge(record | string) -> bool
 ```
 
@@ -192,7 +151,7 @@ record::id(r"person:aeon");
 r"person:aeon".id();
 ```
 
-```surql title="Response"
+```surql
 'aeon'
 ```
 
@@ -216,6 +175,6 @@ record::table(array::max([r"person:aeon", r"person:landevin"]));
 [r"person:aeon", r"person:landevin"].max().table();
 ```
 
-```surql title="Response"
+```surql
 'person'
 ```

@@ -1,11 +1,3 @@
----
-sidebar_position: 0
-sidebar_label: ACCESS 
-title: ACCESS statement | SurrealQL
-description: The ACCESS statement can be used to manage access grants.
----
-
-
 # `ACCESS` statement
 
 > [!CAUTION]
@@ -54,7 +46,7 @@ DEFINE ACCESS api ON DATABASE TYPE BEARER FOR USER DURATION FOR GRANT 10d;
 ACCESS api GRANT FOR USER automation;
 ```
 
-```surql title="Response"
+```surql
 -- Query 1
 NONE
 -- Query 2
@@ -88,7 +80,7 @@ DEFINE ACCESS api ON DATABASE TYPE BEARER FOR RECORD DURATION FOR GRANT 10d;
 ACCESS api GRANT FOR RECORD user:1;
 ```
 
-```surql title="Response"
+```surql
 -- Query 1
 [
         {
@@ -138,7 +130,7 @@ DEFINE ACCESS api ON DATABASE TYPE BEARER FOR RECORD DURATION FOR GRANT 10d;
 ACCESS api GRANT FOR RECORD user:1;
 ```
 
-```surql title="Response"
+```surql
 -- Query 1
 [
         {
@@ -170,7 +162,7 @@ NONE
 ACCESS api SHOW GRANT JdvDFKMCVYoM;
 ```
 
-```surql title="Response"
+```surql
 {
         ac: 'api',
         creation: d'2024-12-16T16:17:24.903832476Z',
@@ -203,7 +195,7 @@ ACCESS api GRANT FOR RECORD user:1;
 ACCESS api GRANT FOR RECORD user:2;
 ```
 
-```surql title="Response"
+```surql
 -- Query 1
 [
         {
@@ -258,7 +250,7 @@ NONE
 ACCESS api SHOW WHERE subject.record.name = "tobie";
 ```
 
-```surql title="Response"
+```surql
 [
         {
                 ac: 'api',
@@ -299,7 +291,7 @@ DEFINE ACCESS api ON DATABASE TYPE BEARER FOR RECORD DURATION FOR GRANT 10d;
 ACCESS api GRANT FOR RECORD user:1;
 ```
 
-```surql title="Response"
+```surql
 -- Query 1
 [
         {
@@ -331,7 +323,7 @@ NONE
 ACCESS api REVOKE GRANT NJ2I2d7OXxN9;
 ```
 
-```surql title="Response"
+```surql
 [
         [
                 {
@@ -368,7 +360,7 @@ ACCESS api GRANT FOR RECORD user:1;
 ACCESS api GRANT FOR RECORD user:2;
 ```
 
-```surql title="Response"
+```surql
 -- Query 1
 [
         {
@@ -423,7 +415,7 @@ NONE
 ACCESS api REVOKE WHERE subject.record.name = "tobie";
 ```
 
-```surql title="Response"
+```surql
 [
         [
                 {

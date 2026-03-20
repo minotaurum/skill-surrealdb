@@ -1,11 +1,3 @@
----
-sidebar_position: 20
-sidebar_label: Values
-title: Values | SurrealQL
-description: Every type in SurrealDB is a value
-
----
-
 # Values
 
 Each of the types mentioned in the data model is a subset of an all-encompassing type called a value.
@@ -141,7 +133,7 @@ CREATE temperature:['London', d'2025-02-20T00:00:00.000Z'] SET val = 5.7;
 SELECT * FROM temperature:['London', NONE]..=['London', ..];
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		id: temperature:[

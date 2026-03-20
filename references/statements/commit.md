@@ -1,10 +1,3 @@
----
-sidebar_position: 4
-sidebar_label: COMMIT
-title: COMMIT statement | SurrealQL
-description: The COMMIT statement is used to commit a set of statements within a transaction, ensuring that all data modifications become a permanent part of the database.
----
-
 # `COMMIT` statement
 
 Each statement within SurrealDB is run within its own transaction by default. If a set of changes need to be made together, then groups of statements can be run together as a single transaction, either succeeding as a whole, or failing without leaving any residual data modifications. A `COMMIT` statement is used at the end of such a transaction to make the data modifications a permanent part of the database.
@@ -95,7 +88,7 @@ RETURN "Money sent! Status:\n" + <string>$first + '\n' + <string>$second;
 COMMIT;
 ```
 
-```surql title="Output"
+```surql
 'Money sent! Status:
 { balance: 135905.16f, id: account:one }
 { balance: 90731.31f, id: account:two, wants_to_send_money: true }'

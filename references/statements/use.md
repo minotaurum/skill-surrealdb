@@ -1,10 +1,3 @@
----
-sidebar_position: 27
-sidebar_label: USE
-title: USE statement | SurrealQL
-description: The USE statement specifies a namespace and / or a database to use for the subsequent SurrealQL statements when switching between namespaces and databases.
----
-
 # `USE` statement
 
 The `USE` statement specifies a namespace and / or a database to use for the subsequent SurrealQL statements when switching between namespaces and databases. If you have a single namespace and database, you can define them in the [sql command](/docs/surrealdb/cli/sql#example-usage).
@@ -96,6 +89,6 @@ Before SurrealDB 3.0.0-beta, the output of a `USE` statement was `NONE`. Since t
 USE NS main;
 ```
 
-```surql title="Output"
+```surql
 { database: 'main', namespace: 'main' }
 ```

@@ -1,11 +1,3 @@
----
-sidebar_position: 10
-sidebar_label: FOR
-title: FOR statement | SurrealQL
-description: The FOR statement creates a loop that iterates over the values of an array.
----
-
-
 # `FOR` statement
 
 The `FOR` statement can be used to iterate over the values of an array, and to perform certain actions with those values.
@@ -131,6 +123,6 @@ value = "6"
 (<array>1..=3).reduce(|$one, $two| $one + $two);
 ```
 
-```surql title="Output"
+```surql
 6
 ```

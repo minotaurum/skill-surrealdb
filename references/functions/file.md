@@ -1,80 +1,10 @@
----
-sidebar_position: 9
-sidebar_label: File functions
-title: File functions | SurrealQL
-description: These functions can be used to work with files.
----
-
 # File functions
 
 These functions can be used to work with files.
 
-<table>
-  <thead>
-    <tr>
-      <th scope="col">Function</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#filebucket"><code>file::bucket()</code></a></td>
-      <td scope="row" data-label="Description">Returns the bucket path from a file pointer</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#filecopy"><code>file::copy()</code></a></td>
-      <td scope="row" data-label="Description">Copies the contents of a file</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#filecopy_if_not_exists"><code>file::copy_if_not_exists()</code></a></td>
-      <td scope="row" data-label="Description">Copies the contents of a file to a new file if the name is available</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#filedelete"><code>file::delete()</code></a></td>
-      <td scope="row" data-label="Description">Deletes a file</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#fileexists"><code>file::exists()</code></a></td>
-      <td scope="row" data-label="Description">Checks if a file already exists</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#fileget"><code>file::get()</code></a></td>
-      <td scope="row" data-label="Description">Loads a file</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#filehead"><code>file::head()</code></a></td>
-      <td scope="row" data-label="Description">Returns the metadata of a file</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#filekey"><code>file::key()</code></a></td>
-      <td scope="row" data-label="Description">Returns the key (the portion following the bucket) from a file pointer</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#filelist"><code>file::list()</code></a></td>
-      <td scope="row" data-label="Description">Returns a list of files inside a bucket</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#fileput"><code>file::put()</code></a></td>
-      <td scope="row" data-label="Description">Writes bytes to a file</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#fileput_if_not_exists"><code>file::put_if_not_exists()</code></a></td>
-      <td scope="row" data-label="Description">Attempts to write bytes to a file</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#filerename"><code>file::rename()</code></a></td>
-      <td scope="row" data-label="Description">Renames a file</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#filerename_if_available"><code>file::rename_if_not_exists()</code></a></td>
-      <td scope="row" data-label="Description">Renames a file if the new name is not already in use</td>
-    </tr>
-  </tbody>
-</table>
-
 ## `file::bucket`
 
-```surql title="API DEFINITION"
+```surql
 file::bucket(file) -> string
 ```
 
@@ -99,7 +29,7 @@ DEFINE PARAM $SOME_DATABASE_FILE VALUE f"my_bucket:/file_name";
 file::bucket($SOME_DATABASE_FILE);
 ```
 
-```surql title="Output"
+```surql
 'my_bucket'
 ```
 
@@ -109,7 +39,7 @@ The counterpart to this function is `file::key`, which returns the latter part o
 
 The `file::copy` function copies the contents of a file to a new file, overwriting any existing file that has the same name as the new file.
 
-```surql title="API DEFINITION"
+```surql
 file::copy(string)
 ```
 
@@ -126,13 +56,13 @@ error = ""The bucket 'my_bucket' does not exist""
 f"my_bucket:/my_book.txt".copy("lion_witch_wardrobe.txt");
 ```
 
-<br></br>
+</br>
 
 ## `file::copy_if_not_exists`
 
 The `file::copy_if_not_exists` function copies the contents of a file to a new file, returning an error if a file already exists that has the same name as that of the intended copy.
 
-```surql title="API DEFINITION"
+```surql
 file::copy_if_not_exists(string)
 ```
 
@@ -146,18 +76,18 @@ f"my_bucket:/other_book.txt".put("Um meine Geschichte zu erzählen, muß ich wei
 f"my_bucket:/other_book.txt".copy_if_not_exists("lion_witch_wardrobe.txt");
 ```
 
-```surql title="Output"
+```surql
 'Operation for bucket `my_bucket` failed: Object at location lion_witch_wardrobe.txt already exists:
 Object already exists at that location: lion_witch_wardrobe.txt'
 ```
 
-<br></br>
+</br>
 
 ## `file::delete`
 
 The `file::delete` function deletes a file.
 
-```surql title="API DEFINITION"
+```surql
 file::delete(string)
 ```
 
@@ -167,13 +97,13 @@ Example of a file `my_book.txt` being deleted:
 f"my_bucket:/my_book.txt".delete();
 ```
 
-<br></br>
+</br>
 
 ## `file::exists`
 
 The `file::exists` function checks to see if a file exists at the path and file name indicated.
 
-```surql title="API DEFINITION"
+```surql
 file::exists(string) -> bool
 ```
 
@@ -187,13 +117,13 @@ IF f"my_bucket:/my_book.txt".exists() {
 };
 ```
 
-<br></br>
+</br>
 
 ## `file::get`
 
 The `file::get` function retrieves a file for use.
 
-```surql title="API DEFINITION"
+```surql
 file::get(string) -> bytes
 ```
 
@@ -204,7 +134,7 @@ f"my_bucket:/my_book.txt".get();
 <string>f"my_bucket:/my_book.txt".get();
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 b"536F6D6520636F6E74656E74"
@@ -214,13 +144,13 @@ b"536F6D6520636F6E74656E74"
 'Once there were four children whose names were Peter, Susan...'
 ```
 
-<br></br>
+</br>
 
 ## `file::head`
 
 The `file::head` function returns the metadata for a file.
 
-```surql title="API DEFINITION"
+```surql
 file::head() -> object
 ```
 
@@ -238,7 +168,7 @@ An example of this function and its output:
 f"my_bucket:/my_book.txt".head();
 ```
 
-```surql title="Output"
+```surql
 {
 	e_tag: '1',
 	key: 'my_book.txt',
@@ -248,11 +178,11 @@ f"my_bucket:/my_book.txt".head();
 }
 ```
 
-<br></br>
+</br>
 
 ## `file::key`
 
-```surql title="API DEFINITION"
+```surql
 file::key(file) -> string
 ```
 
@@ -277,7 +207,7 @@ DEFINE PARAM $SOME_DATABASE_FILE VALUE f"my_bucket:/file_name";
 file::key($SOME_DATABASE_FILE);
 ```
 
-```surql title="Output"
+```surql
 '/file_name'
 ```
 
@@ -285,7 +215,7 @@ The counterpart to this function is `file::bucket`, which returns the bucket nam
 
 ## `file::list`
 
-```surql title="API DEFINITION"
+```surql
 file::list(string, $list_options: option<object>) -> array<object>
 ```
 
@@ -325,7 +255,7 @@ f"my_bucket:/some_book".put("In a hole in the ground lived a Hobbit.");
 file::list("my_bucket");
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		file: f"my_bucket:/awesome_book",
@@ -353,7 +283,7 @@ file::list("my_bucket", { limit: 1 });
 file::list("my_bucket", { limit: 0 });
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 [
 	{
@@ -372,7 +302,7 @@ file::list("my_bucket", { prefix: "some" });
 file::list("my_bucket", { prefix: "someBOOOEOEOK" });
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 [
 	{
@@ -391,7 +321,7 @@ file::list("my_bucket", { start: "a" });
 file::list("my_bucket", { start: "m" });
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 [
 	{
@@ -420,7 +350,7 @@ file::list("my_bucket", { start: "m" });
 file::list("my_bucket", { prefix: "some", start: "a", limit: 1 });
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		file: f"my_bucket:/some_book",
@@ -434,7 +364,7 @@ file::list("my_bucket", { prefix: "some", start: "a", limit: 1 });
 
 The `file::put` function adds data into a file, overwriting any existing data.
 
-```surql title="API DEFINITION"
+```surql
 file::put()
 ```
 
@@ -464,17 +394,17 @@ f"my_bucket:/my_book.txt".put("Or were there? I don't quite remember.");
 <string>f"my_bucket:/my_book.txt".get();
 ```
 
-```surql title="Output"
+```surql
 "Or were there? I don't quite remember."
 ```
 
-<br></br>
+</br>
 
 ## `file::put_if_not_exists`
 
 The `file::put` function adds data into a file, unless a file of the same name already exists.
 
-```surql title="API DEFINITION"
+```surql
 file::put_if_not_exists()
 ```
 
@@ -506,17 +436,17 @@ f"my_bucket:/my_book.txt".put_if_not_exists("Or were there? I don't quite rememb
 <string>f"my_bucket:/my_book.txt".get();
 ```
 
-```surql title="Output"
+```surql
 'Once there were four children whose names were Peter, Susan...'
 ```
 
-<br></br>
+</br>
 
 ## `file::rename`
 
 The `file::rename` function renames a file, overwriting any existing file that has the same name as the target name.
 
-```surql title="API DEFINITION"
+```surql
 file::rename()
 ```
 
@@ -551,21 +481,21 @@ f"my_bucket:/other_book.txt".rename("my_book.txt");
 <string>f"my_bucket:/my_book.txt".get();
 ```
 
-```surql title="Output"
+```surql
 "Or were there? I don't quite remember."
 ```
 
-<br></br>
+</br>
 
 ## `file::rename_if_not_exists`
 
 The `file::rename_if_not_exists` function renames a file, returning an error if a file already exists that has the same name as the target name.
 
-```surql title="API DEFINITION"
+```surql
 file::rename_if_not_exists()
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 'Operation for bucket `my_bucket` failed: Object at location my_book.txt already exists:

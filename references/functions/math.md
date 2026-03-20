@@ -1,283 +1,12 @@
----
-sidebar_position: 12
-sidebar_label: Math functions
-title: Math functions | SurrealQL
-description: These functions can be used when analysing numeric data and numeric collections.
----
-
-
 # Math functions
 
 These functions can be used when analysing numeric data and numeric collections.
-
-<table>
-  <thead>
-    <tr>
-      <th scope="col">Function</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathabs"><code>math::abs()</code></a></td>
-      <td scope="row" data-label="Description">Returns the absolute value of a number</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathacos"><code>math::acos()</code></a></td>
-      <td scope="row" data-label="Description">Computes the arccosine (inverse cosine) of a value</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathacot"><code>math::acot()</code></a></td>
-      <td scope="row" data-label="Description">Computes the arccotangent (inverse cotangent) of an angle given in radians</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathasin"><code>math::asin()</code></a></td>
-      <td scope="row" data-label="Description">Computes the arcsine (inverse sine) of a value</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathatan"><code>math::atan()</code></a></td>
-      <td scope="row" data-label="Description">Computes the arctangent (inverse tangent) of a value</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathbottom"><code>math::bottom()</code></a></td>
-      <td scope="row" data-label="Description">Returns the bottom X set of numbers in a set of numbers</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathceil"><code>math::ceil()</code></a></td>
-      <td scope="row" data-label="Description">Rounds a number up to the next largest integer</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathclamp"><code>math::clamp()</code></a></td>
-      <td scope="row" data-label="Description">Clamps a value between a specified minimum and maximum</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathcos"><code>math::cos()</code></a></td>
-      <td scope="row" data-label="Description">Computes the cosine of an angle given in radians</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathcot"><code>math::cot()</code></a></td>
-      <td scope="row" data-label="Description">Computes the cotangent of an angle given in radians</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathdeg2rad"><code>math::deg2rad()</code></a></td>
-      <td scope="row" data-label="Description">Converts an angle from degrees to radians</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Constant"><a href="#mathe"><code>math::e</code></a></td>
-      <td scope="row" data-label="Description">Constant representing the base of the natural logarithm (Euler's number)</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathfixed"><code>math::fixed()</code></a></td>
-      <td scope="row" data-label="Description">Returns a number with the specified number of decimal places</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathfloor"><code>math::floor()</code></a></td>
-      <td scope="row" data-label="Description">Rounds a number down to the nearest integer</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathfrac_1_pi"><code>math::frac_1_pi</code></a></td>
-      <td scope="row" data-label="Description">Constant representing the fraction 1/π</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathfrac_1_sqrt_2"><code>math::frac_1_sqrt_2</code></a></td>
-      <td scope="row" data-label="Description">Constant representing the fraction 1/sqrt(2)</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathfrac_2_pi"><code>math::frac_2_pi</code></a></td>
-      <td scope="row" data-label="Description">Constant representing the fraction 2/π</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathfrac_2_sqrt_pi"><code>math::frac_2_sqrt_pi</code></a></td>
-      <td scope="row" data-label="Description">Constant representing the fraction 2/sqrt(π)</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathfrac_pi_2"><code>math::frac_pi_2</code></a></td>
-      <td scope="row" data-label="Description">Constant representing the fraction π/2</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathfrac_pi_3"><code>math::frac_pi_3</code></a></td>
-      <td scope="row" data-label="Description">Constant representing the fraction π/3</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathfrac_pi_4"><code>math::frac_pi_4</code></a></td>
-      <td scope="row" data-label="Description">Constant representing the fraction π/4</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathfrac_pi_6"><code>math::frac_pi_6</code></a></td>
-      <td scope="row" data-label="Description">Constant representing the fraction π/6</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathfrac_pi_8"><code>math::frac_pi_8</code></a></td>
-      <td scope="row" data-label="Description">Constant representing the fraction π/8</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Constant"><a href="#mathinf"><code>math::inf</code></a></td>
-      <td scope="row" data-label="Description">Constant representing positive infinity</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathinterquartile"><code>math::interquartile()</code></a></td>
-      <td scope="row" data-label="Description">Returns the interquartile of an array of numbers</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathlerp"><code>math::lerp()</code></a></td>
-      <td scope="row" data-label="Description">Linearly interpolates between two values based on a factor</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathlerpangle"><code>math::lerpangle()</code></a></td>
-      <td scope="row" data-label="Description">Linearly interpolates between two angles in degrees</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathln"><code>math::ln()</code></a></td>
-      <td scope="row" data-label="Description">Computes the natural logarithm (base e) of a value</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathln_10"><code>math::ln_10</code></a></td>
-      <td scope="row" data-label="Description">Constant representing the natural logarithm (base e) of 10</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathln_2"><code>math::ln_2</code></a></td>
-      <td scope="row" data-label="Description">Constant representing the natural logarithm (base e) of 2</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathlog"><code>math::log()</code></a></td>
-      <td scope="row" data-label="Description">Computes the logarithm of a value with the specified base</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathlog10"><code>math::log10()</code></a></td>
-      <td scope="row" data-label="Description">Computes the base-10 logarithm of a value</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathlog10_2"><code>math::log10_2</code></a></td>
-      <td scope="row" data-label="Description">Constant representing the base-10 logarithm of 2</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathlog10_e"><code>math::log10_e</code></a></td>
-      <td scope="row" data-label="Description">Constant representing the base-10 logarithm of e, the base of the natural logarithm (Euler’s number)</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathlog2"><code>math::log2()</code></a></td>
-      <td scope="row" data-label="Description">Computes the base-2 logarithm of a value</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathlog2_10"><code>math::log2_10</code></a></td>
-      <td scope="row" data-label="Description">Constant representing the base-2 logarithm of 10</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathlog2_e"><code>math::log2_e</code></a></td>
-      <td scope="row" data-label="Description">Constant representing the base-2 logarithm of e, the base of the natural logarithm (Euler’s number)</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathmax"><code>math::max()</code></a></td>
-      <td scope="row" data-label="Description">Returns the greatest number from an array of numbers</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathmean"><code>math::mean()</code></a></td>
-      <td scope="row" data-label="Description">Returns the mean of a set of numbers</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathmedian"><code>math::median()</code></a></td>
-      <td scope="row" data-label="Description">Returns the median of a set of numbers</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathmidhinge"><code>math::midhinge()</code></a></td>
-      <td scope="row" data-label="Description">Returns the midhinge of a set of numbers</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathmin"><code>math::min()</code></a></td>
-      <td scope="row" data-label="Description">Returns the least number from an array of numbers</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathmode"><code>math::mode()</code></a></td>
-      <td scope="row" data-label="Description">Returns the value that occurs most often in a set of numbers</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathnearestrank"><code>math::nearestrank()</code></a></td>
-      <td scope="row" data-label="Description">Returns the nearest rank of an array of numbers</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Constant"><a href="#mathneg_inf"><code>math::neg_inf</code></a></td>
-      <td scope="row" data-label="Description">Constant representing negative infinity</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathpercentile"><code>math::percentile()</code></a></td>
-      <td scope="row" data-label="Description">Returns the value below which a percentage of data falls</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Constant"><a href="#mathpi"><code>math::pi</code></a></td>
-      <td scope="row" data-label="Description">Constant representing the mathematical constant π.</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Constant"><a href="#mathpow"><code>math::pow()</code></a></td>
-      <td scope="row" data-label="Description">Returns a number raised to a power</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathproduct"><code>math::product()</code></a></td>
-      <td scope="row" data-label="Description">Returns the product of a set of numbers</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathrad2deg"><code>math::rad2deg()</code></a></td>
-      <td scope="row" data-label="Description">Converts an angle from radians to degrees</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathround"><code>math::round()</code></a></td>
-      <td scope="row" data-label="Description">Rounds a number up or down to the nearest integer</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathsign"><code>math::sign()</code></a></td>
-      <td scope="row" data-label="Description">Returns the sign of a value (-1, 0, or 1)</td>
-    </tr>
-     <tr>
-      <td scope="row" data-label="Function"><a href="#mathsin"><code>math::sin()</code></a></td>
-      <td scope="row" data-label="Description">Computes the sine of an angle given in radians</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathspread"><code>math::spread()</code></a></td>
-      <td scope="row" data-label="Description">Returns the spread of an array of numbers</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathsqrt"><code>math::sqrt()</code></a></td>
-      <td scope="row" data-label="Description">Returns the square root of a number</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathsqrt_2"><code>math::sqrt_2</code></a></td>
-      <td scope="row" data-label="Description">Constant representing the square root of 2</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathstddev"><code>math::stddev()</code></a></td>
-      <td scope="row" data-label="Description">Calculates how far a set of numbers are away from the mean</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathsum"><code>math::sum()</code></a></td>
-      <td scope="row" data-label="Description">Returns the total sum of a set of numbers</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathtan"><code>math::tan()</code></a></td>
-      <td scope="row" data-label="Description">Computes the tangent of an angle given in radians.</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Constant"><a href="#mathtau"><code>math::tau()</code></a></td>
-      <td scope="row" data-label="Description">Represents the mathematical constant τ, which is equal to 2π</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathtop"><code>math::top()</code></a></td>
-      <td scope="row" data-label="Description">Returns the top X set of numbers in a set of numbers</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathtrimean"><code>math::trimean()</code></a></td>
-      <td scope="row" data-label="Description">The weighted average of the median and the two quartiles</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#mathvariance"><code>math::variance()</code></a></td>
-      <td scope="row" data-label="Description">Calculates how far a set of numbers are spread out from the mean</td>
-    </tr>
-  </tbody>
-</table>
 
 ## `math::abs`
 
 The `math::abs` function returns the absolute value of a number.
 
-```surql title="API DEFINITION"
+```surql
 math::abs(number) -> number
 ```
 
@@ -296,13 +25,11 @@ RETURN math::abs(-13.746189);
 13.746189f
 ```
 
-<br />
-
 ## `math::acos`
 
 The `math::acos` function returns the arccosine (inverse cosine) of a number, which must be in the range -1 to 1. The result is expressed in radians.
 
-```surql title="API DEFINITION"
+```surql
 math::acos(number) -> number
 ```
 
@@ -321,13 +48,11 @@ RETURN math::acos(0.5);
 -- 1.0471975511965976f
 ```
 
-<br />
-
 ## `math::acot`
 
 The `math::acot` function returns the arccotangent (inverse cotangent) of a number. The result is expressed in radians.
 
-```surql title="API DEFINITION"
+```surql
 math::acot(number) -> number
 ```
 
@@ -350,7 +75,7 @@ RETURN math::acot(1);
 
 The `math::asin` function returns the arcsine (inverse sine) of a number, which must be in the range -1 to 1. The result is expressed in radians.
 
-```surql title="API DEFINITION"
+```surql
 math::asin(number) -> number
 ```
 
@@ -369,13 +94,11 @@ RETURN math::asin(0.5);
 -- 0.5235987755982988f
 ```
 
-<br />
-
 ## `math::atan`
 
 The `math::atan` function returns the arctangent (inverse tangent) of a number. The result is expressed in radians.
 
-```surql title="API DEFINITION"
+```surql
 math::atan(number) -> number
 ```
 
@@ -394,13 +117,11 @@ RETURN math::atan(1);
 -- 0.7853981633974483f
 ```
 
-<br />
-
 ## `math::bottom`
 
 The `math::bottom` function returns the bottom X set of numbers in an array of numbers.
 
-```surql title="API DEFINITION"
+```surql
 math::bottom(array<number>, $quantity: number) -> number
 ```
 
@@ -419,13 +140,11 @@ RETURN math::bottom([1, 2, 3], 2);
 -- [2, 1]
 ```
 
-<br />
-
 ## `math::ceil`
 
 The `math::ceil` function rounds a number up to the next largest whole number.
 
-```surql title="API DEFINITION"
+```surql
 math::ceil(number) -> number
 ```
 
@@ -443,13 +162,11 @@ RETURN math::ceil(13.146572);
 -- 14f
 ```
 
-<br />
-
 ## `math::clamp`
 
 The `math::clamp` function constrains a number within the specified range, defined by a minimum and a maximum value. If the number is less than the minimum, it returns the minimum. If it is greater than the maximum, it returns the maximum.
 
-```surql title="API DEFINITION"
+```surql
 math::clamp(number, $min: number, $max: number) -> number
 ```
 
@@ -467,13 +184,11 @@ RETURN math::clamp(1, 5, 10);
 -- 5
 ```
 
-<br />
-
 ## `math::cos`
 
 The `math::cos` function returns the cosine of a number, which is assumed to be in radians. The result is a value between -1 and 1.
 
-```surql title="API DEFINITION"
+```surql
 math::cos(number) -> number
 ```
 
@@ -491,13 +206,11 @@ RETURN math::cos(1);
 -- 0.5403023058681398f
 ```
 
-<br />
-
 ## `math::cot`
 
 The `math::cot` function returns the cotangent of a number, which is assumed to be in radians. The cotangent is the reciprocal of the tangent function.
 
-```surql title="API DEFINITION"
+```surql
 math::cot(number) -> number
 ```
 
@@ -515,13 +228,11 @@ RETURN math::cot(1);
 -- 0.6420926159343308f
 ```
 
-<br />
-
 ## `math::deg2rad`
 
 The `math::deg2rad` function converts an angle from degrees to radians.
 
-```surql title="API DEFINITION"
+```surql
 math::deg2rad(number) -> number
 ```
 
@@ -539,13 +250,11 @@ RETURN math::deg2rad(180);
 -- 3.141592653589793f
 ```
 
-<br />
-
 ## `math::e`
 
 The `math::e` constant represents the base of the natural logarithm (Euler’s number).
 
-```surql title="API DEFINITION"
+```surql
 math::e -> number
 ```
 
@@ -563,13 +272,11 @@ RETURN math::e;
 -- 2.718281828459045f
 ```
 
-<br />
-
 ## `math::fixed`
 
 The `math::fixed` function returns a number with the specified number of decimal places.
 
-```surql title="API DEFINITION"
+```surql
 math::fixed(number, $places: number) -> number
 ```
 
@@ -588,13 +295,11 @@ RETURN math::fixed(13.146572, 2);
 -- 13.15f
 ```
 
-<br />
-
 ## `math::floor`
 
 The `math::floor` function rounds a number down to the nearest integer.
 
-```surql title="API DEFINITION"
+```surql
 math::floor(number) -> number
 ```
 
@@ -612,13 +317,11 @@ RETURN math::floor(13.746189);
 -- 13f 
 ```
 
-<br />
-
 ## `math::frac_1_pi`
 
 The `math::frac_1_pi` constant represents the fraction 1/π.
 
-```surql title="API DEFINITION"
+```surql
 math::frac_1_pi -> number
 ```
 
@@ -637,13 +340,11 @@ RETURN math::frac_1_pi;
 -- 0.3183098861837907f
 ```
 
-<br />
-
 ## `math::frac_1_sqrt_2`
 
 The `math::frac_1_sqrt_2` constant represents the fraction 1/sqrt(2).
 
-```surql title="API DEFINITION"
+```surql
 math::frac_1_sqrt_2 -> number
 ```
 
@@ -661,13 +362,11 @@ RETURN math::frac_1_sqrt_2;
 -- 0.7071067811865476f
 ```
 
-<br />
-
 ## `math::frac_2_pi`
 
 The `math::frac_2_pi` constant represents the fraction 2/π.
 
-```surql title="API DEFINITION"
+```surql
 math::frac_2_pi -> number
 ```
 
@@ -685,13 +384,11 @@ RETURN math::frac_2_pi;
 -- 0.6366197723675814f
 ```
 
-<br />
-
 ## `math::frac_2_sqrt_pi`
 
 The `math::frac_2_sqrt_pi` constant represents the fraction 2/sqrt(π).
 
-```surql title="API DEFINITION"
+```surql
 math::frac_2_sqrt_pi -> number
 ```
 
@@ -709,13 +406,11 @@ RETURN math::frac_2_sqrt_pi;
 -- 1.1283791670955126f
 ```
 
-<br />
-
 ## `math::frac_pi_2`
 
 The `math::frac_pi_2` constant represents the fraction π/2.
 
-```surql title="API DEFINITION"
+```surql
 math::frac_pi_2 -> number
 ```
 
@@ -733,13 +428,11 @@ RETURN math::frac_pi_2;
 -- 1.5707963267948966f
 ```
 
-<br />
-
 ## `math::frac_pi_3`
 
 The `math::frac_pi_3` constant represents the fraction π/3.
 
-```surql title="API DEFINITION"
+```surql
 math::frac_pi_3 -> number
 ```
 
@@ -757,13 +450,11 @@ RETURN math::frac_pi_3;
 -- 1.0471975511965979f
 ```
 
-<br />
-
 ## `math::frac_pi_4`
 
 The `math::frac_pi_4` constant represents the fraction π/4.
 
-```surql title="API DEFINITION"
+```surql
 math::frac_pi_4 -> number
 ```
 
@@ -781,13 +472,11 @@ RETURN math::frac_pi_4;
 -- 0.7853981633974483f
 ```
 
-<br />
-
 ## `math::frac_pi_6`
 
 The `math::frac_pi_6` constant represents the fraction π/6.
 
-```surql title="API DEFINITION"
+```surql
 math::frac_pi_6 -> number
 ```
 
@@ -805,13 +494,11 @@ RETURN math::frac_pi_6;
 -- 0.5235987755982989f
 ```
 
-<br />
-
 ## `math::frac_pi_8`
 
 The `math::frac_pi_8` constant represents the fraction π/8.
 
-```surql title="API DEFINITION"
+```surql
 math::frac_pi_8 -> number
 ```
 
@@ -829,13 +516,11 @@ RETURN math::frac_pi_8;
 -- 0.39269908169872414f
 ```
 
-<br />
-
 ## `math::inf`
 
 The `math::inf` constant represents positive infinity.
 
-```surql title="API DEFINITION"
+```surql
 math::inf -> number
 ```
 
@@ -854,13 +539,11 @@ RETURN math::inf;
 -- Infinity
 ```
 
-<br />
-
 ## `math::interquartile`
 
 The `math::interquartile` function returns the interquartile of an array of numbers.
 
-```surql title="API DEFINITION"
+```surql
 math::interquartile(array<number>) -> number
 ```
 
@@ -878,13 +561,11 @@ RETURN math::interquartile([ 1, 40, 60, 10, 2, 901 ]);
 -- 51f
 ```
 
-<br />
-
 ## `math::lerp`
 
 The `math::lerp` function performs a linear interpolation between two numbers based on a given fraction. The fraction will usually be between 0 and 1, where 0 returns `$num_1` and 1 returns `$num_2`.
 
-```surql title="API DEFINITION"
+```surql
 math::lerp($num_1: number, $num_2: number, $fraction: number) -> number
 ```
 
@@ -916,13 +597,11 @@ RETURN math::lerp(0, 10, 2);
 -- 20
 ```
 
-<br />
-
 ## `math::lerpangle`
 
 The `math::lerpangle` function interpolates between two angles (`$num_1` and `$num_2`) by the given fraction. This is useful for smoothly transitioning between angles.
 
-```surql title="API DEFINITION"
+```surql
 math::lerpangle($num_1: number, $num_2: number, $fraction: number) -> number
 ```
 
@@ -940,13 +619,11 @@ RETURN math::lerpangle(0, 180, 0.5);
 -- 90f
 ```
 
-<br />
-
 ## `math::ln`
 
 The `math::ln` function returns the natural logarithm (base e) of a number.
 
-```surql title="API DEFINITION"
+```surql
 math::ln(number) -> number
 ```
 
@@ -964,13 +641,11 @@ RETURN math::ln(10);
 -- 2.302585092994046f
 ```
 
-<br />
-
 ## `math::ln_10`
 
 The `math::ln_10` constant represents the natural logarithm (base e) of 10.
 
-```surql title="API DEFINITION"
+```surql
 math::ln_10 -> number
 ```
 
@@ -988,13 +663,11 @@ RETURN math::ln_10;
 -- 2.302585092994046f
 ```
 
-<br />
-
 ## `math::ln_2`
 
 The `math::ln_2` constant represents the natural logarithm (base e) of 2.
 
-```surql title="API DEFINITION"
+```surql
 math::ln_2 -> number
 ```
 
@@ -1012,13 +685,11 @@ RETURN math::ln_2;
 -- 0.6931471805599453f
 ```
 
-<br />
-
 ## `math::log`
 
 The `math::log` function returns the logarithm of a number with a specified base.
 
-```surql title="API DEFINITION"
+```surql
 math::log(number, $base: number) -> number
 ```
 
@@ -1036,13 +707,11 @@ RETURN math::log(100, 10);
 -- 2f
 ```
 
-<br />
-
 ## `math::log10`
 
 The `math::log10` function returns the base-10 logarithm of a number.
 
-```surql title="API DEFINITION"
+```surql
 math::log10(number) -> number
 ```
 
@@ -1060,13 +729,11 @@ RETURN math::log10(1000);
 -- 3f
 ```
 
-<br />
-
 ## `math::log10_2`
 
 The `math::log10_2` constant represents the base-10 logarithm of 2.
 
-```surql title="API DEFINITION"
+```surql
 math::log10_2 -> number
 ```
 
@@ -1084,13 +751,11 @@ RETURN math::log10_2;
 -- 0.3010299956639812f
 ```
 
-<br />
-
 ## `math::log10_e`
 
 The `math::log10_e` constant represents the base-10 logarithm of e, the base of the natural logarithm (Euler’s number).
 
-```surql title="API DEFINITION"
+```surql
 math::log10_e -> number
 ```
 
@@ -1109,13 +774,11 @@ RETURN math::log10_e;
 -- 0.4342944819032518f
 ```
 
-<br />
-
 ## `math::log2`
 
 The `math::log2` function returns the base-2 logarithm of a number.
 
-```surql title="API DEFINITION"
+```surql
 math::log2(number) -> number
 ```
 
@@ -1133,13 +796,11 @@ RETURN math::log2(8);
 -- 3f
 ```
 
-<br />
-
 ## `math::log2_10`
 
 The `math::log2_10` constant represents the base-2 logarithm of 10.
 
-```surql title="API DEFINITION"
+```surql
 math::log2_10 -> number
 ```
 
@@ -1157,13 +818,11 @@ RETURN math::log2_10;
 -- 3.321928094887362f
 ```
 
-<br />
-
 ## `math::log2_e`
 
 The `math::log2_e` constant represents the base-2 logarithm of e, the base of the natural logarithm (Euler’s number).
 
-```surql title="API DEFINITION"
+```surql
 math::log2_e -> number
 ```
 
@@ -1181,13 +840,11 @@ RETURN math::log2_e;
 -- 1.4426950408889634f
 ```
 
-<br />
-
 ## `math::max`
 
 The `math::max` function returns the greatest number from an array of numbers.
 
-```surql title="API DEFINITION"
+```surql
 math::max(array<number>) -> number
 ```
 
@@ -1214,7 +871,7 @@ See also:
 
 The `math::mean` function returns the mean of a set of numbers.
 
-```surql title="API DEFINITION"
+```surql
 math::mean(array<number>) -> number
 ```
 
@@ -1233,13 +890,11 @@ RETURN math::mean([ 26.164, 13.746189, 23, 16.4, 41.42 ]);
 -- 24.146037800000002f
 ```
 
-<br />
-
 ## `math::median`
 
 The `math::median` function returns the median of a set of numbers.
 
-```surql title="API DEFINITION"
+```surql
 math::median(array<number>) -> number
 ```
 
@@ -1257,13 +912,11 @@ RETURN math::median([ 26.164, 13.746189, 23, 16.4, 41.42 ]);
 -- 23f
 ```
 
-<br />
-
 ## `math::midhinge`
 
 The `math::midhinge` function returns the midhinge of an array of numbers.
 
-```surql title="API DEFINITION"
+```surql
 math::midhinge(array<number>) -> number
 ```
 
@@ -1281,13 +934,11 @@ RETURN math::midhinge([ 1, 40, 60, 10, 2, 901 ]);
 -- 29.5f
 ```
 
-<br />
-
 ## `math::min`
 
 The `math::min` function returns the least number from an array of numbers.
 
-```surql title="API DEFINITION"
+```surql
 math::min(array<number>) -> number
 ```
 
@@ -1314,7 +965,7 @@ See also:
 
 The `math::mode` function returns the value that occurs most often in a set of numbers. In case of a tie, the highest one is returned.
 
-```surql title="API DEFINITION"
+```surql
 math::mode(array<number>) -> number
 ```
 
@@ -1338,13 +989,11 @@ RETURN math::mode([ 1, 40, 60, 10, 2, 901, 2 ]);
 -- 2
 ```
 
-<br />
-
 ## `math::nearestrank`
 
 The `math::nearestrank` function returns the nearest rank of an array of numbers by pullinng the closest extant record from the dataset at the %-th percentile.
 
-```surql title="API DEFINITION"
+```surql
 math::nearestrank(array<number>, $percentile: number) -> number
 ```
 
@@ -1372,13 +1021,11 @@ math::nearestrank([1, 40, 60, 10, 2, 901], 101);
 math::nearestrank([1, 40, 60, 10, 2, 901], -1);
 ```
 
-<br />
-
 ## `math::neg_inf`
 
 The `math::neg_inf` constant represents negative infinity.
 
-```surql title="API DEFINITION"
+```surql
 math::neg_inf -> number
 ```
 
@@ -1397,13 +1044,11 @@ RETURN math::neg_inf;
 -Infinity
 ```
 
-<br />
-
 ## `math::percentile`
 
 The `math::percentile` function returns the value below which a percentage of data falls by getting the N percentile, averaging neighboring records if non-exact.
 
-```surql title="API DEFINITION"
+```surql
 math::percentile(array<number>, $percentile: number) -> number
 ```
 
@@ -1431,13 +1076,11 @@ math::percentile([1, 40, 60, 10, 2, 901], 101);
 math::percentile([1, 40, 60, 10, 2, 901], -1);
 ```
 
-<br />
-
 ## `math::pi`
 
 The `math::pi` constant represents the mathematical constant π.
 
-```surql title="API DEFINITION"
+```surql
 math::pi -> number
 ```
 
@@ -1455,13 +1098,11 @@ RETURN math::pi;
 -- 3.141592653589793f
 ```
 
-<br />
-
 ## `math::pow`
 
 The `math::pow` function returns a number raised to the power of a second number.
 
-```surql title="API DEFINITION"
+```surql
 math::pow(number, $raise_to: number) -> number
 ```
 
@@ -1479,13 +1120,11 @@ RETURN math::pow(1.07, 10);
 -- 1.9671513572895665f
 ```
 
-<br />
-
 ## `math::product`
 
 The `math::product` function returns the product of a set of numbers.
 
-```surql title="API DEFINITION"
+```surql
 math::product(array<number>) -> number
 ```
 
@@ -1503,13 +1142,11 @@ RETURN math::product([ 26.164, 13.746189, 23, 16.4, 41.42 ]);
 -- 5619119.004884841f
 ```
 
-<br />
-
 ## `math::rad2deg`
 
 The `math::rad2deg` function converts an angle from radians to degrees.
 
-```surql title="API DEFINITION"
+```surql
 math::rad2deg(number) -> number
 ```
 
@@ -1527,13 +1164,11 @@ RETURN math::rad2deg(3.141592653589793);
 -- 180f
 ```
 
-<br />
-
 ## `math::round`
 
 The `math::round` function rounds a number up or down to the nearest integer.
 
-```surql title="API DEFINITION"
+```surql
 math::round(number) -> number
 ```
 
@@ -1551,14 +1186,12 @@ RETURN math::round(13.53124);
 -- 14f
 ```
 
-<br />
-
 ## `math::sign`
 
 The `math::sign` function returns the sign of a number, indicating whether the number is positive, negative, or zero.
 It returns 1 for positive numbers, -1 for negative numbers, and 0 for zero.
 
-```surql title="API DEFINITION"
+```surql
 math::sign(number) -> number
 ```
 
@@ -1576,13 +1209,11 @@ RETURN math::sign(-42);
 -- -1
 ```
 
-<br />
-
 ## `math::sin`
 
 The `math::sin` function returns the sine of a number, which is assumed to be in radians.
 
-```surql title="API DEFINITION"
+```surql
 math::sin(number) -> number
 ```
 
@@ -1600,13 +1231,11 @@ RETURN math::sin(1);
 -- 0.8414709848078965f
 ```
 
-<br />
-
 ## `math::spread`
 
 The `math::spread` function returns the spread of an array of numbers.
 
-```surql title="API DEFINITION"
+```surql
 math::spread(array<number>) -> number
 ```
 
@@ -1624,13 +1253,11 @@ RETURN math::spread([ 1, 40, 60, 10, 2, 901 ]);
 -- 900
 ```
 
-<br />
-
 ## `math::sqrt`
 
 The `math::sqrt` function returns the square root of a number.
 
-```surql title="API DEFINITION"
+```surql
 math::sqrt(number) -> number
 ```
 
@@ -1648,13 +1275,11 @@ RETURN math::sqrt(15);
 -- 3.872983346207417f
 ```
 
-<br />
-
 ## `math::sqrt_2`
 
 The `math::sqrt_2` constant represents the square root of 2.
 
-```surql title="API DEFINITION"
+```surql
 math::sqrt_2 -> number
 ```
 
@@ -1672,13 +1297,11 @@ RETURN math::sqrt_2;
 -- 1.4142135623730951f
 ```
 
-<br />
-
 ## `math::stddev`
 
 The `math::stddev` function calculates how far a set of numbers are away from the mean.
 
-```surql title="API DEFINITION"
+```surql
 math::stddev(array<number>) -> number
 ```
 
@@ -1709,13 +1332,11 @@ DEFINE TABLE person_stats AS
 	GROUP BY age;
 ```
 
-<br />
-
 ## `math::sum`
 
 The `math::sum` function returns the total sum of a set of numbers.
 
-```surql title="API DEFINITION"
+```surql
 math::sum(array<number>) -> number
 ```
 
@@ -1810,13 +1431,11 @@ math::sum([0, NONE, 10dec, 10.7, NULL].map(|$num| $num ?? 0));
 -- 20.7dec
 ```
 
-<br />
-
 ## `math::tan`
 
 The `math::tan` function returns the tangent of a number, which is assumed to be in radians.
 
-```surql title="API DEFINITION"
+```surql
 math::tan(number) -> number
 ```
 
@@ -1834,13 +1453,11 @@ RETURN math::tan(1);
 -- 1.557407724654902f
 ```
 
-<br />
-
 ## `math::tau`
 
 The `math::tau` constant represents the mathematical constant τ, which is equal to 2π.
 
-```surql title="API DEFINITION"
+```surql
 math::tau -> number
 ```
 
@@ -1858,13 +1475,11 @@ RETURN math::tau;
 -- 6.283185307179586f
 ```
 
-<br />
-
 ## `math::top`
 
 The `math::top` function returns the top of an array of numbers.
 
-```surql title="API DEFINITION"
+```surql
 math::top(array<number>, $quantity: number) -> number
 ```
 
@@ -1882,13 +1497,11 @@ RETURN math::top([1, 40, 60, 10, 2, 901], 3);
 -- [40, 901, 60]
 ```
 
-<br />
-
 ## `math::trimean`
 
 The `math::trimean` function returns the trimean of an array of numbers.
 
-```surql title="API DEFINITION"
+```surql
 math::trimean(array<number>) -> number
 ```
 
@@ -1906,13 +1519,11 @@ RETURN math::trimean([ 1, 40, 60, 10, 2, 901 ]);
 -- 27.25f
 ```
 
-<br />
-
 ## `math::variance`
 
 The `math::variance` function returns the variance of an array of numbers.
 
-```surql title="API DEFINITION"
+```surql
 math::variance(array<number>) -> number
 ```
 
@@ -1942,5 +1553,3 @@ DEFINE TABLE person_stats AS
 	FROM person
 	GROUP BY age;
 ```
-
-<br /><br />

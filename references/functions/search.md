@@ -1,49 +1,6 @@
----
-sidebar_position: 19
-sidebar_label: Search functions
-title: Search functions | SurrealQL
-description: These functions are used in conjunction with the 'matches' operator to either collect the relevance score or highlight the searched keywords within the content.
----
-
-
 # Search functions
 
 These functions are used in conjunction with the [`@@` operator (the 'matches' operator)](/docs/surrealql/operators#matches) to either collect the relevance score or highlight the searched keywords within the content.
-
-<table>
-  <thead>
-    <tr>
-      <th scope="col">Function</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#searchanalyze"><code>search::analyze()</code></a></td>
-      <td scope="row" data-label="Description">Returns the output of a defined search analyzer</td>
-    </tr>
-      <td scope="row" data-label="Function"><a href="#searchhighlight"><code>search::highlight()</code></a></td>
-      <td scope="row" data-label="Description">Highlights the matching keywords</td>
-    <tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#searchlinear"><code>search::linear()</code></a></td>
-      <td scope="row" data-label="Description"> Performs weighted linear search</td>
-    </tr>
-      <td scope="row" data-label="Function"><a href="#searchoffsets"><code>search::offsets()</code></a></td>
-      <td scope="row" data-label="Description">Returns the position of the matching keywords</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#searchrrf"><code>search::rrf()</code></a></td>
-      <td scope="row" data-label="Description"> Performs RRF (reciprocal rank fusion) search</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#searchscore"><code>search::score()</code></a></td>
-      <td scope="row" data-label="Description">Returns the relevance score</td>
-    </tr>
-  </tbody>
-</table>
-
-<br/>
 
 > [!NOTE]
 > Before SurrealDB version 3.0.0-beta, the `FULLTEXT ANALYZER` clause used the syntax `SEARCH ANALYZER`.
@@ -60,13 +17,13 @@ DEFINE INDEX book_title ON book FIELDS title FULLTEXT ANALYZER book_analyzer BM2
 
 The `search_analyze` function returns the outut of a defined search analyzer on an input string.
 
-```surql title="API DEFINITION"
+```surql
 search::analyze($analyzer: string, $input: string) -> array<string>
 ```
 
 First define the analyzer using the [`DEFINE ANALYZER`](/docs/surrealql/statements/define/analyzer) statement
 
-```surql title="Define book analyzer"
+```surql
 DEFINE ANALYZER book_analyzer TOKENIZERS blank, class, camel, punct FILTERS snowball(english); 
 ```
 
@@ -76,7 +33,7 @@ Next you can pass the analyzer to the `search::analyze`function. The following e
 RETURN search::analyze("book_analyzer", "A hands-on guide to developing, packaging, and deploying fully functional Rust web applications");
 ```
 
-```surql title="Output"
+```surql
 [
 	'a',
 	'hand',
@@ -102,7 +59,7 @@ RETURN search::analyze("book_analyzer", "A hands-on guide to developing, packagi
 
 The `search::highlight` function highlights the matching keywords for the predicate reference number.
 
-```surql title="API DEFINITION"
+```surql
 search::highlight($prepend: string, $append: string, $predicate: number, $highlight_all: option<bool>) -> string | string[]
 ```
 
@@ -113,7 +70,7 @@ SELECT id, search::highlight('<b>', '</b>', 1) AS title
 	FROM book WHERE title @1@ 'rust web';
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		id: book:1,
@@ -126,11 +83,9 @@ The optional Boolean parameter can be set to `true` to explicitly request that t
 or set to `false` to highlight only the sequence of characters we are looking for. This must be used with an `edgengram` or `ngram` filter.
 The default value is true.
 
-<br />
-
 ## `search::linear`
 
-```surql title="API DEFINITION"
+```surql
 search::linear($lists: array, $weights: array, $limit: int, $norm: 'minmax' | 'zscore') -> array<object>
 ```
 
@@ -261,7 +216,7 @@ Output of the final search::linear() queries:
 
 The `search::offsets` function returns the position of the matching keywords for the predicate reference number.
 
-```surql title="API DEFINITION"
+```surql
 search::offsets($predicate: number, $highlight_all: option<bool>) -> object
 ```
 
@@ -272,7 +227,7 @@ SELECT id, title, search::offsets(1) AS title_offsets
 	FROM book WHERE title @1@ 'rust web';
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		id: book:1,
@@ -296,11 +251,9 @@ or set to `false` to highlight only the sequence of characters we are looking fo
 
 The default value is true.
 
-<br />
-
 ## `search::rrf`
 
-```surql title="API DEFINITION"
+```surql
 search::rrf($lists: array, $limit: int, $k: option<int>) -> array<object>
 ```
 
@@ -406,7 +359,7 @@ Output of the final search::rrf() query:
 
 The `search::score` function returns the relevance score corresponding to the given 'matches' predicate reference numbers.
 
-```surql title="API DEFINITION"
+```surql
 search::score(number) -> number
 ```
 
@@ -418,7 +371,7 @@ SELECT id, title, search::score(1) AS score FROM book
 	ORDER BY score DESC;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		id: book:1,
@@ -427,7 +380,3 @@ SELECT id, title, search::score(1) AS score FROM book
 	}
 ]
 ```
-
-<br />
-
-<br /><br />

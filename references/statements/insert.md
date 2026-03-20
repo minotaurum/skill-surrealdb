@@ -1,10 +1,3 @@
----
-sidebar_position: 13
-sidebar_label: INSERT
-title: INSERT statement | SurrealQL
-description: The INSERT statement can be used to insert or update data into the database, using the same statement syntax as the traditional SQL Insert statement.
----
-
 # `INSERT` statement
 
 The `INSERT` statement can be used to insert or update data into the database, using the same statement syntax as the traditional SQL Insert statement.
@@ -138,7 +131,7 @@ INSERT INTO user_data {
 } ON DUPLICATE KEY UPDATE times_updated += 1, last_edited = time::now();
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 [
@@ -254,7 +247,7 @@ INSERT INTO company {
 } RETURN DIFF;
 ```
 
-```surql title="Response"
+```surql
 -------- Query 1 (500µs) --------
 
 [
@@ -353,7 +346,7 @@ INSERT INTO planet [
 ] RETURN VALUE temp_55_km_up;
 ```
 
-```surql title="Response"
+```surql
 -------- Query --------
 
 [

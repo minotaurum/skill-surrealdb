@@ -1,10 +1,3 @@
----
-sidebar_position: 5
-sidebar_label: Type conversion
-title: Type conversion | Embedded scripting functions | SurrealQL
-description: Any value from SurrealDB is converted into a JavaScript type automatically, and the return value from the JavaScript function is converted to a SurrealQL value.
----
-
 # Type conversion
 
 Any value from SurrealDB is converted into a JavaScript type automatically, and the return value from the JavaScript function is converted to a SurrealQL value. Boolean values, Integers, Floats, Strings, Arrays, Objects, and Date objects are all converted automatically to and from SurrealQL values.

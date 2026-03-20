@@ -1,10 +1,3 @@
----
-sidebar_position: 1
-sidebar_label: SPLIT
-title: SPLIT clause | SurrealQL
-description: The SPLIT clause in SurrealQL is used to split the results of a query based on a specific field, particularly when dealing with arrays.
----
-
 # `SPLIT` clause
 
 The `SPLIT` clause in SurrealQL is used to split the results of a query based on a specific field, particularly when dealing with arrays. This is useful in scenarios where you want to treat each element of an array as a separate row in the result set. It can be particularly helpful in data analysis contexts where you need to work with individual elements of an array separately.
@@ -109,7 +102,7 @@ SELECT
     <-in<-province<-in<-city AS cities FROM ONLY country:canada;
 ```
 
-```surql title="Output"
+```surql
 {
 	cities: [
 		city:calgary,
@@ -135,7 +128,7 @@ SELECT
     SPLIT city, province;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		city: city:calgary,
@@ -197,7 +190,7 @@ An example of the same query then mapped into a set of unique keys for serializa
 );
 ```
 
-```surql title="Output"
+```surql
 [
 	'canada|alberta|calgary',
 	'canada|bc|calgary',

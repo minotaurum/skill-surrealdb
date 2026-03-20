@@ -1,11 +1,3 @@
----
-sidebar_position: 18
-sidebar_label: DEFINE USER
-title: DEFINE USER statement | SurrealQL
-description: Use the DEFINE USER statement to create system users on SurrealDB.
----
-
-
 # `DEFINE USER` statement
 
 Use the `DEFINE USER` statement to create system users on SurrealDB
@@ -141,29 +133,6 @@ DEFINE USER OVERWRITE example ON ROOT PASSWORD "example" ROLES OWNER;
 ## Roles
 
 Currently, only the built-in roles OWNER, EDITOR and VIEWER are available.
-
-<table>
-<thead>
-  <tr>
-    <th>Role</th>
-    <th>Description</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>OWNER</td>
-    <td>Can view and edit any resource on the user's level or below, including user and token (IAM) resources.<br/>It also grants full permissions for child resources that support the `PERMISSIONS` clause (tables, fields, etc.)</td>
-  </tr>
-  <tr>
-    <td>EDITOR</td>
-    <td>Can view and edit any resource on the user's level or below, but not users or token (IAM) resources<br/>It also grants full permissions for child resources that support the `PERMISSIONS` clause (tables, fields, etc.)</td>
-  </tr>
-  <tr>
-    <td>VIEWER</td>
-    <td>Grants permissions to view any resource on the user's level or below, but not edit.<br/>It also grants view permissions for child resources that support the `PERMISSIONS` clause (tables, fields, etc.)</td>
-  </tr>
-</tbody>
-</table>
 
 ## Duration
 

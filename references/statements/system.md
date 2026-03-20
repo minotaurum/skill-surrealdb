@@ -1,11 +1,3 @@
----
-sidebar_position: 7
-sidebar_label: SYSTEM
-title: ALTER SYSTEM statement | SurrealQL
-description: The ALTER statement can be used to change authentication access and behaviour, global parameters, table configurations, table events, schema definitions, and indexes.
----
-
-
 # `ALTER SYSTEM` statement
 
 The `ALTER SYSTEM` statement is used to alter the entire datastore. It can be used to compact the system, or to set or drop a systemwide query timeout.
@@ -35,7 +27,7 @@ ALTER SYSTEM QUERY_TIMEOUT 100ns;
 INFO FOR ROOT.config;
 ```
 
-```surql title="Output"
+```surql
 { QUERY_TIMEOUT: NONE }
 ```
 

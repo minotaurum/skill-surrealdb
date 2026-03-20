@@ -1,10 +1,3 @@
----
-sidebar_position: 5
-sidebar_label: Closures
-title: Closures | SurrealQL
-description: Anonymous functions in SurrealDB allow you to define small, reusable pieces of logic that can be used throughout your queries.
----
-
 # Anonymous functions (closures)
 
 ```syntax title="SurrealQL Syntax"
@@ -114,7 +107,7 @@ value = "2000"
     .chain(|$num| <number>$num * 1000);
 ```
 
-```surql title="Response"
+```surql
 2000
 ```
 
@@ -144,7 +137,7 @@ value = "'true'"
     .chain(|$v| <string>$v);
 ```
 
-```surql title="Response"
+```surql
 'true'
 ```
 

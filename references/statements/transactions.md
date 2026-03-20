@@ -1,10 +1,3 @@
----
-sidebar_position: 7
-sidebar_label: Transactions
-title: Transactions | SurrealQL
-description: Each statement within SurrealDB is run within its own transaction, or within client defined transactions that can contain multiple statements.
----
-
 # Transactions
 
 Each statement within SurrealDB is run within its own transaction by default. If a set of changes need to be made together, then groups of statements can be run together as a single transaction. If all of the statements within a transaction succeed, and the transaction is successful, then all of the data modifications made during the transaction are committed and become a permanent part of the database. If a transaction encounters errors and must be cancelled or rolled back, then any data modification made within the transaction is rolled back, and will not become a permanent part of the database.
@@ -13,13 +6,13 @@ Each statement within SurrealDB is run within its own transaction by default. If
 
 The `BEGIN` or `BEGIN TRANSACTION` statement starts a transaction in which multiple statements can be run together.
 
-```surql title="Starting a transaction"
+```surql
 BEGIN [ TRANSACTION ];
 ```
 
 The following query shows example usage of this statement.
 
-```surql title="Example usage of BEGIN TRANSACTION"
+```surql
 /**[test]
 
 [[test.results]]
@@ -64,13 +57,13 @@ COMMIT TRANSACTION;
 
 The [COMMIT](/docs/surrealql/statements/commit) statement is used to commit a set of statements within a transaction, ensuring that all data modifications become a permanent part of the database.
 
-```surql title="Committing a transaction"
+```surql
 COMMIT [ TRANSACTION ];
 ```
 
 The following query shows example usage of this statement.
 
-```surql title="Example usage of COMMIT TRANSACTION"
+```surql
 /**[test]
 
 [[test.results]]
@@ -105,13 +98,13 @@ COMMIT TRANSACTION;
 
 The [CANCEL](/docs/surrealql/statements/cancel) statement can be used to cancel a set of statements within a transaction, reverting or rolling back any data modification made within the transaction as a whole.
 
-```surql title="Cancelling a transaction"
+```surql
 CANCEL [ TRANSACTION ];
 ```
 
 The following query shows example usage of this statement.
 
-```surql title="Example usage of CANCEL TRANSACTION"
+```surql
 /**[test]
 
 [[test.results]]
@@ -162,11 +155,11 @@ COMMIT TRANSACTION;
 SELECT * FROM account;
 ```
 
-```surql title="Output when $transfer_amount set to 150"
+```surql
 'An error occurred: Insufficient funds, would have $-50 after transfer'
 ```
 
-```surql title="Output when $transfer_amount set to 50"
+```surql
 [
 	{
 		dollars: 50,
@@ -202,7 +195,7 @@ COMMIT TRANSACTION;
 
 The output is not the expected 'An error occurred: Reached the end' message, showing that not all queries were successful.
 
-```surql title="Output"
+```surql
 "Database index `unique_name` already contains 'Agatha Christie', with record `person:qs4bpvl96sf9x40b3567`"
 ```
 
@@ -222,6 +215,6 @@ THROW "Reached the end";
 COMMIT TRANSACTION;
 ```
 
-```surql title="Expected output"
+```surql
 'An error occurred: Reached the end'
 ```

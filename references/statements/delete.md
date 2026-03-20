@@ -1,14 +1,6 @@
----
-sidebar_position: 8
-sidebar_label: DELETE
-title: DELETE statement | SurrealQL
-description: The DELETE statement can be used to delete records from the database.
----
-
 # `DELETE` statement
 
 The `DELETE` statement can be used to delete records from the database.
-
 
 ### Statement syntax
 
@@ -48,7 +40,7 @@ value = "[]"
 DELETE person;
 ```
 
-```surql title="Output"
+```surql
 []
 ```
 
@@ -103,7 +95,7 @@ error = "'Expected a single result output when using the ONLY keyword'"
 DELETE ONLY person:tobie;
 ```
 
-```surql title="Output"
+```surql
 'Expected a single result output when using the ONLY keyword'
 ```
 
@@ -182,7 +174,7 @@ DELETE cat WHERE age;
 SELECT * FROM cat;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		id: cat:two
@@ -232,7 +224,7 @@ DELETE information WHERE error_info.continue;
 SELECT * FROM information;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		error_info: {
@@ -320,7 +312,7 @@ SELECT * FROM person;
 SELECT * FROM deleted_person;
 ```
 
-```surql title="Output"
+```surql
 
 -------- Query --------
 

@@ -1,10 +1,3 @@
----
-sidebar_position: 3
-sidebar_label: DEFINE API
-title: DEFINE API statement | SurrealQL
-description: A DEFINE API statement can be used to set endpoints with custom middleware and permissions.
----
-
 # DEFINE API statement
 
 The `DEFINE API` statements allows a custom endpoint to be created. Each endpoint created by a `DEFINE API` statement is located at the `/api/:namespace/:database/:endpoint_name` path. For example, an endpoint for the path `get_users` for the namespace `my_namespace` and database `my_database` will have the path `/api/my_namespace/my_database/get_users`.
@@ -36,7 +29,7 @@ DEFINE API [ OVERWRITE | IF NOT EXISTS ] @endpoint
 
 ## Quick example
 
-```surql title="Defining an API endpoint"
+```surql
 /**[test]
 
 [[test.results]]
@@ -77,7 +70,7 @@ api::invoke("/test", {
 });
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 {
@@ -153,7 +146,7 @@ api::invoke("/test/but/this/wont/match");
 
 The first two `api::invoke` calls return the output below, but the third returns nothing as `:anything_goes` only applies to a single path segment.
 
-```surql title="Output"
+```surql
 { 
     body: NONE, 
     context: {}, 
@@ -196,7 +189,7 @@ api::invoke("/test/works/with/multiple/paths/now");
 
 All three `api::invoke` calls will now show the following output.
 
-```surql title="Output"
+```surql
 {
 	body: {
 		some: 'data'

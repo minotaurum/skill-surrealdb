@@ -1,10 +1,3 @@
----
-sidebar_position: 26
-sidebar_label: UPSERT
-title: UPSERT statement | SurrealQL
-description: The UPSERT statement can be used to insert records or modify records that already exist
----
-
 # `UPSERT` statement
 
 The `UPSERT` statement can be used to insert records into the database, or to update them if they exist.
@@ -66,7 +59,7 @@ SELECT * FROM person;
 
 As the output shows, the second `UPSERT` simply inserted another `person` record with the name "Bobby", rather than updating the existing record.
 
-```surql title="Output"
+```surql
 -------- Query --------
 [
 	{
@@ -116,7 +109,7 @@ skip-record-id-key = true
 UPSERT person SET name = 'Jaime' WHERE name = 'Jaime';
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		id: person:7ilunylkcjgbg9gf0tqn,
@@ -131,7 +124,7 @@ Since a record with the name 'Jaime' exists, an `UPSERT` followed by `WHERE name
 UPSERT person SET name = 'Tobie' WHERE name = 'Jaime';
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		id: person:7ilunylkcjgbg9gf0tqn,
@@ -147,7 +140,7 @@ UPSERT person SET name = 'Tobie' WHERE name = 'Jaime';
 SELECT * FROM person;
 ```
 
-```surql title="Output"
+```surql
 -- Query
 [
 	{
@@ -186,7 +179,7 @@ value = "[{ id: person:test, name: 'Jaime' }]"
 UPSERT person:test SET name = 'Jaime' WHERE name = 'Jaime';
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		id: person:test,
@@ -201,7 +194,7 @@ The following query will update the `person:test` record, because the record exi
 UPSERT person:test SET name = 'Tobie' WHERE name = 'Jaime';
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		id: person:test,
@@ -216,7 +209,7 @@ However, this third query will return nothing. The `WHERE` clause does not match
 UPSERT person:test SET name = 'Billy' WHERE name = 'Jaime';
 ```
 
-```surql title="Output"
+```surql
 []
 ```
 
@@ -249,7 +242,7 @@ CREATE user:billy_der_zweite SET name = "Billy", class = "wizard", metadata = { 
 
 As the output shows, the unique index prevents the creation of a second user with the name and class as the first.
 
-```surql title="Output"
+```surql
 -------- Query --------
 [
 	{
@@ -294,7 +287,7 @@ UPSERT user:mandy SET
 	metadata = { likes: ["strawberries" ]};
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 [
@@ -320,7 +313,7 @@ UPSERT user SET
 	metadata = { likes: ["strawberries", "fields"] };
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 [
 	{
@@ -422,7 +415,7 @@ UPSERT event_for:[time::now().format("%Y-%m-%d")] SET
     number += 1;
 ```
 
-```surql title="Possible output"
+```surql
 [
 	{
 		id: event_for:[
@@ -558,7 +551,7 @@ UPSERT person:gladys REPLACE { age: 70 };
 UPSERT person:gladys REPLACE { age: 70, created: d'2024-01-01T00:00:00Z' };
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 [
 	{

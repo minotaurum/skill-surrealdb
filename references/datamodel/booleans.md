@@ -1,11 +1,3 @@
----
-sidebar_position: 3
-sidebar_label: Booleans
-title: Booleans | SurrealQL
-description: Boolean values in SurrealDB can be used to mark whether a field is true or false
-
----
-
 # Booleans
 
 Boolean values can be used to mark whether a field is `true` or `false`.
@@ -31,7 +23,7 @@ CREATE person SET
     name_is_long = string::len(name) > 10;
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		id: person:7j4t4higwb141v1v2xum,

@@ -1,12 +1,3 @@
----
-sidebar_position: 6
-sidebar_label: Datetimes
-title: Datetimes | SurrealQL
-description: SurrealDB has native support for datetimes with nanosecond precision. SurrealDB is able to parse datetimes from strings.
-
----
-
-
 # Datetimes
 
 SurrealDB has native support for datetimes with nanosecond precision. SurrealDB automatically parses and understands datetimes which are written as strings in the SurrealQL language. Times must also be formatted in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) format.
@@ -69,7 +60,7 @@ skip-record-id-key = true
 CREATE event SET time = <datetime>"2025-07-03T07:18:52.841147Z";
 ```
 
-```surql title="Response"
+```surql
 [{ id: event:jwm8ncmfi30nrxdf24ws, time: d'2025-07-03T07:18:52.841147Z' }]
 ```
 
@@ -86,7 +77,7 @@ error = "'"Expected `datetime` but found a `'2025-07-03T07:18:52.841147'`"'"
 CREATE event SET time = <datetime>"2025-07-03T07:18:52.841147";
 ```
 
-```surql title="Response"
+```surql
 "Expected a datetime but cannot convert '2025-07-03T07:18:52.841147' into a datetime"
 ```
 
@@ -104,7 +95,7 @@ skip-record-id-key = true
 CREATE event SET time = <datetime>"2024-04-03";
 ```
 
-```surql title="Response"
+```surql
 [{ id: event:4t50wjjlne9v8km2qcwq, time: d'2024-04-03T00:00:00Z' }]
 ```
 
@@ -128,7 +119,7 @@ DEFINE FIELD time ON event TYPE datetime;
 CREATE event SET time = "2025-07-03T07:18:52.841147";
 ```
 
-```surql title="Response"
+```surql
 "Couldn't coerce value for field `time` of `event:qv8qcjf0w9oowekl36w6`: Expected `datetime` but found `'2025-07-03T07:18:52.841147'`"
 ```
 
@@ -151,7 +142,7 @@ DEFINE FIELD time ON event TYPE datetime;
 CREATE event SET time = d"2025-07-03T07:18:52.84114Z";
 ```
 
-```surql title="Response"
+```surql
 [
     { 
         id: event:w2lhv58f7c9z7xo4nqkq, 
@@ -167,7 +158,7 @@ A datetime can be compared with another using the advanced SurrealDB operators.
 d"2025-07-03T07:18:52Z" < d"2025-07-03T07:18:52.84114Z";
 ```
     
-```surql title="Response"
+```surql
 true
 ```
 
@@ -187,7 +178,7 @@ skip-record-id-key = true
 CREATE event SET time = d"2025-07-03T07:18:52Z" + 2w;
 ```
     
-```surql title="Response"
+```surql
 [{ id: event:`9ey7v8r0fd46xblf9dsf`, time: d'2025-07-17T07:18:52Z' }]
 ```
 
@@ -205,7 +196,7 @@ skip-record-id-key = true
 CREATE event SET time = d"2025-07-03T07:18:52.841147Z" + 1h30m20s1350ms;
 ```
 
-```surql title="Response"
+```surql
 [{ id: event:5uuzy32t48yutxyszi7p, time: d'2025-07-03T08:49:14.191147Z' }]
 ```
 

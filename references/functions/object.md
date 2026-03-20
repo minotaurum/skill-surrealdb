@@ -1,63 +1,12 @@
----
-sidebar_position: 15
-sidebar_label: Object functions
-title: Object functions | SurrealQL
-description: These functions can be used when working with, and manipulating data objects.
----
-
-
 # Object functions
 
 These functions can be used when working with, and manipulating data objects.
-
-<table>
-  <thead>
-    <tr>
-      <th scope="col">Function</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#objectentries"><code>object::entries()</code></a></td>
-      <td scope="row" data-label="Description">Transforms an object into an array with arrays of key-value combinations.</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#objectextend"><code>object::extend()</code></a></td>
-      <td scope="row" data-label="Description">Extends an object with the content of another one.</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#objectfrom_entries"><code>object::from_entries()</code></a></td>
-      <td scope="row" data-label="Description">Transforms an array with arrays of key-value combinations into an object.</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#objectis_empty"><code>object::is_empty()</code></a></td>
-      <td scope="row" data-label="Description">Checks if an object is empty</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#objectkeys"><code>object::keys()</code></a></td>
-      <td scope="row" data-label="Description">Returns an array with all the keys of an object.</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#objectlen"><code>object::len()</code></a></td>
-      <td scope="row" data-label="Description">Returns the amount of key-value pairs an object holds.</td>
-    </tr>
-<tr>
-      <td scope="row" data-label="Function"><a href="#objectremove"><code>object::remove()</code></a></td>
-      <td scope="row" data-label="Description">Removes one or more fields from an object.</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#objectvalues"><code>object::values()</code></a></td>
-      <td scope="row" data-label="Description">Returns an array with all the values of an object.</td>
-    </tr>
-  </tbody>
-</table>
 
 ## `object::entries`
 
 The `object::entries` function transforms an object into an array with arrays of key-value combinations.
 
-```surql title="API DEFINITION"
+```surql
 object::entries(object) -> array
 ```
 
@@ -77,20 +26,18 @@ RETURN object::entries({
 });
 ```
 
-```surql title="Response"
+```surql
 [
   [ 'a', 1 ],
   [ 'b', true ],
 ]
 ```
 
-<br />
-
 ## `object::extend`
 
 The `object::extend` function extends an object with the fields and values of another one, essentially adding the two together.
 
-```surql title="API DEFINITION"
+```surql
 object::extend(object, $other: object) -> object
 ```
 
@@ -109,7 +56,7 @@ skip-datetime = true
 { gold: 100, last_updated: time::now() });
 ```
 
-```surql title="Output"
+```surql
 {
 	gold: 100,
 	last_updated: d'2025-05-07T06:15:00.768Z',
@@ -132,13 +79,11 @@ skip-datetime = true
 { gold: 100, last_updated: time::now() };
 ```
 
-<br />
-
 ## `object::from_entries`
 
 The `object::from_entries` function transforms an array with arrays of key-value combinations into an object.
 
-```surql title="API DEFINITION"
+```surql
 object::from_entries(array) -> object
 ```
 
@@ -158,7 +103,7 @@ RETURN object::from_entries([
 ]);
 ```
 
-```surql title="Response"
+```surql
 {
   a: 1,
   b: true
@@ -169,13 +114,13 @@ RETURN object::from_entries([
 
 The `object::is_empty` function checks whether the object contains values.
 
-```surql title="API DEFINITION"
+```surql
 object::is_empty(object) -> bool
 ```
 
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
 
-```surql title="An object that contain values"
+```surql
 /**[test]
 
 [[test.results]]
@@ -191,7 +136,7 @@ RETURN {
 -- false
 ```
 
-```surql title="An empty object"
+```surql
 /**[test]
 
 [[test.results]]
@@ -230,7 +175,7 @@ CREATE house SET metadata = {};
 CREATE house SET metadata = { floors: 5 };
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 'Found {  } for field `metadata`, with record `house:aei2fms2jccm46ceib8l`, but field must conform to: !$value.is_empty()'
@@ -251,7 +196,7 @@ CREATE house SET metadata = { floors: 5 };
 
 The `object::keys` function returns an array with all the keys of an object.
 
-```surql title="API DEFINITION"
+```surql
 object::keys(object) -> array
 ```
 
@@ -273,13 +218,11 @@ RETURN object::keys({
 -- [ 'a', 'b' ]
 ```
 
-<br />
-
 ## `object::len`
 
 The `object::len` function returns the amount of key-value pairs an object holds.
 
-```surql title="API DEFINITION"
+```surql
 object::len(object) -> number
 ```
 
@@ -305,7 +248,7 @@ RETURN object::len({
 
 The `object::remove` function removes one or more fields from an object.
 
-```surql title="API DEFINITION"
+```surql
 object::remove(object, $to_remove: string|array<string>) -> object
 ```
 
@@ -326,7 +269,7 @@ value = "{ name: 'Mat Cauthon' }"
 { name: "Mat Cauthon", last_updated: d'2013-01-08', gold: 100 }.remove(["gold", "last_updated"]);
 ```
 
-```surql title="Output"
+```surql
 -------- Query 1 --------
 
 {
@@ -345,7 +288,7 @@ value = "{ name: 'Mat Cauthon' }"
 
 The `object::values` function returns an array with all the values of an object.
 
-```surql title="API DEFINITION"
+```surql
 object::values(object) -> array
 ```
 
@@ -366,8 +309,6 @@ RETURN object::values({
 
 -- [1, true]
 ```
-
-<br /><br />
 
 ## Method chaining
 
@@ -397,7 +338,7 @@ object::values({
 }.values();
 ```
 
-```surql title="Response"
+```surql
 [
   1,
   true
@@ -424,6 +365,6 @@ array::max(object::values(object::from_entries([["a", 1], ["b", 2]])));
 object::from_entries([["a", 1], ["b", 2]]).values().max();
 ```
 
-```surql title="Response"
+```surql
 2
 ```

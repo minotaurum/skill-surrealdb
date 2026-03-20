@@ -1,11 +1,3 @@
----
-sidebar_position: 10
-sidebar_label: JWT
-title: DEFINE ACCESS ... TYPE JWT statement | SurrealQL
-description: A JWT access method allows accessing SurrealDB with a token signed by a trusted issuer.
----
-
-
 # `DEFINE ACCESS ... TYPE JWT`
 
 A JWT access method allows accessing SurrealDB with a token signed by a trusted issuer. The contents of the token will be trusted by SurrealDB as long as it has been signed with a trusted credential.

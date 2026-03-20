@@ -1,10 +1,3 @@
----
-sidebar_position: 1
-sidebar_label: OMIT
-title: OMIT clause | SurrealQL
-description: The `OMIT` clause is used to omit fields from the result set 
----
-
 # `OMIT` clause
 
 The `OMIT` clause is used to omit fields from the result set which can be particularly useful when querying large datasets.

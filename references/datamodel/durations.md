@@ -1,12 +1,3 @@
----
-sidebar_position: 7
-sidebar_label: Durations
-title: Durations | SurrealQL
-description: SurrealDB has native support for durations with nanosecond precision. SurrealDB is able to parse durations from strings.
-
----
-
-
 # Durations
 
 A `duration` represents a non-negative period of time.
@@ -14,53 +5,6 @@ A `duration` represents a non-negative period of time.
 ## Duration units
 
 Durations can be specified in any of the following units:
-
-<table>
-    <thead>
-    <tr>
-        <th scope="col">Unit</th>
-        <th scope="col">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td scope="row" data-label="Type">ns</td>
-            <td scope="row" data-label="Description">Nanoseconds</td>
-        </tr>
-        <tr>
-            <td scope="row" data-label="Type">us</td>
-            <td scope="row" data-label="Description">Microseconds, alternative: µs</td>
-        </tr>
-        <tr>
-            <td scope="row" data-label="Type">ms</td>
-            <td scope="row" data-label="Description">Milliseconds</td>
-        </tr>
-        <tr>
-            <td scope="row" data-label="Type">s</td>
-            <td scope="row" data-label="Description">Seconds</td>
-        </tr>
-        <tr>
-            <td scope="row" data-label="Type">m</td>
-            <td scope="row" data-label="Description">Minutes</td>
-        </tr>
-        <tr>
-            <td scope="row" data-label="Type">h</td>
-            <td scope="row" data-label="Description">Hours</td>
-        </tr>
-        <tr>
-            <td scope="row" data-label="Type">d</td>
-            <td scope="row" data-label="Description">Days</td>
-        </tr>
-        <tr>
-            <td scope="row" data-label="Type">w</td>
-            <td scope="row" data-label="Description">Weeks</td>
-        </tr>
-        <tr>
-            <td scope="row" data-label="Type">y</td>
-            <td scope="row" data-label="Description">Years</td>
-        </tr>
-    </tbody>
-</table>
 
 ## Creating and using durations
 

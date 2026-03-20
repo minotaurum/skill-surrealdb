@@ -1,54 +1,4 @@
----
-sidebar_position: 2
-sidebar_label: API functions
-title: API functions | SurrealQL
-description: These functions can be used with the DEFINE API or DEFINE CONFIG statements.
----
-
 # API functions
-
-<table>
-  <thead>
-    <tr>
-      <th scope="col">Function</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#apiinvoke"><code>api::invoke()</code></a></td>
-      <td scope="row" data-label="Description">Invokes an `/api` endpoint and returns the result</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#apitimeout"><code>api::timeout()</code></a></td>
-      <td scope="row" data-label="Description">Middleware to set a timeout for requests made to a defined API endpoint</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#apireqbody"><code>api::req::body()</code></a></td>
-      <td scope="row" data-label="Description">Middleware to set the body type for an API endpoint request</td>
-    </tr>
-        <tr>
-    <td scope="row" data-label="Function"><a href="#apiresbody"><code>api::res::body()</code></a></td>
-      <td scope="row" data-label="Description">Middleware to set the body type for an API endpoint response</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#apiresheader"><code>api::res::header()</code></a></td>
-      <td scope="row" data-label="Description">Middleware to add a single header to an API endpoint response</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#apiresheaders"><code>api::res::headers()</code></a></td>
-      <td scope="row" data-label="Description">Middleware to adds multiple headers to an API endpoint response</td>
-    </tr>
-        <tr>
-      <td scope="row" data-label="Function"><a href="#apiresstatus"><code>api::res::status()</code></a></td>
-      <td scope="row" data-label="Description">Middleware to set the status for an API endpoint response</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#custom-middleware"><code>Custom middleware</code></a></td>
-      <td scope="row" data-label="Description">Middleware to set the status for an API endpoint response</td>
-    </tr>
-  </tbody>
-</table>
 
 ## Overview
 
@@ -72,7 +22,7 @@ For more details on how this works, see [this section](/docs/surrealql/functions
 
 ## `api::invoke`
 
-```surql title="API DEFINITION"
+```surql
 api::invoke($path: string, $options: option<object>) -> object
 ```
 
@@ -80,7 +30,7 @@ The `api::invoke` function invokes a custom `/api` endpoint defined using a `DEF
 
 The following two examples of the function assume that this `DEFINE API` statement has been used to set up the `"/test"` endpoint.
 
-```surql title="Define API endpoint"
+```surql
 /**[test]
 
 [[test.results]]
@@ -103,11 +53,11 @@ DEFINE API "/test"
 
 Calling the `api::invoke` function with just a path:
 
-```surql title="Use defined endpoint"
+```surql
 api::invoke("/test");
 ```
 
-```surql title="Output"
+```surql
 {
 	body: NONE,
     context: {},
@@ -130,7 +80,7 @@ api::invoke("/test", {
 });
 ```
 
-```surql title="Output"
+```surql
 {
 	body: b"7B202261223A2074727565207D",
     context: {},
@@ -147,13 +97,13 @@ For more information and examples, see the page for the `DEFINE API` statement.
 
 The `api::timeout` function sets the maximum timeout for a request.
 
-```surql title="API DEFINITION"
+```surql
 api::timeout($timeout: duration)
 ```
 
 The following example will always return an error because the
 
-```surql title="Example"
+```surql
 /**[test]
 
 [[test.results]]
@@ -173,7 +123,7 @@ DEFINE API "/exceeds_timeout"
 
 ## `api::req::body`
 
-```surql title="API DEFINITION"
+```surql
 api::req::body($path: string, $strategy: option<string>)
 ```
 
@@ -258,7 +208,7 @@ api::invoke("/body/auto", {
 
 ## `api::res::body`
 
-```surql title="API DEFINITION"
+```surql
 api::res::body($path: string, $strategy: option<string>)
 ```
 
@@ -283,7 +233,7 @@ api::invoke("/serialize_json").{
 };
 ```
 
-```surql title="Response"
+```surql
 { 
     body: '{"message":"Hello"}', 
     headers: { "access-control-allow-origin": '*', "content-type": 'application/json' }, 
@@ -295,11 +245,11 @@ api::invoke("/serialize_json").{
 
 The `api::res::header` function sets a single header for a response.
 
-```surql title="API DEFINITION"
+```surql
 api::res::header($header_name: string, $val: value)
 ```
 
-```surql title="Example"
+```surql
 /**[test]
 
 [[test.results]]
@@ -326,11 +276,11 @@ DEFINE API "/test"
 
 The `api::res::headers` function takes an object to set the headers for a response.
 
-```surql title="API DEFINITION"
+```surql
 api::res::headers($headers: object)
 ```
 
-```surql title="Example"
+```surql
 /**[test]
 
 [[test.results]]
@@ -358,7 +308,7 @@ DEFINE API "/test"
 
 ## `api::res::status`
 
-```surql title="API DEFINITION"
+```surql
 api::res::status($http_code: int)
 ```
 
@@ -381,7 +331,7 @@ DEFINE API "/always_ok"
 api::invoke("/always_ok");
 ```
 
-```surql title="Response"
+```surql
 { 
     body: {some: 'data'}, 
     context: {}, 
@@ -407,7 +357,7 @@ DEFINE API "/status/invalid-low"
 api::invoke("/status/invalid-low");
 ```
 
-```surql title="Response"
+```surql
 'Invalid HTTP status code: 99. Must be between 100 and 599'
 ```
 

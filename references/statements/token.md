@@ -1,10 +1,3 @@
----
-sidebar_position: 17
-sidebar_label: DEFINE TOKEN
-title: DEFINE TOKEN statement | SurrealQL
-description: SurrealDB can work with third-party authentication providers such as OpenID Connect providers, OAuth providers and other trusted third parties.
----
-
 > [!WARNING]
 > This statement was deprecated in favour of [`DEFINE ACCESS ... TYPE JWT`](/docs/surrealql/statements/define/access/jwt) and [`DEFINE ACCESS ... TYPE RECORD ... WITH JWT`](/docs/surrealql/statements/define/access/record) in SurrealDB versions 2.x, and has been removed as of SurrealDB 3.0. Learn more in [define access documentation](/docs/surrealql/statements/define/access).
 

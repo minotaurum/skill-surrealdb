@@ -1,11 +1,3 @@
----
-sidebar_position: 24
-sidebar_label: Idioms
-title: Idioms | SurrealQL
-description: Accessing and manipulating data using idioms (paths) in SurrealQL.
----
-
-
 # Idioms
 
 Idioms in SurrealQL provide a powerful and flexible way to access and manipulate data within records using paths. They allow you to navigate through nested data structures, access fields, array elements, call methods, and perform complex queries with ease. Idioms are similar to expressions in other query languages that provide a path to data within documents or records.
@@ -35,7 +27,7 @@ This is mostly helpful when accessing fields within a record, but can also be us
 
 For example, using the `CREATE` statement to add a record into the `person` table:
 
-```surql title="Query"
+```surql
 /**[test]
 
 [[test.results]]
@@ -54,7 +46,7 @@ CREATE person CONTENT {
 };
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		address: {
@@ -70,11 +62,11 @@ CREATE person CONTENT {
 
 To access the `city` field within the `address` object, you can use the following idiom:
 
-```surql title="Query"
+```surql
 SELECT address.city FROM person;
 ```
 
-```surql title="Response"
+```surql
 [
   {
     "address": {
@@ -90,7 +82,7 @@ In this example, `person.name` is an idiom that accesses the `name` field of the
 
 To access an element in an array by its index, use square brackets `[]` with the index inside. For example, let's say we have a `school` record with some student results.
 
-```surql title="Query"
+```surql
 /**[test]
 
 [[test.results]]
@@ -107,7 +99,7 @@ CREATE student SET results = [
 ];
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		id: student:urxaykt4qkbr8rs2o68j,
@@ -143,7 +135,7 @@ To access the first student in the `results` array, you can use the following id
 SELECT results[0].score FROM student;
 ```
 
-```surql title="Response"
+```surql
 [
   {
     results: [
@@ -163,7 +155,7 @@ To access all elements in an array or all fields in an object, use `.*`. This is
 SELECT results.* FROM student;
 ```
 
-```surql title="Response"
+```surql
 {
 	results: [
 		{
@@ -242,11 +234,11 @@ value = "{ a: 1, b: 2 }"
  { a: 1, b: 2 }.*;
 ```
 
-```surql title="Response"
+```surql
 [1, 2]
 ```
 
-```surql title="Response"
+```surql
 { a: 1, b: 2 }
 ```
 
@@ -328,7 +320,7 @@ SELECT * FROM ONLY { id: person:tobie, name: 'tobie' }; -- Equivalent to above
 (SELECT * FROM ONLY person:tobie).*; -- Equivalent to above
 ```
 
-```surql title="Output"
+```surql
 {
 	id: person:tobie,
 	name: 'tobie'
@@ -343,7 +335,7 @@ Addionally to access the last element of an array, use `[$]`. Refereing to the `
 SELECT results[$].score FROM student;
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		results: {
@@ -386,7 +378,7 @@ CREATE person CONTENT {
 SELECT *, name.uppercase() FROM person;
 ```
 
-```surql title="Response"
+```surql
 [
   {
     "person": {
@@ -405,11 +397,11 @@ In the example above, `uppercase()` is a method called on `person.name` to conve
 
 SurrealDB will automatically recognize that the idiom part `.uppercase()` refers to the `string::uppercase()` function and call this function when the query is executed. What this means is that the following two queries are equivilent:
 
-```surql title="Using method chaining"
+```surql
 SELECT *, name.uppercase() FROM person;
 ```
 
-```surql title="Using function"
+```surql
 SELECT *, string::uppercase(name) FROM person;
 ```
 
@@ -421,7 +413,7 @@ SurrealDB can also be used in the context of graph databases, where data is stor
 
 For example, let's consider the following data:
 
-```surql title="Create a new planet, city, and explorer records"
+```surql
 /**[test]
 
 [[test.results]]
@@ -461,7 +453,7 @@ RELATE explorer:local_guide->assisted->explorer:drake;
 
 ```
 
-```surql title="Retrieve all relationships from Drake"
+```surql
 SELECT 
     *,
     ->? AS actions,
@@ -470,7 +462,7 @@ SELECT
 FROM explorer:drake;
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		actions: [
@@ -504,7 +496,7 @@ When working with nested data, you can destructure objects using the `.` and `{ 
 
 For example,
 
-```surql title="Create a new person record"
+```surql
 /**[test]
 
 [[test.results]]
@@ -515,7 +507,7 @@ value = "[{ age: 21, id: person:1, name: 'John', obj: { a: 1, b: 2, c: { d: 3, e
 CREATE person:1 SET name = 'John', age = 21, obj = { a: 1, b: 2, c: { d: 3, e: 4, f: 5 } };
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		age: 21,
@@ -538,7 +530,7 @@ CREATE person:1 SET name = 'John', age = 21, obj = { a: 1, b: 2, c: { d: 3, e: 4
 SELECT obj.{ a, c.{ e, f } } FROM ONLY person:1;
 ```
 
-```surql title="Response"
+```surql
 {
 	obj: {
 		a: 1,
@@ -556,7 +548,7 @@ You can also OMIT fields that you don't want to destructure using the `OMIT` cla
 SELECT * OMIT obj.c.{ d, f } FROM ONLY person:1;
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		age: 21,
@@ -580,7 +572,7 @@ SELECT ->visited->city.{name, id}
 FROM explorer:drake;
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		"->visited": {
@@ -621,7 +613,7 @@ SELECT
 FROM ONLY $town;
 ```
 
-```surql title="Output"
+```surql
 {
 	location: (50, -5.4),
 	num_people: 500
@@ -772,7 +764,7 @@ person:one.{
 };
 ```
 
-```surql title="Output"
+```surql
 {
 	accessed_at: d'2025-04-24T05:11:20.101Z',
 	name: 'Aeon',
@@ -823,7 +815,7 @@ person:one.{
 };
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 {
@@ -947,7 +939,7 @@ SELECT
 FROM planet:earth;
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		cities: [
@@ -1003,7 +995,7 @@ SELECT
 FROM planet:earth;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		cities: [
@@ -1041,7 +1033,7 @@ planet:earth.{2}.next;
 planet:earth.{2}->has->(?);
 ```
 
-```surql title="Output"
+```surql
 [
 	state:california,
 	state:texas,
@@ -1070,7 +1062,7 @@ planet:earth.{1..4}->has->(?);
 planet:earth.{..}->has->(?);
 ```
 
-```surql title="Output"
+```surql
 [
 	city:toronto,
 	city:ottawa,
@@ -1093,7 +1085,7 @@ planet:earth.{1..3}->has->(?).name;
 
 Unfortunately, the output shows that the query stopped at a depth of one. This is because the query is instructing the database to recurse the entire `->has->(?).name` path between 1 and 3 times, but after the first recursion it has reached a string. And a string on its own is of no use in a `->has->(?)` graph query which expects a record ID.
 
-```surql title="Output"
+```surql
 [
 	'canada',
 	'us'
@@ -1112,7 +1104,7 @@ To make the query work, we can shrink the area enclosed in the parentheses to `-
 planet:earth.{1..3}(->has->(?)).name;
 ```
 
-```surql title="Output"
+```surql
 [
 	'toronto',
 	'ottawa',
@@ -1142,7 +1134,7 @@ planet:earth
 
 The `@` symbol is used in recursive queries to refer to the current document. This is needed in recursive `SELECT` queries, as without it there is no way to know the context.
 
-```surql title="Unparsable queries"
+```surql
 -- Parse error: what is the `.` referring to?
 -- DB: "Call recursive query on a `planet`? Its `name` field? Something else?"
 SELECT .{1..3}(->has->(?)) FROM planet;
@@ -1154,7 +1146,7 @@ SELECT .len() FROM planet;
 
 Adding `@` allows the parser to know that the current `planet` record is the starting point for the rest of the query.
 
-```surql title="Parsable queries"
+```surql
 -- Will now call `.{1..3}(has->(?))` on every planet record it finds
 SELECT @.{1..3}(->has->(?)) AS cities FROM planet;
 -- Will now call `.len()` on every `name` field it finds
@@ -1176,7 +1168,7 @@ planet:earth
 	};
 ```
 
-```surql title="Output"
+```surql
 {
 	contains: [
 		{
@@ -1357,7 +1349,7 @@ RETURN $third_degree.{
 
 Possible output of the final query:
 
-```surql title="Output for third_degree_friends query"
+```surql
 {
 	original_person: person:1,
 	third_degree_friends: [
@@ -1453,7 +1445,7 @@ Adding `+path` will output all of the possible paths starting from `person:you`.
 person:you.{..+path}->knows->person;
 ```
 
-```surql title="Output"
+```surql
 [
 	[
 		person:friend2,
@@ -1497,7 +1489,7 @@ To get the database to find the shortest path instead, change the algorithm to `
 person:you.{..+shortest=person:star}->knows->person;
 ```
 
-```surql title="Output"
+```surql
 [
 	person:friend2,
 	person:acquaintance3,
@@ -1521,7 +1513,7 @@ Using `+collect` will collect all of the unique collected records. As this colle
 person:you.{..+collect}->knows->person;
 ```
 
-```surql title="Output"
+```surql
 [
 	person:friend1,
 	person:friend2,
@@ -1541,7 +1533,7 @@ person:you.{..+shortest=person:star+inclusive}->knows->person;
 person:you.{..+collect+inclusive}->knows->person;
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 [
@@ -1572,7 +1564,7 @@ The unbounded syntax `..` can be replaced with a bounded range to ensure that th
 person:you.{..2+collect}->knows->person;
 ```
 
-```surql title="All first- and second-degree relations"
+```surql
 [
 	person:friend1,
 	person:friend2,
@@ -1588,7 +1580,7 @@ Doing the same with `+shortest=person:star` will return an empty array, because 
 person:you.{..2+shortest=person:star}->knows->person;
 ```
 
-```surql title="Output"
+```surql
 []
 ```
 
@@ -1607,7 +1599,7 @@ person:you
 	.map(|$n| $n.uppercase());
 ```
 
-```surql title="Output"
+```surql
 [
 	'YOU',
 	'FRIEND2',
@@ -1642,7 +1634,7 @@ person:you.{..1}.{
 person:you.{..1+path}->knows->person;
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 {
@@ -1715,7 +1707,7 @@ Idioms can combine multiple parts to navigate complex data structures seamlessly
 
 Suppose we have the following data:
 
-```surql title="Create a new person record"
+```surql
 /**[test]
 
 [[test.results]]
@@ -1745,7 +1737,7 @@ CREATE person:5 CONTENT {
 };
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		friends: [
@@ -1777,7 +1769,7 @@ To get the names of friends who are over 18:
 SELECT friends[WHERE age > 18].name FROM person WHERE id = person:5;
 ```
 
-```surql title="Response"
+```surql
 [
 	{
 		friends: {

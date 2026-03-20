@@ -1,10 +1,3 @@
----
-sidebar_position: 11
-sidebar_label: IF ELSE
-title: IF ELSE statement | SurrealQL
-description: The IF ELSE statement can be used as a main statement, or within a parent statement, to return a value depending on whether a condition, or a series of conditions match.
----
-
 # `IF ELSE` statement
 
 The `IF ELSE` statement can be used as a main statement, or within a parent statement, to return a value depending on whether a condition, or a series of conditions match. The statement allows for multiple `ELSE IF` expressions, and a final `ELSE` expression, with no limit to the number of `ELSE IF` conditional expressions.
@@ -14,10 +7,9 @@ The `IF ELSE` statement can be used as a main statement, or within a parent stat
 
 An `IF ELSE` syntax uses `{}` to open up a code block on each condition check which will be run when it evaluates as [truthy](/docs/surrealql/datamodel/values#values-and-truthiness).
 
-
   
 
-```surql title="Modern syntax"
+```surql
 IF @condition { @expression; .. }
    [ ELSE IF @condition { @expression; .. } ] ...
    [ ELSE { @expression; .. } ]
@@ -92,7 +84,7 @@ IF !type::is_datetime($badly_formatted_datetime) {
 };
 ```
 
-```surql title="Response"
+```surql
 "An error occurred: Whoops, that isn't a real datetime"
 ```
 

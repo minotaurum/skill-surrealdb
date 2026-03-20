@@ -1,12 +1,3 @@
----
-sidebar_position: 4
-sidebar_label: Bytes
-title: Bytes | SurrealQL
-description: A value that represents the bytes used ubiquitously in computer hardware.
-
----
-
-
 # Bytes
 
 Bytes can be created by casting from a string, and are displayed using hexidecimal encoding.
@@ -22,7 +13,7 @@ value = "b"4920616D20736F6D65206279746573""
 <bytes>"I am some bytes";
 ```
 
-```surql title="Output"
+```surql
 b"4920616D20736F6D65206279746573"
 ```
 
@@ -47,7 +38,7 @@ value = "[72, 111, 98, 98, 105, 116, 115]""
 <array><bytes>"Hobbits";
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 'cellar door'
@@ -69,7 +60,7 @@ b"486F6262697473";
 <string>b"This won't work though";
 ```
 
-```surql title="Output"
+```surql
 -------- Query --------
 
 b"486F6262697473";

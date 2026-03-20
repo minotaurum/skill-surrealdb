@@ -1,11 +1,3 @@
----
-sidebar_position: 7
-sidebar_label: DEFINE EVENT
-title: DEFINE EVENT statement | SurrealQL
-description: The DEFINE EVENT statement can be used to create events which can be triggered after any change or modification to the data in a record.
----
-
-
 # `DEFINE EVENT` statement
 
 Events allow you to define custom logic that is executed when a record is created, updated, or deleted. These events are triggered automatically within the current transaction after data modifications in the record, giving you access to the state of the record [before `$before` and after `$after`](/docs/surrealql/parameters#before-after) the change.
@@ -98,7 +90,7 @@ DELETE user:test;
 SELECT * FROM log ORDER BY at ASC;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		action: 'email created',

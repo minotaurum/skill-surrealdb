@@ -1,11 +1,3 @@
----
-sidebar_position: 20
-sidebar_label: RETURN
-title: RETURN statement | SurrealQL
-description: The RETURN statement can be used to return an implicit value or the result of a query, and to set the return value for a transaction, block or function.
----
-
-
 # `RETURN` statement
 
 The `RETURN` statement can be used to return an implicit value or the result of a query, and to set the return value for a transaction, block, or function.
@@ -95,7 +87,7 @@ SELECT * FROM person;
 
 `RETURN` statements can set the result of any transaction. This includes transactions, blocks and functions.
 
-```surql title="Transaction return value"
+```surql
 /**[test]
 
 [[test.results]]
@@ -129,7 +121,7 @@ COMMIT TRANSACTION;
 
 Unlike `RETURN` in SurrealDB `1.x`, `RETURN` now breaks execution of statements, functions and transactions.
 
-```surql title="Function return value"
+```surql
 /**[test]
 
 [[test.results]]
@@ -162,7 +154,7 @@ fn::person::create("Thanos", "Johnson");
 SELECT * FROM person;
 ```
 
-```surql title="Functions"
+```surql
 DEFINE FUNCTION fn::round::up($num: number) {
     IF $num % 2 == 0 {
         RETURN $num; -- Breaks execution for the function
@@ -173,7 +165,7 @@ DEFINE FUNCTION fn::round::up($num: number) {
 };
 ```
 
-```surql title="Transactions"
+```surql
 BEGIN;
 RETURN 1; -- Is executed
 CREATE a; -- Is not executed
@@ -183,7 +175,7 @@ COMMIT;
 
 Lastly, if not executed inside a transaction or function, `RETURN` will break execution until the most top-level statement it is executed in. RETURN will **not** prevent top level statements from being executed, nor will it adjust their output.
 
-```surql title="Statements"
+```surql
 LET $id = 123;
 LET $id = {
     IF $id {

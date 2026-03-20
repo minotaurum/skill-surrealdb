@@ -1,13 +1,5 @@
----
-sidebar_position: 14
-sidebar_label: DEFINE SCOPE
-title: DEFINE SCOPE statement | SurrealQL
-description: Setting scope access allows SurrealDB to operate as a web database. With scopes you can set authentication and access rules which enable fine-grained access to tables and fields.
----
-
 > [!WARNING]
 > This statement was deprecated in favour of `DEFINE ACCESS ... TYPE RECORD` in SurrealDB versions 2.x, and has been removed as of SurrealDB 3.0. Learn more in the [DEFINE ACCESS](/docs/surrealql/statements/define/access).
-
 
 # `DEFINE SCOPE` statement
 

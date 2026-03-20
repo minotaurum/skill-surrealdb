@@ -1,79 +1,12 @@
----
-sidebar_position: 17
-sidebar_label: Rand functions
-title: Rand functions | SurrealQL
-description: These functions can be used when generating random data values.
----
-
-
 # Rand functions
 
 These functions can be used when generating random data values.
-
-<table>
-  <thead>
-    <tr>
-      <th scope="col">Function</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#rand"><code>rand()</code></a></td>
-      <td scope="row" data-label="Description">Generates and returns a random floating point number</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#randbool"><code>rand::bool()</code></a></td>
-      <td scope="row" data-label="Description">Generates and returns a random boolean</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#randduration"><code>rand::duration()</code></a></td>
-      <td scope="row" data-label="Description">Generates and returns a random duration</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#randenum"><code>rand::enum()</code></a></td>
-      <td scope="row" data-label="Description">Randomly picks a value from the specified values</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#randfloat"><code>rand::float()</code></a></td>
-      <td scope="row" data-label="Description">Generates and returns a random floating point number</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#randid"><code>rand::id()</code></a></td>
-      <td scope="row" data-label="Description">Generates and returns a random id</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#randint"><code>rand::int()</code></a></td>
-      <td scope="row" data-label="Description">Generates and returns a random integer</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#randstring"><code>rand::string()</code></a></td>
-      <td scope="row" data-label="Description">Generates and returns a random string</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#randtime"><code>rand::time()</code></a></td>
-      <td scope="row" data-label="Description">Generates and returns a random datetime</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#randuuid"><code>rand::uuid()</code></a></td>
-      <td scope="row" data-label="Description">Generates and returns a random UUID</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#randuuidv4"><code>rand::uuid::v4()</code></a></td>
-      <td scope="row" data-label="Description">Generates and returns a random Version 4 UUID</td>
-    </tr>
-    <tr>
-      <td scope="row" data-label="Function"><a href="#randulid"><code>rand::ulid()</code></a></td>
-      <td scope="row" data-label="Description">Generates and returns a random ULID</td>
-    </tr>
-  </tbody>
-</table>
 
 ## `rand`
 
 The rand function generates a random [`float`](/docs/surrealql/datamodel/numbers#floating-point-numbers), between 0 and 1.
 
-```surql title="API DEFINITION"
+```surql
 rand() -> number
 ```
 
@@ -103,13 +36,11 @@ SELECT * FROM [{ age: 33 }, { age: 45 }, { age: 39 }] ORDER BY rand();
 ]
 ```
 
-<br />
-
 ## `rand::bool`
 
 The rand::bool function generates a random [`boolean`](/docs/surrealql/datamodel/booleans) value.
 
-```surql title="API DEFINITION"
+```surql
 rand::bool() -> bool
 ```
 
@@ -121,13 +52,11 @@ RETURN rand::bool();
 true
 ```
 
-<br />
-
 ## `rand::duration`
 
 The rand::duration function generates a random [`duration`](/docs/surrealql/datamodel/datetimes#durations-and-datetimes) value between two `duration` arguments.
 
-```surql title="API DEFINITION"
+```surql
 rand::bool($from: duration, $to: duration) -> duration
 ```
 
@@ -139,7 +68,7 @@ rand::duration(1ns, 1ms);
 rand::duration(0ns, duration::max);
 ```
 
-```surql title="Output"
+```surql
 -------- Query 1 --------
 435µs884ns
 
@@ -147,13 +76,11 @@ rand::duration(0ns, duration::max);
 405337457164y36w2d5h54m8s16ms76µs191ns
 ```
 
-<br />
-
 ## `rand::enum`
 
 The `rand::enum` function generates a random value, from a multitude of values.
 
-```surql title="API DEFINITION"
+```surql
 rand::enum(value...) -> any
 rand::enum(array<value>) -> any
 ```
@@ -176,19 +103,17 @@ RETURN rand::enum([
 ]);
 ```
 
-<br />
-
 ## `rand::float`
 
 The `rand::float` function generates a random [`float`](/docs/surrealql/datamodel/numbers#floating-point-numbers), between `0` and `1`.
 
-```surql title="API DEFINITION"
+```surql
 rand::float() -> float
 ```
 
 If two numbers are provided, then the function generates a random [`float`](/docs/surrealql/datamodel/numbers#floating-point-numbers), between two numbers.
 
-```surql title="API DEFINITION"
+```surql
 rand::float($from: number, $to: number) -> float
 ```
 
@@ -206,8 +131,6 @@ RETURN rand::float(10, 15);
 11.305355983514927
 ```
 
-<br />
-
 ## `rand::id`
 
 > [!NOTE]
@@ -215,37 +138,37 @@ RETURN rand::float(10, 15);
 
 The `rand::id` function generates a random alphanumeric ID, defaulting to a length of 20 characters.
 
-```surql title="API DEFINITION"
+```surql
 rand::id() -> string
 ```
 
 If a number is provided, then the function generates a random ID with a specific length.
 
-```surql title="API DEFINITION"
+```surql
 rand::id(number) -> string
 ```
 
 If a second number is provided, then the function will generate a random id, with a length between the two numbers.
 
-```surql title="API DEFINITION"
+```surql
 rand::id($min_len: int, $max_len: int) -> string
 ```
 
 The following example shows this function, and its output, when used in a [`RETURN`](/docs/surrealql/statements/return) statement:
 
-```surql title="Default 20-char random id"
+```surql
 RETURN rand::id();
 
 '4uqmrmtjhtjeg77et0dl'
 ```
 
-```surql title="A 10-char random id"
+```surql
 RETURN rand::id(10);
 
 'f3b6cjh0nt'
 ```
 
-```surql title="A random id with a length between 1 and 9 chars"
+```surql
 RETURN rand::id(1, 9);
 
 '894bqt4lp'
@@ -272,19 +195,17 @@ Output:
 ]
 ```
 
-<br />
-
 ## `rand::int`
 
 The `rand::int` function generates a random int.
 
-```surql title="API DEFINITION"
+```surql
 rand::int() -> int
 ```
 
 If two numbers are provided, then the function generates a random int between two numbers.
 
-```surql title="API DEFINITION"
+```surql
 rand::int($from: int, $to: int) -> int
 ```
 
@@ -302,25 +223,23 @@ RETURN rand::int(10, 15);
 13
 ```
 
-<br />
-
 ## `rand::string`
 
 The `rand::string` function generates a random string, with 32 characters.
 
-```surql title="API DEFINITION"
+```surql
 rand::string() -> string
 ```
 
 The `rand::string` function generates a random string, with a specific length.
 
-```surql title="API DEFINITION"
+```surql
 rand::string(number) -> string
 ```
 
 If two numbers are provided, then the function generates a random string, with a length between two numbers.
 
-```surql title="API DEFINITION"
+```surql
 rand::string($from: int, $to: int) -> string
 ```
 
@@ -344,13 +263,11 @@ RETURN rand::string(10, 15);
 "rEUWFUMcx0YH"
 ```
 
-<br />
-
 ## `rand::time`
 
 The `rand::time` function generates a random [`datetime`](/docs/surrealql/datamodel/datetimes).
 
-```surql title="API DEFINITION"
+```surql
 rand::time() -> datetime
 rand::time($from: datetime|number, $to: datetime|number) -> datetime
 ```
@@ -389,7 +306,7 @@ As of this version, this function returns a datetime between 0000-01-01T00:00:00
 
 The `rand::uuid` function generates a random Version 7 UUID.
 
-```surql title="API DEFINITION"
+```surql
 rand::uuid() -> uuid
 rand::uuid(datetime) -> uuid
 ```
@@ -423,13 +340,11 @@ LET $now = time::now();
 
 The `rand::uuid` function can also be called using its alias `rand::uuid::v7`.
 
-<br />
-
 ## `rand::uuid::v4`
 
 The `rand::uuid::v4` function generates a random version 4 UUID.
 
-```surql title="API DEFINITION"
+```surql
 rand::uuid::v4() -> uuid
 ```
 
@@ -441,13 +356,11 @@ RETURN rand::uuid::v4();
 [u"4def23a5-a847-4934-8dad-c64ccc48921b"]
 ```
 
-<br />
-
 ## `rand::ulid`
 
 The `rand::ulid` function generates a random ULID.
 
-```surql title="API DEFINITION"
+```surql
 rand::ulid() -> uuid
 rand::ulid(datetime) -> uuid
 ```

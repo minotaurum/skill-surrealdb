@@ -1,10 +1,3 @@
----
-sidebar_position: 5
-sidebar_label: DEFINE CONFIG
-title: DEFINE CONFIG statement | SurrealQL
-description: This statement allows you to set external configurations on the database, either for API middleware and permissions, or for how the database's tables and functions are exposed via the GraphQL API.
----
-
 # `DEFINE CONFIG` statement
 
 The `DEFINE CONFIG` statement allows you to set external configurations on your database. It can be used to configure API middleware and permissions, or to configure how the database's tables and functions are exposed via the GraphQL API.
@@ -147,7 +140,7 @@ DEFINE API OVERWRITE "/test"
 api::invoke("/test");
 ```
 
-```surql title="Output"
+```surql
 'The query was not executed because it exceeded the timeout: 1µs'
 ```
 
@@ -353,7 +346,7 @@ DEFINE CONFIG GRAPHQL FUNCTIONS EXCLUDE [debugFunction, testFunction];
 
 If you attempt to access the GraphQL endpoint without defining the GraphQL configuration, you will receive a `NotConfigured` error.
 
-```surql title="Error Response"
+```surql
 {
   "error": "NotConfigured: GraphQL endpoint is not configured. Please define the GraphQL configuration using DEFINE CONFIG GRAPHQL."
 }
@@ -370,7 +363,7 @@ DEFINE CONFIG GRAPHQL TABLES AUTO FUNCTIONS AUTO;
 
 If you have defined the GraphQL configuration but no tables are defined in the database, you will receive an error stating "No tables found in database" when attempting to use the GraphQL API. You can fix this by defining at least one table in your database using the [`DEFINE TABLE`](/docs/surrealql/statements/define/table) statement.
 
-```surql title="Error Response"
+```surql
 {
   "error": "No tables found in database. Please define at least one table to use the GraphQL API."
 }

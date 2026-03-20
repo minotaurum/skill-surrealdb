@@ -1,11 +1,3 @@
----
-sidebar_position: 9
-sidebar_label: Futures
-title: Futures | SurrealQL
-description: Futures are values which are only computed when the data is selected and returned to the client.
-
----
-
 # Futures
 
 > [!NOTE]
@@ -104,7 +96,7 @@ DEFINE FIELD random_friend
 CREATE person;
 ```
 
-```surql title="Output"
+```surql
 'Reached excessive computation depth due to functions, subqueries, or futures'
 ```
 
@@ -120,7 +112,7 @@ DEFINE FIELD random_friend
 CREATE person;
 ```
 
-```surql title="Output"
+```surql
 [
 	{
 		id: person:4o973bouhd6xrj8l2x69,

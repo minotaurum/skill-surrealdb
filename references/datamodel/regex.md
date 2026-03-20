@@ -1,12 +1,3 @@
----
-sidebar_position: 16
-sidebar_label: Regex
-title: Regex | SurrealQL
-description: The regex type can 
-
----
-
-
 # Regex
 
 A `regex` can be created by casting from a string.

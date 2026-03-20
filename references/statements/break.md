@@ -1,14 +1,6 @@
----
-sidebar_position: 3
-sidebar_label: BREAK
-title: BREAK statement | SurrealQL
-description: The BREAK statement can be used to break out of a loop.
----
-
 # `BREAK` statement
 
 The BREAK statement can be used to break out of a loop, such as inside one created by the [FOR statement](/docs/surrealql/statements/for).
-
 
 ### Statement syntax
 

@@ -1,11 +1,3 @@
----
-sidebar_position: 10
-sidebar_label: BEARER 
-title: DEFINE ACCESS ... TYPE BEARER statement | SurrealQL
-description: A bearer access method allows accessing SurrealDB using a bearer key.
----
-
-
 # `DEFINE ACCESS ... TYPE BEARER`
 
 A bearer access method allows generating bearer grants with an associated key that can be used to access SurrealDB as a specific [system user](/docs/surrealdb/security/authentication#system-users) or [record user](/docs/surrealdb/security/authentication#record-users). Bearer grants allow other systems and software to authenticate with SurrealDB using a secure and unique credential that can be [audited](/docs/surrealql/statements/access#show) and [revoked](/docs/surrealql/statements/access#revoke) at any time.
@@ -53,7 +45,7 @@ DEFINE ACCESS api ON DATABASE TYPE BEARER FOR USER DURATION FOR GRANT 10d;
 ACCESS api GRANT FOR USER automation;
 ```
 
-```surql title="Response"
+```surql
 {
 	ac: 'api',
 	creation: d'2025-10-07T04:52:36.157Z',
@@ -120,7 +112,7 @@ DEFINE ACCESS api ON DATABASE TYPE BEARER FOR RECORD DURATION FOR GRANT 10d;
 ACCESS api GRANT FOR RECORD user:1;
 ```
 
-```surql title="Response"
+```surql
 -- Query 1
 [
         {

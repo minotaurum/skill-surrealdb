@@ -1,10 +1,3 @@
----
-sidebar_position: 1
-sidebar_label: LIMIT
-title: LIMIT clause | SurrealQL
-description: The `LIMIT` clause is used to limit the number of records returned by a query.
----
-
 # `LIMIT` clause
 
 The `LIMIT` clause is used to limit the number of records returned by a query. It is particularly useful when you want to retrieve a specific number of records from a table. 
@@ -39,7 +32,7 @@ value = "[5, 6, 7, 8, 9]"
 SELECT * FROM [1,2,3,4,5,6,7,8,9,10] LIMIT 5 START 4;
 ```
 
-```surql title="Result"
+```surql
 [
 	5,
 	6,

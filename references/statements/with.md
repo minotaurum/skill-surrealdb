@@ -1,10 +1,3 @@
----
-sidebar_position: 1
-sidebar_label: WITH
-title: WITH clause | SurrealQL
-description: The `WITH` clause is used to select records from a table with an index, which is a pre-computed lookup table for faster queries.
----
-
 # `WITH` clause
 
 When retrieving data from a table, the query planner can replace the standard table iterator with one or several index iterators based on the structure and requirements of the query. This is particularly useful when querying large datasets, as it can significantly reduce the time it takes to retrieve the data.

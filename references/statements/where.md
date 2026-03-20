@@ -1,10 +1,3 @@
----
-sidebar_position: 1
-sidebar_label: WHERE
-title: WHERE clause | SurrealQL
-description: The `WHERE` clause can be used to specify a condition that acts as a filter. 
----
-
 # `WHERE` clause
 
 The `WHERE` clause can be used to specify a condition that acts as a filter. You can use the `WHERE` clause to either filter the result of the FROM clause in a `SELECT` statement or specify which rows to operate on in an `UPDATE`, `MERGE`, or `DELETE` statement.

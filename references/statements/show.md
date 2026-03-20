@@ -1,16 +1,8 @@
----
-sidebar_position: 22
-sidebar_label: SHOW
-title: SHOW statement | SurrealQL
-description: The SHOW statement can be used to replay changes made to a table.
----
-
 # `SHOW` statement
 
 Change Feeds allows you to retrieve and sync changes from SurrealDB to external systems and platforms using the `SHOW` statement.
 
 The `SHOW` statement can be used to replay changes made to a table.
-
 
 ## Requirements
 
@@ -51,7 +43,7 @@ SHOW CHANGES FOR TABLE reading SINCE 1 LIMIT 10;
 
 Assuming the datetime above matches with the one when the changefeed was established, the response for both queries will be as follows.
 
-```surql title="Response"
+```surql
 [
 	{
 		changes: [
