@@ -1,0 +1,23 @@
+{
+  "skill_name": "surrealdb-expert",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "I'm building a social network. How do I define a user table where email is unique, and they have an array of post record links? And write a query to insert a user.",
+      "expected_output": "A DEFINE TABLE statement for user, DEFINE FIELD statements for email and posts array, a DEFINE INDEX for unique email, and an INSERT statement.",
+      "files": []
+    },
+    {
+      "id": 1,
+      "prompt": "How do I traverse a graph in SurrealDB? Suppose I have person records and an edge called 'purchased' to product records. Find all products purchased by person:paolo.",
+      "expected_output": "An explanation of graph traversal arrows and a SELECT statement using ->purchased->product.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Can you write a custom SurrealQL function that takes an array of strings, lowercases them, and filters out the word 'admin'?",
+      "expected_output": "A DEFINE FUNCTION statement using array::map, string::lowercase, and array::filter built-in functions.",
+      "files": []
+    }
+  ]
+}
